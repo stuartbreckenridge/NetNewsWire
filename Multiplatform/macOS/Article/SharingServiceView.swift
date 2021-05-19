@@ -8,7 +8,7 @@
 
 import SwiftUI
 import AppKit
-
+import NNWCore
 
 class SharingServiceController: NSViewController {
 	

@@ -9,7 +9,7 @@
 import AppKit
 import Combine
 import RSCore
-
+import NNWCore
 
 protocol WebViewControllerDelegate: AnyObject {
 	func webViewController(_: WebViewController, articleExtractorButtonStateDidUpdate: ArticleExtractorButtonState)

@@ -592,8 +592,6 @@
 		51DC37072402153E0095D371 /* UpdateSelectionOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DC37062402153E0095D371 /* UpdateSelectionOperation.swift */; };
 		51DC37092402F1470095D371 /* MasterFeedDataSourceOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DC37082402F1470095D371 /* MasterFeedDataSourceOperation.swift */; };
 		51DC370B2405BC9A0095D371 /* PreloadedWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DC370A2405BC9A0095D371 /* PreloadedWebView.swift */; };
-		51E0614625A5A28E00194066 /* Articles in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 51E0614425A5A28E00194066 /* Articles */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		51E0614925A5A28E00194066 /* ArticlesDatabase in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 51E0614725A5A28E00194066 /* ArticlesDatabase */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		51E0615125A5A29600194066 /* CrashReporter in Frameworks */ = {isa = PBXBuildFile; productRef = 51E0615025A5A29600194066 /* CrashReporter */; };
 		51E36E71239D6610006F47A5 /* AddFeedSelectFolderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E36E70239D6610006F47A5 /* AddFeedSelectFolderTableViewCell.swift */; };
 		51E36E8C239D6765006F47A5 /* AddFeedSelectFolderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51E36E8B239D6765006F47A5 /* AddFeedSelectFolderTableViewCell.xib */; };
@@ -1327,10 +1325,8 @@
 				17386B9F2577C6240014C8B2 /* RSDatabase in Embed Frameworks */,
 				17386B9C2577C6240014C8B2 /* RSWeb in Embed Frameworks */,
 				174B50622654EB2400AACDA0 /* NNWCore in Embed Frameworks */,
-				51E0614625A5A28E00194066 /* Articles in Embed Frameworks */,
 				17386B962577C6240014C8B2 /* RSCore in Embed Frameworks */,
 				17386B992577C6240014C8B2 /* RSTree in Embed Frameworks */,
-				51E0614925A5A28E00194066 /* ArticlesDatabase in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3833,8 +3829,6 @@
 				17386B9D2577C6240014C8B2 /* RSDatabase */,
 				17386BA32577C6240014C8B2 /* RSParser */,
 				17386BB52577C7340014C8B2 /* RSCoreResources */,
-				51E0614425A5A28E00194066 /* Articles */,
-				51E0614725A5A28E00194066 /* ArticlesDatabase */,
 				51E0615025A5A29600194066 /* CrashReporter */,
 				174B50602654EB2400AACDA0 /* NNWCore */,
 			);
@@ -6311,14 +6305,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 510ECA4024D1DCD0001C31A6 /* XCRemoteSwiftPackageReference "RSTree" */;
 			productName = RSTree;
-		};
-		51E0614425A5A28E00194066 /* Articles */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Articles;
-		};
-		51E0614725A5A28E00194066 /* ArticlesDatabase */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = ArticlesDatabase;
 		};
 		51E0615025A5A29600194066 /* CrashReporter */ = {
 			isa = XCSwiftPackageProductDependency;
