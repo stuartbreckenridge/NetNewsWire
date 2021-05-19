@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Account
+import NNWCore
 #if os(iOS)
 import UIKit
 #endif

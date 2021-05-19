@@ -9,7 +9,7 @@
 import Cocoa
 import AuthenticationServices
 import OAuthSwift
-import Secrets
+import NNWCore
 
 class ExtensionPointEnableWindowController: NSWindowController {
 

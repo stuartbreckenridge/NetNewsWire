@@ -7,7 +7,7 @@
 //
 
 import AppKit
-import Articles
+import NNWCore
 import RSCore
 
 extension Article: PasteboardWriterOwner {

@@ -7,7 +7,8 @@
 //
 
 import AppKit
-import Account
+import NNWCore
+import OAuthSwift
 import SwiftUI
 import RSCore
 

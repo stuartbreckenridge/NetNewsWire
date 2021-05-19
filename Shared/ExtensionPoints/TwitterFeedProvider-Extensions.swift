@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Account
+import NNWCore
 
 extension TwitterFeedProvider: ExtensionPoint {
 	

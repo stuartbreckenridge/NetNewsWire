@@ -17,7 +17,7 @@
 */
 
 import Foundation
-import Articles
+import NNWCore
 
 protocol AppDelegateAppleEvents {
     func installAppleEventHandlers()

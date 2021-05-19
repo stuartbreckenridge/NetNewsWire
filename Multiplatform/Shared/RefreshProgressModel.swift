@@ -9,7 +9,7 @@
 import SwiftUI
 import Combine
 import RSCore
-import Account
+import NNWCore
 
 class RefreshProgressModel: ObservableObject {
 	

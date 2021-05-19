@@ -7,8 +7,7 @@
 //
 
 import AppKit
-import Account
-import Articles
+import NNWCore
 import RSCore
 
 @objc(ScriptableAccount)

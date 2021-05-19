@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Account
+import NNWCore
 
 protocol ExtensionContainer: ContainerIdentifiable, Codable {
 	var name: String { get }

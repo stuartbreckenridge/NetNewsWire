@@ -7,10 +7,10 @@
 //
 
 import SwiftUI
-import Account
+import NNWCore
 import RSCore
 import RSWeb
-import Secrets
+import NNWCore
 
 class AddFeedlyViewModel: ObservableObject, OAuthAccountAuthorizationOperationDelegate, AddAccountSignUp  {
 	@Published var isAuthenticating: Bool = false

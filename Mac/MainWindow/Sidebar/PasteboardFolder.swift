@@ -7,7 +7,7 @@
 //
 
 import AppKit
-import Account
+import NNWCore
 import RSCore
 
 typealias PasteboardFolderDictionary = [String: String]

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Account
+import NNWCore
 
 class TwitterSelectAccountTableViewController: UITableViewController {
 	

@@ -7,8 +7,8 @@
 //
 
 import Foundation
-import Account
-import Articles
+import NNWCore
+
 
 @objc(ScriptableArticle)
 class ScriptableArticle: NSObject, UniqueIdScriptingObject, ScriptingObjectContainer {

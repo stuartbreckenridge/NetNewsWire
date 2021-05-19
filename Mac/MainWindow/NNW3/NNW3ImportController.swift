@@ -7,7 +7,7 @@
 //
 
 import AppKit
-import Account
+import NNWCore
 
 struct NNW3ImportController {
 

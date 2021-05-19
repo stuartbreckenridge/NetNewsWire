@@ -8,8 +8,8 @@
 
 import Foundation
 import Combine
-import Account
-import Articles
+import NNWCore
+
 
 final class ArticleIconImageLoader: ObservableObject {
 	

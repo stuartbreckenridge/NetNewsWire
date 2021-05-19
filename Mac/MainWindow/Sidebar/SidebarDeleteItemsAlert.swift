@@ -8,7 +8,7 @@
 
 import AppKit
 import RSTree
-import Account
+import NNWCore
 
 enum SidebarDeleteItemsAlert {
 	

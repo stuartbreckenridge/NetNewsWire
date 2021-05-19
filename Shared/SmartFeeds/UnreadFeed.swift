@@ -12,9 +12,7 @@ import AppKit
 import Foundation
 #endif
 import RSCore
-import Account
-import Articles
-import ArticlesDatabase
+import NNWCore
 
 // This just shows the global unread count, which appDelegate already has. Easy.
 

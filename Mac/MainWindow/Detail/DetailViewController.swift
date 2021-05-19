@@ -9,7 +9,7 @@
 import Foundation
 import WebKit
 import RSCore
-import Articles
+import NNWCore
 import RSWeb
 
 enum DetailState: Equatable {

@@ -7,7 +7,7 @@
 //
 
 import SwiftUI
-import Account
+import NNWCore
 import RSCore
 
 enum AddAccountSections: Int, CaseIterable {

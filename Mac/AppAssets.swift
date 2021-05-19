@@ -8,7 +8,7 @@
 
 import AppKit
 import RSCore
-import Account
+import NNWCore
 
 struct AppAssets {
 

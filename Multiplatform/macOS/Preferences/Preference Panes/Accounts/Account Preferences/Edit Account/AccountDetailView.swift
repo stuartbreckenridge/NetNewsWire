@@ -7,7 +7,7 @@
 //
 
 import SwiftUI
-import Account
+import NNWCore
 import Combine
 
 struct AccountDetailView: View {

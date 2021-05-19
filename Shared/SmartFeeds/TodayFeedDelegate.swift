@@ -8,9 +8,9 @@
 
 import Foundation
 import RSCore
-import Articles
-import ArticlesDatabase
-import Account
+
+
+import NNWCore
 
 struct TodayFeedDelegate: SmartFeedDelegate {
 

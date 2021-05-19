@@ -8,7 +8,7 @@
 
 import UIKit
 import RSTree
-import Account
+import NNWCore
 
 class MasterFeedDataSource: UITableViewDiffableDataSource<Int, MasterFeedTableViewIdentifier> {
 

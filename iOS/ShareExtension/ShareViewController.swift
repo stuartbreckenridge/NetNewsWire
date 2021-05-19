@@ -8,7 +8,7 @@
 
 import UIKit
 import MobileCoreServices
-import Account
+import NNWCore
 import Social
 import RSCore
 import RSTree

@@ -8,8 +8,8 @@
 
 import Foundation
 import RSParser
-import Account
-import Articles
+import NNWCore
+
 
 @objc(ScriptableWebFeed)
 class ScriptableWebFeed: NSObject, UniqueIdScriptingObject, ScriptingObjectContainer {

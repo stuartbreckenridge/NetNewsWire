@@ -7,7 +7,7 @@
 //
 
 import SwiftUI
-import Articles
+
 
 struct ArticleView: UIViewControllerRepresentable {
 	

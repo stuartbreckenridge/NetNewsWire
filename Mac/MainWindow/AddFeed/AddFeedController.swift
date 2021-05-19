@@ -10,8 +10,8 @@ import AppKit
 import RSCore
 import RSCoreResources
 import RSTree
-import Articles
-import Account
+
+import NNWCore
 import RSParser
 
 // Run add-feed sheet.

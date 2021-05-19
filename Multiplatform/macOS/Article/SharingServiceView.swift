@@ -8,7 +8,7 @@
 
 import SwiftUI
 import AppKit
-import Articles
+
 
 class SharingServiceController: NSViewController {
 	

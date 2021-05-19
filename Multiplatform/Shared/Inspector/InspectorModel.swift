@@ -9,7 +9,7 @@
 import Foundation
 import UserNotifications
 import RSCore
-import Account
+import NNWCore
 #if os(macOS)
 import AppKit
 #else

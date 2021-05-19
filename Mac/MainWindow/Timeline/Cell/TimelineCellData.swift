@@ -7,7 +7,7 @@
 //
 
 import AppKit
-import Articles
+import NNWCore
 
 struct TimelineCellData {
 	

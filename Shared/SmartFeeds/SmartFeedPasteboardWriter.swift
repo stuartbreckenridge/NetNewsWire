@@ -7,7 +7,7 @@
 //
 
 import AppKit
-import Account
+import NNWCore
 import RSCore
 
 @objc final class SmartFeedPasteboardWriter: NSObject, NSPasteboardWriting {

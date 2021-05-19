@@ -7,7 +7,7 @@
 //
 
 import AppKit
-import Account
+import NNWCore
 import os.log
 
 struct ErrorHandler {

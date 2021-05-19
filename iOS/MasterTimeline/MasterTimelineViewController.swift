@@ -8,8 +8,8 @@
 
 import UIKit
 import RSCore
-import Account
-import Articles
+import NNWCore
+
 
 class MasterTimelineViewController: UITableViewController, UndoableCommandRunner {
 

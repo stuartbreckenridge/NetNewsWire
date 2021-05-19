@@ -9,8 +9,8 @@
 import Foundation
 import Combine
 import RSCore
-import Account
-import Articles
+import NNWCore
+
 
 protocol SidebarModelDelegate: AnyObject {
 	func unreadCount(for: Feed) -> Int

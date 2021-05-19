@@ -7,7 +7,7 @@
 //
 
 import AppKit
-import Account
+import NNWCore
 import RSCore
 
 final class FolderInspectorViewController: NSViewController, Inspector {

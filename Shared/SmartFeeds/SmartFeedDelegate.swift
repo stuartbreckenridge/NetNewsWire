@@ -7,9 +7,9 @@
 //
 
 import Foundation
-import Account
-import Articles
-import ArticlesDatabase
+import NNWCore
+
+
 import RSCore
 
 protocol SmartFeedDelegate: FeedIdentifiable, DisplayNameProvider, ArticleFetcher, SmallIconProvider {

@@ -7,8 +7,8 @@
 //
 
 import Foundation
-import Account
-import Articles
+import NNWCore
+
 import RSCore
 
 @objc(ScriptableFolder)

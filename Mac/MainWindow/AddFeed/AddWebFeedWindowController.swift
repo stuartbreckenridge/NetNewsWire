@@ -9,8 +9,8 @@
 import AppKit
 import RSCore
 import RSTree
-import Articles
-import Account
+
+import NNWCore
 
 class AddWebFeedWindowController : NSWindowController, AddFeedWindowController {
     

@@ -9,7 +9,7 @@
 import AppKit
 import RSCore
 import RSTree
-import Account
+import NNWCore
 
 class FolderTreeMenu {
 

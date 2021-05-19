@@ -8,8 +8,7 @@
 
 import Foundation
 import RSTree
-import Articles
-import Account
+import NNWCore
 
 final class WebFeedTreeControllerDelegate: TreeControllerDelegate {
 

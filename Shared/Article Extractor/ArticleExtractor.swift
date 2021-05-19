@@ -7,8 +7,8 @@
 //
 
 import Foundation
-import Account
-import Secrets
+import NNWCore
+import NNWCore
 
 public enum ArticleExtractorState {
     case ready

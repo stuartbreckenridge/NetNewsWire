@@ -7,8 +7,8 @@
 //
 
 import AppKit
-import Articles
-import Account
+
+import NNWCore
 import RSCore
 
 typealias PasteboardWebFeedDictionary = [String: String]

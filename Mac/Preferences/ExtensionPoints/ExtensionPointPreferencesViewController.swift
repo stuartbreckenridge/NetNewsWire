@@ -10,7 +10,7 @@ import AppKit
 import SwiftUI
 import AuthenticationServices
 import OAuthSwift
-import Secrets
+import NNWCore
 
 protocol ExtensionPointPreferencesEnabler: AnyObject {
 	func enable(_ extensionPointType: ExtensionPoint.Type)

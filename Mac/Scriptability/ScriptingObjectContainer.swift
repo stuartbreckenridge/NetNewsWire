@@ -7,7 +7,7 @@
 //
 
 import AppKit
-import Account
+import NNWCore
 
 protocol ScriptingObjectContainer: ScriptingObject {
     var scriptingClassDescription:NSScriptClassDescription { get }

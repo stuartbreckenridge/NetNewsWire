@@ -10,7 +10,7 @@ import AppKit
 import WebKit
 import RSCore
 import RSWeb
-import Articles
+import NNWCore
 
 protocol DetailWebViewControllerDelegate: AnyObject {
 	func mouseDidEnter(_: DetailWebViewController, link: String)

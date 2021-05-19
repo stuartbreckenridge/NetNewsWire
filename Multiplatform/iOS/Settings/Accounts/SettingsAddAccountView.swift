@@ -7,7 +7,7 @@
 //
 
 import SwiftUI
-import Account
+import NNWCore
 
 struct SettingsAddAccountView: View {
 	@StateObject private var model = SettingsAddAccountModel()

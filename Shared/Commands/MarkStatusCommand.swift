@@ -8,7 +8,7 @@
 
 import Foundation
 import RSCore
-import Articles
+import NNWCore
 
 // Mark articles read/unread, starred/unstarred, deleted/undeleted.
 

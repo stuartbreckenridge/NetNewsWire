@@ -8,9 +8,9 @@
 
 import UIKit
 import AuthenticationServices
-import Account
+import NNWCore
 import OAuthSwift
-import Secrets
+import NNWCore
 
 class EnableExtensionPointViewController: UITableViewController {
 

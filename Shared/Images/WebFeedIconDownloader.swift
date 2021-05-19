@@ -7,8 +7,7 @@
 //
 
 import Foundation
-import Articles
-import Account
+import NNWCore
 import RSCore
 import RSWeb
 import RSParser

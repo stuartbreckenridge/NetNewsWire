@@ -9,8 +9,7 @@
 #if os(macOS)
 
 import AppKit
-import Articles
-import Account
+import NNWCore
 import RSCore
 
 protocol PseudoFeed: AnyObject, Feed, SmallIconProvider, PasteboardWriterOwner {
@@ -20,8 +19,7 @@ protocol PseudoFeed: AnyObject, Feed, SmallIconProvider, PasteboardWriterOwner {
 #else
 
 import UIKit
-import Articles
-import Account
+import NNWCore
 import RSCore
 
 protocol PseudoFeed: AnyObject, Feed, SmallIconProvider {

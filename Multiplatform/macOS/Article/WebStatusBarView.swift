@@ -7,7 +7,7 @@
 //
 
 import AppKit
-import Articles
+
 
 final class WebStatusBarView: NSView {
 

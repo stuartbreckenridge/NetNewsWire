@@ -7,8 +7,8 @@
 //
 
 import Foundation
-import Account
-import Secrets
+import NNWCore
+import NNWCore
 
 class SettingsCredentialsAccountModel: ObservableObject {
 	var account: Account? = nil

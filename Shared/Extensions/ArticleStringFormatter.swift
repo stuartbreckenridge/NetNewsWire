@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Articles
+import NNWCore
 import RSParser
 
 struct ArticleStringFormatter {

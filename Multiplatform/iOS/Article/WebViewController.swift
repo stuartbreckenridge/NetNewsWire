@@ -9,8 +9,8 @@
 import UIKit
 import WebKit
 import RSCore
-import Account
-import Articles
+import NNWCore
+
 import SafariServices
 import MessageUI
 

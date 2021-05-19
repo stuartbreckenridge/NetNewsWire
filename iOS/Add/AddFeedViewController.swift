@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Account
+import NNWCore
 import RSCore
 import RSTree
 import RSParser

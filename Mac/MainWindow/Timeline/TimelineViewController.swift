@@ -8,8 +8,7 @@
 
 import Foundation
 import RSCore
-import Articles
-import Account
+import NNWCore
 import os.log
 
 protocol TimelineDelegate: AnyObject  {

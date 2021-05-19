@@ -7,7 +7,7 @@
 //
 
 import SwiftUI
-import Account
+import NNWCore
 
 struct SettingsCloudKitAccountView: View {
 	@Environment(\.presentationMode) var presentationMode

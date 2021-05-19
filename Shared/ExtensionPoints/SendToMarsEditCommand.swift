@@ -8,7 +8,7 @@
 
 import AppKit
 import RSCore
-import Articles
+import NNWCore
 
 final class SendToMarsEditCommand: ExtensionPoint, SendToCommand {
 

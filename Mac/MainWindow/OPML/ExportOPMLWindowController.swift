@@ -7,7 +7,7 @@
 //
 
 import AppKit
-import Account
+import NNWCore
 
 class ExportOPMLWindowController: NSWindowController {
 

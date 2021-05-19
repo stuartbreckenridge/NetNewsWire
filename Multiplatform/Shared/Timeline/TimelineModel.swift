@@ -13,8 +13,8 @@ import UIKit
 #endif
 import Combine
 import RSCore
-import Account
-import Articles
+import NNWCore
+
 
 protocol TimelineModelDelegate: AnyObject {
 	var selectedFeedsPublisher: AnyPublisher<[Feed], Never>? { get }

@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import Account
-import Secrets
+import NNWCore
+import NNWCore
 import RSWeb
 import SafariServices
 

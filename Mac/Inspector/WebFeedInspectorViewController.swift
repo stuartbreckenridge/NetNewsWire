@@ -7,8 +7,8 @@
 //
 
 import AppKit
-import Articles
-import Account
+
+import NNWCore
 import UserNotifications
 
 final class WebFeedInspectorViewController: NSViewController, Inspector {

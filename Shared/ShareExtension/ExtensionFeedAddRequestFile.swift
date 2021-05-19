@@ -8,7 +8,7 @@
 
 import Foundation
 import os.log
-import Account
+import NNWCore
 
 final class ExtensionFeedAddRequestFile: NSObject, NSFilePresenter {
 	

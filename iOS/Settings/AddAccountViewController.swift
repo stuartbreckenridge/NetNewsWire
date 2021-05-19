@@ -6,7 +6,7 @@
 //  Copyright © 2019 Ranchero Software. All rights reserved.
 //
 
-import Account
+import NNWCore
 import UIKit
 import RSCore
 

@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Account
+import NNWCore
 import Combine
 
 public enum AccountConfigurationSheets: Equatable {

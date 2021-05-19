@@ -7,9 +7,8 @@
 //
 
 import AppKit
-import Account
+import NNWCore
 import RSWeb
-import Secrets
 
 class AccountsFeedWranglerWindowController: NSWindowController {
 	

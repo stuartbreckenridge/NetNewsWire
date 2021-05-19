@@ -9,8 +9,8 @@
 import UIKit
 import Combine
 import WebKit
-import Account
-import Articles
+import NNWCore
+
 import SafariServices
 
 class ArticleViewController: UIViewController {

@@ -8,7 +8,7 @@
 
 import SwiftUI
 import RSCore
-import Account
+import NNWCore
 
 public enum SidebarItemIdentifier: Hashable, Equatable {
 	case smartFeedController

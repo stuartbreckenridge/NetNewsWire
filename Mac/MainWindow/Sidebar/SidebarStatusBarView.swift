@@ -8,9 +8,9 @@
 
 import AppKit
 import RSCore
-import Articles
+
 import RSWeb
-import Account
+import NNWCore
 
 final class SidebarStatusBarView: NSView {
 

@@ -7,8 +7,7 @@
 //
 
 import Foundation
-import Account
-import Articles
+import NNWCore
 
 @objc(ScriptableAuthor)
 class ScriptableAuthor: NSObject, UniqueIdScriptingObject {

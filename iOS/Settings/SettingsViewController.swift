@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Account
+import NNWCore
 import CoreServices
 import SafariServices
 
@@ -397,7 +397,7 @@ private extension SettingsViewController {
 	}
 	
 	func importOPMLAccountPicker(sourceView: UIView, sourceRect: CGRect) {
-		let title = NSLocalizedString("Choose an account to receive the imported feeds and folders", comment: "Import Account")
+		let title = NSLocalizedString("Choose an account to receive the imported feeds and folders", comment: "import NNWCore")
 		let alert = UIAlertController(title: title, message: nil, preferredStyle: .actionSheet)
 		
 		if let popoverController = alert.popoverPresentationController {

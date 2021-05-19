@@ -8,8 +8,7 @@
 
 import Foundation
 import RSCore
-import Articles
-import Account
+import NNWCore
 
 // These handle multiple accounts.
 

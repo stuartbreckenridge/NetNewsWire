@@ -7,7 +7,7 @@
 //
 
 import SwiftUI
-import Account
+import NNWCore
 
 enum AddAccountSections: Int, CaseIterable {
 	case local = 0

@@ -8,7 +8,7 @@
 
 import UIKit
 import SwiftUI
-import Articles
+
 
 extension UIActivityViewController {
 	convenience init(url: URL, title: String?, applicationActivities: [UIActivity]?) {

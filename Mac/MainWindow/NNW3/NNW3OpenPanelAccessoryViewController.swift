@@ -7,7 +7,7 @@
 //
 
 import AppKit
-import Account
+import NNWCore
 
 final class NNW3OpenPanelAccessoryViewController: NSViewController {
 

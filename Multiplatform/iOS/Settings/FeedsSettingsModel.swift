@@ -8,7 +8,7 @@
 
 import Foundation
 import SwiftUI
-import Account
+import NNWCore
 import UniformTypeIdentifiers
 
 enum FeedsSettingsError: LocalizedError, Equatable {

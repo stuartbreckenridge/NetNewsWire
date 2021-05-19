@@ -8,7 +8,7 @@
 
 import Foundation
 import RSCore
-import Account
+import NNWCore
 
 final class SmartFeedsController: DisplayNameProvider, ContainerIdentifiable {
 	

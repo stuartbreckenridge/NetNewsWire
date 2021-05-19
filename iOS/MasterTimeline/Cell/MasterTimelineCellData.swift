@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Articles
+
 
 struct MasterTimelineCellData {
 

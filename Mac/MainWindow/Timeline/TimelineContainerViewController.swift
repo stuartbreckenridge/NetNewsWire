@@ -7,8 +7,8 @@
 //
 
 import AppKit
-import Account
-import Articles
+import NNWCore
+
 
 protocol TimelineContainerViewControllerDelegate: AnyObject {
 	func timelineSelectionDidChange(_: TimelineContainerViewController, articles: [Article]?, mode: TimelineSourceMode)

@@ -7,7 +7,7 @@
 //
 
 import AppKit
-import Account
+import NNWCore
 
 final class AccountsDetailViewController: NSViewController, NSTextFieldDelegate {
 

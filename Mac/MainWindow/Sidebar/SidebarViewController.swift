@@ -8,8 +8,7 @@
 
 import AppKit
 import RSTree
-import Articles
-import Account
+import NNWCore
 import RSCore
 
 extension Notification.Name {

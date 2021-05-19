@@ -7,9 +7,9 @@
 //
 
 import AppKit
-import Account
+import NNWCore
 import RSWeb
-import Secrets
+import NNWCore
 
 class AccountsFeedbinWindowController: NSWindowController {
 

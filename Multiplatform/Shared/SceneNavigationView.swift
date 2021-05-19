@@ -7,7 +7,7 @@
 //
 
 import SwiftUI
-import Account
+import NNWCore
 #if os(macOS)
 import AppKit
 #endif

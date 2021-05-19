@@ -8,7 +8,7 @@
 
 import SwiftUI
 import Combine
-import Account
+import NNWCore
 
 struct SidebarExpandedContainers {
 	

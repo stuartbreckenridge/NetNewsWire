@@ -7,8 +7,8 @@
 //
 
 import Foundation
-import Articles
-import Account
+
+import NNWCore
 import RSCore
 
 protocol SmallIconProvider {

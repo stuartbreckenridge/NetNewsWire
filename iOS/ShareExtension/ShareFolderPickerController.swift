@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Account
+import NNWCore
 import RSCore
 
 protocol ShareFolderPickerControllerDelegate: AnyObject {

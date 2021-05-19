@@ -8,7 +8,7 @@
 
 import SwiftUI
 import RSCore
-import Account
+import NNWCore
 
 struct AppAssets {
 

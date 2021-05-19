@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import NNWCore
 
 enum MarkCommandValidationStatus {
 

@@ -8,7 +8,7 @@
 
 import Foundation
 import WebKit
-import Articles
+import NNWCore
 
 class DetailIconSchemeHandler: NSObject, WKURLSchemeHandler {
 	

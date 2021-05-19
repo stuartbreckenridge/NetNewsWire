@@ -8,8 +8,7 @@
 
 import AppKit
 import UserNotifications
-import Articles
-import Account
+import NNWCore
 import RSCore
 
 enum TimelineSourceMode {

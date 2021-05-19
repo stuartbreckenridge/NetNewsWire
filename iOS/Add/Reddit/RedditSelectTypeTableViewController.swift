@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Account
+import NNWCore
 
 class RedditSelectTypeTableViewController: UITableViewController {
 	

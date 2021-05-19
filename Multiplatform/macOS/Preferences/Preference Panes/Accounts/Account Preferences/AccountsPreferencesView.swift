@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import Account
+import NNWCore
 
 
 struct AccountsPreferencesView: View {

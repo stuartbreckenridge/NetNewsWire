@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Articles
+import NNWCore
 
 protocol ScriptingMainWindowController {
     var scriptingCurrentArticle: Article? { get }

@@ -7,8 +7,8 @@
 //
 
 import AppKit
-import Articles
-import Account
+
+import NNWCore
 
 class AddFolderWindowController : NSWindowController {
     

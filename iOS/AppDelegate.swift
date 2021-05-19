@@ -9,10 +9,10 @@
 import UIKit
 import RSCore
 import RSWeb
-import Account
+import NNWCore
 import BackgroundTasks
 import os.log
-import Secrets
+import NNWCore
 import WidgetKit
 
 var appDelegate: AppDelegate!

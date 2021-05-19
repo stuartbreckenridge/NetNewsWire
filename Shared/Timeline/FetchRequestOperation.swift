@@ -8,8 +8,8 @@
 
 import Foundation
 import RSCore
-import Account
-import Articles
+import NNWCore
+
 
 // Main thread only.
 // Runs an asynchronous fetch.

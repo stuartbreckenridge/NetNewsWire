@@ -11,8 +11,8 @@ import WidgetKit
 import os.log
 import UIKit
 import RSCore
-import Articles
-import Account
+
+import NNWCore
 
 
 public final class WidgetDataEncoder {

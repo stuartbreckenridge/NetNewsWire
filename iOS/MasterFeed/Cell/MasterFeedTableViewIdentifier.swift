@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Account
+import NNWCore
 import RSTree
 
 final class MasterFeedTableViewIdentifier: NSObject, NSCopying {

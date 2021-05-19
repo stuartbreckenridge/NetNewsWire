@@ -7,9 +7,9 @@
 //
 
 import UIKit
-import Account
+import NNWCore
 import RSWeb
-import Secrets
+import NNWCore
 import SafariServices
 
 class FeedWranglerAccountViewController: UITableViewController {

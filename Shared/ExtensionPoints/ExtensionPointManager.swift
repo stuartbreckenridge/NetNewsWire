@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Account
+import NNWCore
 import RSCore
 import OAuthSwift
 

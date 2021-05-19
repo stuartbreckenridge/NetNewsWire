@@ -8,8 +8,8 @@
 
 import AppKit
 import RSCore
-import Articles
-import Account
+
+import NNWCore
 
 extension TimelineViewController {
 

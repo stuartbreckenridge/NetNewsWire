@@ -7,7 +7,7 @@
 //
 
 import SwiftUI
-import Secrets
+import NNWCore
 
 struct EditAccountCredentialsView: View {
 	

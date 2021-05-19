@@ -10,8 +10,8 @@ import Foundation
 import CoreSpotlight
 import CoreServices
 import RSCore
-import Account
-import Articles
+import NNWCore
+
 import Intents
 
 class ActivityManager {

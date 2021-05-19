@@ -8,7 +8,7 @@
 
 import UIKit
 import UserNotifications
-import Account
+import NNWCore
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 	

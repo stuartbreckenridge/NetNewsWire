@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Articles
+import NNWCore
 
 typealias ArticleArray = [Article]
 

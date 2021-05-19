@@ -7,8 +7,8 @@
 //
 
 import AppKit
-import Account
-import Articles
+import NNWCore
+
 
 extension NSApplication : ScriptingObjectContainer {
 

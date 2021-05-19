@@ -8,7 +8,7 @@
 
 import UIKit
 import RSCore
-import Account
+import NNWCore
 import RSTree
 
 protocol MasterFeedTableViewCellDelegate: AnyObject {

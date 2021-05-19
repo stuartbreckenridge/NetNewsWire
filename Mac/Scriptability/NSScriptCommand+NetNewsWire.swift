@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Account
+import NNWCore
 
 extension NSScriptCommand {
     func property(forKey key:String) -> Any? {

@@ -7,7 +7,7 @@
 //
 
 import SwiftUI
-import Account
+import NNWCore
 
 struct SettingsCredentialsAccountView: View {
 	@Environment(\.presentationMode) var presentationMode
