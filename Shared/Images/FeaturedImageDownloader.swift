@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import NNWCore
 import RSCore
 import RSParser
 

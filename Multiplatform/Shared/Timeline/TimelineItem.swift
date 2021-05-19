@@ -7,7 +7,7 @@
 //
 
 import SwiftUI
-
+import NNWCore
 
 enum TimelineItemStatus {
 	case showStar
