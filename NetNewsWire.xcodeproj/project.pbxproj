@@ -25,6 +25,8 @@
 		171BCB8D24CB08A3006E22D9 /* FixAccountCredentialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171BCB8B24CB08A3006E22D9 /* FixAccountCredentialView.swift */; };
 		171BCBAF24CBBFD8006E22D9 /* EditAccountCredentialsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1769E33524BD9621000E1E8E /* EditAccountCredentialsModel.swift */; };
 		171BCBB024CBBFFD006E22D9 /* AccountUpdateErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1769E33724BD97CB000E1E8E /* AccountUpdateErrors.swift */; };
+		171E7B25265536570075BA10 /* RSCore in Frameworks */ = {isa = PBXBuildFile; productRef = 171E7B24265536570075BA10 /* RSCore */; };
+		171E7B28265536780075BA10 /* NNWCore in Frameworks */ = {isa = PBXBuildFile; productRef = 171E7B27265536780075BA10 /* NNWCore */; };
 		172199C924AB228900A31D04 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172199C824AB228900A31D04 /* SettingsView.swift */; };
 		172199ED24AB2E0100A31D04 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172199EC24AB2E0100A31D04 /* SafariView.swift */; };
 		172199F124AB716900A31D04 /* SidebarToolbarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172199F024AB716900A31D04 /* SidebarToolbarModifier.swift */; };
@@ -70,11 +72,10 @@
 		17386BC42577CC600014C8B2 /* AddFeedbinAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17386BC32577CC600014C8B2 /* AddFeedbinAccountView.swift */; };
 		173A64172547BE0900267F6E /* AccountType+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173A64162547BE0900267F6E /* AccountType+Helpers.swift */; };
 		173A642C2547BE9600267F6E /* AccountType+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173A64162547BE0900267F6E /* AccountType+Helpers.swift */; };
+		174391F026555C5E00D908C0 /* NNWCore in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 171E7B27265536780075BA10 /* NNWCore */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		174391F126555C6100D908C0 /* RSCore in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 171E7B24265536570075BA10 /* RSCore */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		174B50432654D58C00AACDA0 /* NNWCore in Frameworks */ = {isa = PBXBuildFile; productRef = 174B50422654D58C00AACDA0 /* NNWCore */; };
-		174B504C2654D68500AACDA0 /* NNWCore in Frameworks */ = {isa = PBXBuildFile; productRef = 174B504B2654D68500AACDA0 /* NNWCore */; };
 		174B504E2654D6FC00AACDA0 /* NNWCore in Frameworks */ = {isa = PBXBuildFile; productRef = 174B504D2654D6FC00AACDA0 /* NNWCore */; };
-		174B50502654D70400AACDA0 /* RSCore in Frameworks */ = {isa = PBXBuildFile; productRef = 174B504F2654D70400AACDA0 /* RSCore */; };
-		174B50512654D70400AACDA0 /* RSCore in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 174B504F2654D70400AACDA0 /* RSCore */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		174B50562654DF2200AACDA0 /* NetNewsWire Share Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 510C415C24E5CDE3008226FD /* NetNewsWire Share Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		174B50582654E87D00AACDA0 /* NNWCore in Frameworks */ = {isa = PBXBuildFile; productRef = 174B50572654E87D00AACDA0 /* NNWCore */; };
 		174B50592654E87D00AACDA0 /* NNWCore in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 174B50572654E87D00AACDA0 /* NNWCore */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -1266,7 +1267,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				174B50512654D70400AACDA0 /* RSCore in Embed Frameworks */,
+				174391F126555C6100D908C0 /* RSCore in Embed Frameworks */,
+				174391F026555C5E00D908C0 /* NNWCore in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2043,8 +2045,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				174B50502654D70400AACDA0 /* RSCore in Frameworks */,
-				174B504C2654D68500AACDA0 /* NNWCore in Frameworks */,
+				171E7B25265536570075BA10 /* RSCore in Frameworks */,
+				171E7B28265536780075BA10 /* NNWCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3707,8 +3709,8 @@
 			);
 			name = "NetNewsWire Share Extension";
 			packageProductDependencies = (
-				174B504B2654D68500AACDA0 /* NNWCore */,
-				174B504F2654D70400AACDA0 /* RSCore */,
+				171E7B24265536570075BA10 /* RSCore */,
+				171E7B27265536780075BA10 /* NNWCore */,
 			);
 			productName = ShareExtension;
 			productReference = 510C415C24E5CDE3008226FD /* NetNewsWire Share Extension.appex */;
@@ -6105,6 +6107,15 @@
 			package = 17192AD82567B3D500AAEACA /* XCRemoteSwiftPackageReference "Sparkle-Binary" */;
 			productName = RSSparkle;
 		};
+		171E7B24265536570075BA10 /* RSCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5102AE4324D17E820050839C /* XCRemoteSwiftPackageReference "RSCore" */;
+			productName = RSCore;
+		};
+		171E7B27265536780075BA10 /* NNWCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NNWCore;
+		};
 		17386B6B2577BD820014C8B2 /* RSSparkle */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 17192AD82567B3D500AAEACA /* XCRemoteSwiftPackageReference "Sparkle-Binary" */;
@@ -6144,18 +6155,9 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = NNWCore;
 		};
-		174B504B2654D68500AACDA0 /* NNWCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = NNWCore;
-		};
 		174B504D2654D6FC00AACDA0 /* NNWCore */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = NNWCore;
-		};
-		174B504F2654D70400AACDA0 /* RSCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5102AE4324D17E820050839C /* XCRemoteSwiftPackageReference "RSCore" */;
-			productName = RSCore;
 		};
 		174B50572654E87D00AACDA0 /* NNWCore */ = {
 			isa = XCSwiftPackageProductDependency;
