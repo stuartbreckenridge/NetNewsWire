@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import NNWCore
 
 class ContextMenuPreviewViewController: UIViewController {
 

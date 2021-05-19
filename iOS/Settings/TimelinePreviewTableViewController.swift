@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import NNWCore
 
 class TimelinePreviewTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 

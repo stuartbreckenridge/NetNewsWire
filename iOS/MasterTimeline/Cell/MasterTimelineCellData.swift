@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import NNWCore
 
 struct MasterTimelineCellData {
 
