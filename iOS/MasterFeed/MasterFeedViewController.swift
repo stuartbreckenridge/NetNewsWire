@@ -618,7 +618,8 @@ class MasterFeedViewController: UITableViewController, UndoableCommandRunner, Ma
 			1. Add Web Feed
 			2. Add Reddit Feed
 			3. Add Twitter Feed
-			4. Add Folder
+			4. Add Mastodon Feed
+			5. Add Folder
 		*/
 		
 		var menuItems: [UIAction] = []
@@ -645,6 +646,12 @@ class MasterFeedViewController: UITableViewController, UndoableCommandRunner, Ma
 				menuItems.append(addTwitterFeedAction)
 			}
 		}
+		
+		let addMastodonActionTitle = NSLocalizedString("button.title.add-mastodon-feed", comment: "Add Mastodon Feed")
+		let addMastodonAction = UIAction(title: addMastodonActionTitle, image: AppAssets.contextMenuMastodon.tinted(color: .label)) { _ in
+			self.coordinator.showAddMastodonFeed()
+		}
+		menuItems.append(addMastodonAction)
 					
 		let addWebFolderActionTitle = NSLocalizedString("button.title.add-folder", comment: "Add Folder")
 		let addWebFolderAction = UIAction(title: addWebFolderActionTitle, image: AppAssets.folderOutlinePlus) { _ in

@@ -217,6 +217,9 @@
 /* Activate Account */
 "button.title.activate-account" = "Activate Account";
 
+/* Add */
+"button.title.add" = "Add";
+
 /* Add Account */
 "button.title.add-account" = "Add Account";
 
@@ -225,6 +228,9 @@
 
 /* Add Item */
 "button.title.add-item" = "Add Item";
+
+/* Add Mastodon Feed */
+"button.title.add-mastodon-feed" = "Add Mastodon Feed";
 
 /* Add Reddit Feed */
 "button.title.add-reddit-feed" = "Add Reddit Feed";
@@ -240,6 +246,9 @@
 
 /* Article Themes */
 "button.title.artice-themes" = "Article Themes";
+
+/* Back */
+"button.title.back" = "Back";
 
 /* Button title
    Cancel */
@@ -616,6 +625,12 @@
 /* Active Extensions */
 "label.text.active-extensions" = "Active Extensions";
 
+/* Follow a #Hashtag */
+"label.text.add-mastodon-tag" = "#hashtag";
+
+/* Add a Mastodon User's Feed */
+"label.text.add-mastodon-user-feed" = "User";
+
 /* Additional Contributors */
 "label.text.additional-contributors" = "Additional Contributors";
 
@@ -700,6 +715,12 @@
 /* Local accounts do not sync your feeds across devices */
 "label.text.local-account-explainer" = "Local accounts do not sync your feeds across devices";
 
+/* Follow the specified #hashtag */
+"label.text.mastodon-tag-feed-explainer" = "Follow the specified #hashtag";
+
+/* Follow the specified user's Mastodon feed */
+"label.text.mastodon-user-feed-explainer" = "Follow the specified user's Mastodon feed";
+
 /* Medium */
 "label.text.medium" = "Medium";
 
@@ -732,6 +753,9 @@
 
 /* Starred */
 "label.text.starred" = "Starred";
+
+/* Suggested Servers */
+"label.text.suggested-servers" = "Suggested Instances";
 
 /* Thanks */
 "label.text.thanks" = "Thanks";
@@ -806,6 +830,9 @@
 /* Enter Search */
 "navigation.title.enter-search" = "Enter Search";
 
+/* Feed Details */
+"navigation.title.feed-details" = "Feed Details";
+
 /* Manage Accounts */
 "navigation.title.manage-accounts" = "Manage Accounts";
 
@@ -814,6 +841,12 @@
 
 /* New Article Notifications */
 "navigation.title.new-article-notifications" = "New Article Notifications";
+
+/* Select Folder */
+"navigation.title.select-folder" = "Select Folder";
+
+/* Select Mastodon Feed Type */
+"navigation.title.select-mastodon-type" = "Select Mastodon Feed Type";
 
 /* Settings */
 "navigation.title.settings" = "Settings";
@@ -842,8 +875,17 @@
 /* Smart Feeds group title */
 "smartfeeds.title" = "Smart Feeds";
 
+/* Instance */
+"textfield.mastodon.server" = "Instance";
+
 /* Email Address */
 "textfield.placeholder.email-address" = "Email Address";
+
+/* #hashtag */
+"textfield.placeholder.mastodon-hashtag" = "#hashtag";
+
+/* Username */
+"textfield.placeholder.mastodon-user" = "Username";
 
 /* Name */
 "textfield.placeholder.name" = "Name";

@@ -1223,6 +1223,13 @@ class SceneCoordinator: NSObject, UndoableCommandRunner, Logging {
 		masterFeedViewController.present(addNavViewController, animated: true)
 	}
 	
+	func showAddMastodonFeed() {
+		let hosting = UIHostingController(rootView: AddMastodonSelectionView())
+		hosting.modalPresentationStyle = .formSheet
+		hosting.preferredContentSize = AddFeedViewController.preferredContentSizeForFormSheetDisplay
+		masterFeedViewController.present(hosting, animated: true)
+	}
+	
 	func showAddFolder() {
 		let addNavViewController = UIStoryboard.add.instantiateViewController(withIdentifier: "AddFolderViewControllerNav") as! UINavigationController
 		addNavViewController.modalPresentationStyle = .formSheet

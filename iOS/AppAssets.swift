@@ -109,6 +109,10 @@ struct AppAssets {
 		return UIImage(systemName: "chevron.right", withConfiguration: UIImage.SymbolConfiguration(pointSize: size, weight: weight))!
 	}
 	
+	static var contextMenuMastodon: UIImage = {
+		return UIImage(named: "contextMenuMastodon")!
+	}()
+	
 	static var contextMenuReddit: UIImage = {
 		return UIImage(named: "contextMenuReddit")!
 	}()
