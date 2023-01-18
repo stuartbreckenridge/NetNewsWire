@@ -35,6 +35,7 @@ public final class MastodonViewModel: FeedFolderResolver, Logging  {
 				let decodedServers = try JSONDecoder().decode([MastodonServer].self, from: data)
 				allServers = decodedServers.sorted(by: { $0.domain < $1.domain })
 			} catch {
+				logger.error("\(error.localizedDescription)")
 				apiError = (true, error)
 			}
 		}

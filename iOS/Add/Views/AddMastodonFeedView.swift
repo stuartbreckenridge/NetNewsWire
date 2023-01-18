@@ -79,7 +79,15 @@ struct AddMastodonFeedView: View {
 							serverFocussed = false
 							server = svr.domain
 						} label: {
-							Text(verbatim: svr.domain)
+							VStack(alignment: .leading) {
+								Text(verbatim: svr.domain)
+									.foregroundColor(.accentColor)
+									.bold()
+								Text(verbatim: svr.description)
+									.foregroundColor(.secondary)
+									.font(.caption)
+									.lineLimit(4)
+							}
 						}
 					}
 				}
