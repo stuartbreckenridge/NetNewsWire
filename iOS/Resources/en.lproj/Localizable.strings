@@ -881,6 +881,9 @@
 /* Email Address */
 "textfield.placeholder.email-address" = "Email Address";
 
+/* Title (Optional) */
+"textfield.placeholder.feed-title" = "Title (Optional)";
+
 /* #hashtag */
 "textfield.placeholder.mastodon-hashtag" = "#hashtag";
 

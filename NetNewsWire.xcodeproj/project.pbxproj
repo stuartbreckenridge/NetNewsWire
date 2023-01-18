@@ -2984,6 +2984,16 @@
 			path = Mastodon;
 			sourceTree = "<group>";
 		};
+		DF30B99A2977D4C3000633D8 /* Mastodon */ = {
+			isa = PBXGroup;
+			children = (
+				DF201F5A2976B18D004B455F /* MastodonViewModel.swift */,
+				DF201F622976B8A5004B455F /* AddMastodonSelectionView.swift */,
+				DF201F662976BC61004B455F /* AddMastodonFeedView.swift */,
+			);
+			path = Mastodon;
+			sourceTree = "<group>";
+		};
 		DF3630E92936038400326FB8 /* New Article Notifications */ = {
 			isa = PBXGroup;
 			children = (
@@ -3043,10 +3053,8 @@
 		DFB3497E294B07D900BC81AD /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				DF201F5A2976B18D004B455F /* MastodonViewModel.swift */,
-				DF201F622976B8A5004B455F /* AddMastodonSelectionView.swift */,
-				DF201F662976BC61004B455F /* AddMastodonFeedView.swift */,
 				DF6B09572976D87200B4FB2C /* FeedFolderSelectorView.swift */,
+				DF30B99A2977D4C3000633D8 /* Mastodon */,
 			);
 			path = Views;
 			sourceTree = "<group>";

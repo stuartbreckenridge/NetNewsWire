@@ -17,6 +17,12 @@ public final class MastodonViewModel: FeedFolderResolver, Logging  {
 	@Published public var filteredServers: [MastodonServer] = []
 	@Published public var apiError: (Bool, Error?) = (false, nil)
 	@Published public var showProgressIndicator: Bool = false
+	@Published public var userNameOrHashtag: String = ""
+	@Published public var server: String = ""
+	@Published public var optionalTitle: String = ""
+	@Published public var showServerSuggestions: Bool = false
+	@Published public var selectedFolder: String = ""
+	@Published public var showFeedFolderSelector: Bool = false
 	
 	// Private
 	private var allServers: [MastodonServer] = []
@@ -45,7 +51,7 @@ public final class MastodonViewModel: FeedFolderResolver, Logging  {
 		filteredServers = allServers.filter({ $0.domain.localizedCaseInsensitiveContains(server) })
 	}
 	
-	public func followUser(_ username: String, server: String) async throws {
+	public func followUser(_ username: String, server: String, title: String?) async throws {
 		showProgressIndicator = true
 		let urlString = "https://\(server)/users/\(username).rss"
 		let container = containers[selectedFolderIndex]
@@ -57,7 +63,7 @@ public final class MastodonViewModel: FeedFolderResolver, Logging  {
 			}
 			
 			try await withCheckedThrowingContinuation { continuation in
-				account.createWebFeed(url: urlString, name: nil, container: container, validateFeed: true, completion: { [weak self] result in
+				account.createWebFeed(url: urlString, name: title, container: container, validateFeed: true, completion: { [weak self] result in
 					self?.showProgressIndicator = false
 					switch result {
 					case .success(let feed):
@@ -72,7 +78,7 @@ public final class MastodonViewModel: FeedFolderResolver, Logging  {
 		
 	}
 	
-	public func followTag(_ tag: String, server: String) async throws {
+	public func followTag(_ tag: String, server: String, title: String?) async throws {
 		showProgressIndicator = true
 		let urlString = "https://\(server)/tags/\(tag).rss"
 		let container = containers[selectedFolderIndex]
@@ -84,7 +90,7 @@ public final class MastodonViewModel: FeedFolderResolver, Logging  {
 			}
 			
 			try await withCheckedThrowingContinuation { continuation in
-				account.createWebFeed(url: urlString, name: nil, container: container, validateFeed: true, completion: { [weak self] result in
+				account.createWebFeed(url: urlString, name: title, container: container, validateFeed: true, completion: { [weak self] result in
 					self?.showProgressIndicator = false
 					switch result {
 					case .success(let feed):
