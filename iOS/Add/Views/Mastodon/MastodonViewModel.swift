@@ -31,19 +31,10 @@ public final class MastodonViewModel: FeedFolderResolver, Logging  {
 	// MARK: - Public API
 	
 	public func refreshServerList() async {
-		if let servers = await cachedServerList() {
-			allServers = servers
-		} else {
-			let request = URLRequest(url: serverUrl)
-			do {
-				self.logger.debug("Retrieving Mastodon servers.")
-				let (data, _) = try await URLSession.shared.data(for: request)
-				let decodedServers = try JSONDecoder().decode([MastodonServer].self, from: data)
-				allServers = decodedServers.sorted(by: { $0.domain < $1.domain })
-			} catch {
-				logger.error("\(error.localizedDescription)")
-				apiError = (true, error)
-			}
+		do {
+			allServers = try await MastodonAPI.shared.refreshServerList() ?? []
+		} catch {
+			apiError = (true, error)
 		}
 	}
 	
@@ -104,29 +95,4 @@ public final class MastodonViewModel: FeedFolderResolver, Logging  {
 		}
 		
 	}
-	
-	
-	
-	// MARK: - Private API
-	
-	private func cachedServerList() async -> [MastodonServer]? {
-		await withCheckedContinuation { continuation in
-			let request = URLRequest(url: serverUrl)
-			let task = URLSession.shared.dataTask(with: request)
-			
-			URLCache.shared.getCachedResponse(for: task) { response in
-				if let data = response?.data {
-					if let decodedServers = try? JSONDecoder().decode([MastodonServer].self, from: data) {
-						self.logger.debug("Returning Mastodon servers from cache.")
-						return continuation.resume(returning: decodedServers.sorted(by: { $0.domain < $1.domain }))
-					} else {
-						return continuation.resume(returning: nil)
-					}
-				} else {
-					return continuation.resume(returning: nil)
-				}
-			}
-		}
-	}
-	
 }

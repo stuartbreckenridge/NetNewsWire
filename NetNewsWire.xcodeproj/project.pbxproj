@@ -845,6 +845,9 @@
 		DF3630EF293618A900326FB8 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3630EE293618A900326FB8 /* SettingsViewModel.swift */; };
 		DF394F0029357A180081EB6E /* NewArticleNotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF394EFF29357A180081EB6E /* NewArticleNotificationsView.swift */; };
 		DF47CDB2294803AB00FCD57E /* AddExtensionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF47CDB1294803AB00FCD57E /* AddExtensionListView.swift */; };
+		DF585982297B8E040003956D /* MastodonAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF585981297B8E040003956D /* MastodonAPI.swift */; };
+		DF585983297B8E040003956D /* MastodonAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF585981297B8E040003956D /* MastodonAPI.swift */; };
+		DF585984297B8E040003956D /* MastodonAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF585981297B8E040003956D /* MastodonAPI.swift */; };
 		DF59F072292085B800ACD33D /* ColorPaletteSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF59F071292085B800ACD33D /* ColorPaletteSelectorView.swift */; };
 		DF59F0742920DB5100ACD33D /* AccountsManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF59F0732920DB5100ACD33D /* AccountsManagementView.swift */; };
 		DF5AD10128D6922200CA3BF7 /* SmartFeedSummaryWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1768144D2564BCE000D98635 /* SmartFeedSummaryWidget.swift */; };
@@ -1631,6 +1634,7 @@
 		DF3630EE293618A900326FB8 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		DF394EFF29357A180081EB6E /* NewArticleNotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewArticleNotificationsView.swift; sourceTree = "<group>"; };
 		DF47CDB1294803AB00FCD57E /* AddExtensionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExtensionListView.swift; sourceTree = "<group>"; };
+		DF585981297B8E040003956D /* MastodonAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MastodonAPI.swift; sourceTree = "<group>"; };
 		DF59F071292085B800ACD33D /* ColorPaletteSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPaletteSelectorView.swift; sourceTree = "<group>"; };
 		DF59F0732920DB5100ACD33D /* AccountsManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsManagementView.swift; sourceTree = "<group>"; };
 		DF6B09512976D36400B4FB2C /* FeedFolderResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedFolderResolver.swift; sourceTree = "<group>"; };
@@ -2980,6 +2984,7 @@
 			isa = PBXGroup;
 			children = (
 				DF201F5E2976B19B004B455F /* MastodonServer.swift */,
+				DF585981297B8E040003956D /* MastodonAPI.swift */,
 			);
 			path = Mastodon;
 			sourceTree = "<group>";
@@ -4097,6 +4102,7 @@
 				51A052CF244FB9D7006C2024 /* AddFeedWIndowController.swift in Sources */,
 				5103A9F824225E4C00410853 /* AccountsAddCloudKitWindowController.swift in Sources */,
 				65ED3FD9235DEF6C0081F399 /* SidebarCell.swift in Sources */,
+				DF585983297B8E040003956D /* MastodonAPI.swift in Sources */,
 				65ED3FDA235DEF6C0081F399 /* ArticleStatusSyncTimer.swift in Sources */,
 				65ED3FDB235DEF6C0081F399 /* WebFeedTreeControllerDelegate.swift in Sources */,
 				65ED3FDC235DEF6C0081F399 /* UnreadCountView.swift in Sources */,
@@ -4394,6 +4400,7 @@
 				DFB34994294C0E3900BC81AD /* ReaderAPIAddAccountView.swift in Sources */,
 				512392C224E33A3C00F11704 /* RedditEnterDetailTableViewController.swift in Sources */,
 				51C452762265091600C03939 /* MasterTimelineViewController.swift in Sources */,
+				DF585984297B8E040003956D /* MastodonAPI.swift in Sources */,
 				5195C1DC2720BD3000888867 /* MasterFeedRowIdentifier.swift in Sources */,
 				5108F6D823763094001ABC45 /* TickMarkSlider.swift in Sources */,
 				DF3630EF293618A900326FB8 /* SettingsViewModel.swift in Sources */,
@@ -4547,6 +4554,7 @@
 				5144EA51227B8E4500D19003 /* AccountsFeedbinWindowController.swift in Sources */,
 				84AD1EBC2032AF5C00BC20B7 /* SidebarOutlineDataSource.swift in Sources */,
 				845A29241FC9255E007B49E3 /* SidebarCellAppearance.swift in Sources */,
+				DF585982297B8E040003956D /* MastodonAPI.swift in Sources */,
 				515A5107243D0CCD0089E588 /* TwitterFeedProvider-Extensions.swift in Sources */,
 				845EE7B11FC2366500854A1F /* StarredFeedDelegate.swift in Sources */,
 				DFBB4EAC2951BC0200639228 /* NNWThemeDocument.swift in Sources */,
