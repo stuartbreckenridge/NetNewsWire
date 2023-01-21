@@ -26,7 +26,6 @@ public final class MastodonViewModel: FeedFolderResolver, Logging  {
 	
 	// Private
 	private var allServers: [MastodonServer] = []
-	private let serverUrl = URL(string: "https://api.joinmastodon.org/servers")!
 	
 	// MARK: - Public API
 	
