@@ -30,7 +30,6 @@ struct FeedFolderSelectorView: View {
 			}
 			.navigationBarTitle(Text("navigation.title.select-folder", comment: "Select Folder"))
 			.navigationBarTitleDisplayMode(.inline)
-			.listStyle(.plain)
 			.toolbar {
 				ToolbarItem(placement: .navigationBarLeading) {
 					Button {
@@ -38,7 +37,6 @@ struct FeedFolderSelectorView: View {
 					} label: {
 						Text("button.title.cancel", comment: "Cancel")
 					}
-
 				}
 			}
 		}

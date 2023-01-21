@@ -59,12 +59,7 @@ struct AddMastodonFeedView: View {
 		}
 		.navigationBarBackButtonHidden()
 		.navigationTitle(Text("navigation.title.feed-details", comment: "Feed Details"))
-		.sheet(isPresented: $viewModel.showFeedFolderSelector, content: {
-			AnyView(
-				FeedFolderSelectorView()
-					.environmentObject(viewModel)
-			)
-		})
+		
 		.alert(Text("alert.title.error", comment: "Error"),
 			   isPresented: $viewModel.apiError.0,
 			   actions: {},
@@ -128,6 +123,10 @@ struct AddMastodonFeedView: View {
 			}
 			.foregroundColor(.primary)
 		}
+		.sheet(isPresented: $viewModel.showFeedFolderSelector, content: {
+			FeedFolderSelectorView()
+				.environmentObject(viewModel)
+		})
 	}
 	
 	var serverSuggestions: some View {
