@@ -28,9 +28,12 @@ struct AddMastodonFeedView: View {
 	}
 	
 	var body: some View {
-		List {
+		Form {
 			Section {
 				userNameOrHashTagTextField
+					.onAppear {
+						userNameOrHashtagFocussed = true
+					}
 				instanceTextField
 				titleTextField
 				folderSelectorButton
@@ -57,8 +60,10 @@ struct AddMastodonFeedView: View {
 		.navigationBarBackButtonHidden()
 		.navigationTitle(Text("navigation.title.feed-details", comment: "Feed Details"))
 		.sheet(isPresented: $viewModel.showFeedFolderSelector, content: {
-			FeedFolderSelectorView()
-				.environmentObject(viewModel)
+			AnyView(
+				FeedFolderSelectorView()
+					.environmentObject(viewModel)
+			)
 		})
 		.alert(Text("alert.title.error", comment: "Error"),
 			   isPresented: $viewModel.apiError.0,
