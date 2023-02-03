@@ -35,6 +35,9 @@ struct AddMastodonFeedView: View {
 						userNameOrHashtagFocussed = true
 					}
 				instanceTextField
+				if feedType == .user {
+					includeRepliesView
+				}
 				titleTextField
 				folderSelectorButton
 			}
@@ -127,6 +130,12 @@ struct AddMastodonFeedView: View {
 			FeedFolderSelectorView()
 				.environmentObject(viewModel)
 		})
+	}
+	
+	var includeRepliesView: some View {
+		Toggle(isOn: $viewModel.includeReplies) {
+			Text("toggle.title.include-replies", comment: "Include Replies")
+		}
 	}
 	
 	var serverSuggestions: some View {

@@ -23,6 +23,7 @@ public final class MastodonViewModel: FeedFolderResolver, Logging  {
 	@Published public var showServerSuggestions: Bool = false
 	@Published public var selectedFolder: String = ""
 	@Published public var showFeedFolderSelector: Bool = false
+	@Published public var includeReplies: Bool = false
 	
 	// Private
 	private var allServers: [MastodonServer] = []
@@ -43,7 +44,13 @@ public final class MastodonViewModel: FeedFolderResolver, Logging  {
 	
 	public func followUser(_ username: String, server: String, title: String?) async throws {
 		showProgressIndicator = true
-		let urlString = "https://\(server)/users/\(username).rss"
+		var urlString = ""
+		if includeReplies {
+			urlString = "https://\(server)/@\(username)/with_replies.rss"
+		} else {
+			urlString = "https://\(server)/@\(username).rss"
+		}
+		
 		let container = containers[selectedFolderIndex]
 		
 		if let account = container.account {

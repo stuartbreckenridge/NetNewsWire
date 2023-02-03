@@ -28,6 +28,7 @@ struct FeedFolderSelectorView: View {
 					}
 				})
 			}
+			.listStyle(.plain)
 			.navigationBarTitle(Text("navigation.title.select-folder", comment: "Select Folder"))
 			.navigationBarTitleDisplayMode(.inline)
 			.toolbar {

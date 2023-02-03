@@ -923,6 +923,9 @@
 /* Group by Feed */
 "toggle.title.group-by-feed" = "Group by Feed";
 
+/* Include Replies */
+"toggle.title.include-replies" = "Include Replies";
+
 /* New Article Notifications */
 "toggle.title.notify-about-new-articles" = "New Article Notifications";
 
