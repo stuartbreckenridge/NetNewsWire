@@ -58,7 +58,6 @@ class MainFeedCollectionViewController: UICollectionViewController, UndoableComm
 		configureCollectionView()
 		collectionView.dragDelegate = self
 		collectionView.dropDelegate = self
-		
 		becomeFirstResponder()
     }
 	
@@ -188,6 +187,11 @@ class MainFeedCollectionViewController: UICollectionViewController, UndoableComm
 		collectionView.setCollectionViewLayout(layout, animated: false)
 		collectionView.refreshControl = UIRefreshControl()
 		collectionView.refreshControl!.addTarget(self, action: #selector(refreshAccounts(_:)), for: .valueChanged)
+		
+		if config.appearance == .sidebar {
+			// This defrosts the glass.
+			collectionView.backgroundColor = .clear
+		}
 	}
 	
 	@IBAction func settings(_ sender: UIBarButtonItem) {
