@@ -66,11 +66,6 @@ class MainFeedCollectionViewFolderCell: UICollectionViewCell {
 	
 	override func awakeFromNib() {
 		super.awakeFromNib()
-		if UIDevice.current.userInterfaceIdiom == .pad {
-			selectedBackgroundView = CapsuleBackgroundView()
-			selectedBackgroundView?.layoutSubviews()
-			backgroundColor = .clear
-		}
 		disclosureButton.addInteraction(UIPointerInteraction())
 	}
 	
@@ -120,6 +115,14 @@ class MainFeedCollectionViewFolderCell: UICollectionViewCell {
 				return (String(describing: folderTitle.text))
 			}
 		}
+	}
+	
+	override func updateConfiguration(using state: UICellConfigurationState) {
+		var backgroundConfig = UIBackgroundConfiguration.listCell().updated(for: state)
+		 if state.isHighlighted || state.isSelected {
+			 backgroundConfig.backgroundColor = .tertiarySystemFill
+		 }
+		self.backgroundConfiguration = backgroundConfig
 	}
 	
 }

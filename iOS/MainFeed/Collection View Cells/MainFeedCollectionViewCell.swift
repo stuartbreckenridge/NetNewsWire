@@ -11,20 +11,6 @@ import RSCore
 import Account
 import RSTree
 
-class CapsuleBackgroundView: UIView {
-	
-	override func layoutSubviews() {
-		super.layoutSubviews()
-		if UIDevice.current.userInterfaceIdiom == .pad {
-			self.layer.cornerRadius = self.bounds.height / 2
-		} else {
-			self.layer.cornerRadius = 8
-		}
-		
-		self.layer.masksToBounds = true
-	}
-}
-
 
 class MainFeedCollectionViewCell: UICollectionViewCell {
     
@@ -81,10 +67,6 @@ class MainFeedCollectionViewCell: UICollectionViewCell {
 			if UIDevice.current.userInterfaceIdiom == .pad {
 				feedTitle.textColor = isSelected ? AppAssets.primaryAccentColor : .label
 			}
-			selectedBackgroundView?.backgroundColor = isSelected ? .tertiarySystemFill : .clear
-			if UIDevice.current.userInterfaceIdiom == .phone {
-				backgroundColor = isSelected ? .clear : .systemBackground
-			}
 		}
 	}
 	
@@ -104,13 +86,15 @@ class MainFeedCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
 		faviconLeadingConstraint = faviconView.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor)
 		faviconLeadingConstraint?.isActive = true
-		selectedBackgroundView = CapsuleBackgroundView()
-		selectedBackgroundView?.layoutSubviews()
-		if UIDevice.current.userInterfaceIdiom == .pad {
-			backgroundColor = .clear
-		}
-		
     }
+	
+	override func updateConfiguration(using state: UICellConfigurationState) {
+		var backgroundConfig = UIBackgroundConfiguration.listCell().updated(for: state)
+		 if state.isHighlighted || state.isSelected {
+			 backgroundConfig.backgroundColor = .tertiarySystemFill
+		 }
+		self.backgroundConfiguration = backgroundConfig
+	}
 		
 }
 
