@@ -122,6 +122,11 @@ class MainFeedCollectionViewFolderCell: UICollectionViewCell {
 		 if state.isHighlighted || state.isSelected {
 			 backgroundConfig.backgroundColor = .tertiarySystemFill
 		 }
+		
+		if state.cellDropState == .targeted {
+			backgroundConfig.backgroundColor = .tertiarySystemFill
+		}
+		
 		self.backgroundConfiguration = backgroundConfig
 	}
 	
