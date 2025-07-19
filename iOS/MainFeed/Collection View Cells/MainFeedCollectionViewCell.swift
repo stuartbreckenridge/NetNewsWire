@@ -62,14 +62,6 @@ class MainFeedCollectionViewCell: UICollectionViewCell {
 		}
 	}
 	
-	override var isSelected: Bool {
-		didSet {
-			if UIDevice.current.userInterfaceIdiom == .pad {
-				feedTitle.textColor = isSelected ? AppAssets.primaryAccentColor : .label
-			}
-		}
-	}
-	
 	override var accessibilityLabel: String? {
 		set {}
 		get {
@@ -92,6 +84,11 @@ class MainFeedCollectionViewCell: UICollectionViewCell {
 		var backgroundConfig = UIBackgroundConfiguration.listCell().updated(for: state)
 		 if state.isHighlighted || state.isSelected {
 			 backgroundConfig.backgroundColor = .tertiarySystemFill
+			 if UIDevice.current.userInterfaceIdiom == .pad {
+				 feedTitle.textColor = AppAssets.primaryAccentColor
+			 }
+		 } else {
+			 feedTitle.textColor = .label
 		 }
 		self.backgroundConfiguration = backgroundConfig
 	}
