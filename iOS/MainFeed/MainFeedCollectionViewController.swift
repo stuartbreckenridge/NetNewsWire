@@ -324,6 +324,9 @@ class MainFeedCollectionViewController: UICollectionViewController, UndoableComm
 	@objc func collapseSelectedRows(_ sender: Any?) {
 		if let indexPath = coordinator.currentFeedIndexPath, let node = coordinator.nodeFor(indexPath) {
 			coordinator.collapse(node)
+			if let folder = collectionView.cellForItem(at: indexPath) as? MainFeedCollectionViewFolderCell {
+				folder.disclosureExpanded = false
+			}
 		}
 	}
 	
@@ -340,6 +343,9 @@ class MainFeedCollectionViewController: UICollectionViewController, UndoableComm
 	@objc func expandSelectedRows(_ sender: Any?) {
 		if let indexPath = coordinator.currentFeedIndexPath, let node = coordinator.nodeFor(indexPath) {
 			coordinator.expand(node)
+			if let folder = collectionView.cellForItem(at: indexPath) as? MainFeedCollectionViewFolderCell {
+				folder.disclosureExpanded = true
+			}
 		}
 	}
 	
