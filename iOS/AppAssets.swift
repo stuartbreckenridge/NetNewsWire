@@ -238,6 +238,11 @@ struct AppAssets {
 		return UIImage(systemName: "trash")!
 	}()
 	
+	static var unreadCellIndicatorImage: IconImage {
+		let image = UIImage(systemName: "circle.fill")!
+		return IconImage(image, isSymbol: true, isBackgroundSuppressed: true, preferredColor: AppAssets.secondaryAccentColor.cgColor)
+	}
+	
 	static var unreadFeedImage: IconImage {
 		let image = UIImage(systemName: "largecircle.fill.circle")!
 		return IconImage(image, isSymbol: true, isBackgroundSuppressed: true, preferredColor: AppAssets.secondaryAccentColor.cgColor)

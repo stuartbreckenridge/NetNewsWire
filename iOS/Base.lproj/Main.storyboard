@@ -113,9 +113,9 @@
         <!--Timeline-->
         <scene sceneID="fag-XH-avP">
             <objects>
-                <tableViewController storyboardIdentifier="MainTimelineViewController" extendedLayoutIncludesOpaqueBars="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" clearsSelectionOnViewWillAppear="NO" id="Kyk-vK-QRX" customClass="MainTimelineViewController" customModule="NetNewsWire" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="MainTimelineViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" clearsSelectionOnViewWillAppear="NO" id="Kyk-vK-QRX" customClass="MainTimelineViewController" customModule="NetNewsWire" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="mtv-Ik-FoJ">
-                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="712"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
@@ -128,6 +128,131 @@
                                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </tableViewCellContentView>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MainTimelinePseudoFeedCell" rowHeight="54" id="acC-QO-bO5" customClass="MainTimelinePseudoFeedCell" customModule="NetNewsWire" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="258" width="430" height="54"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="acC-QO-bO5" id="tKF-5C-f24">
+                                    <rect key="frame" x="0.0" y="0.0" width="430" height="54"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="baQ-HK-mjy" customClass="IconView" customModule="NetNewsWire" customModuleProvider="target">
+                                            <rect key="frame" x="15" y="15" width="16" height="16"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="16" id="eSR-kk-kKy"/>
+                                                <constraint firstAttribute="width" constant="16" id="igM-mc-fMG"/>
+                                            </constraints>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Article Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wWh-bJ-tNe">
+                                            <rect key="frame" x="83" y="10.999999999999998" width="327" height="20.333333333333329"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="authorByLine" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AM1-9Z-4rU">
+                                            <rect key="frame" x="83" y="31.666666666666668" width="75" height="14.333333333333332"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                            <color key="textColor" systemColor="secondaryLabelColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="articleDate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zdW-7U-Vov">
+                                            <rect key="frame" x="348" y="31.666666666666668" width="62" height="14.333333333333332"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                            <color key="textColor" systemColor="secondaryLabelColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VIg-VB-r3d" customClass="IconView" customModule="NetNewsWire" customModuleProvider="target">
+                                            <rect key="frame" x="39" y="15" width="36" height="36"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="36" id="8pk-qR-n4T"/>
+                                                <constraint firstAttribute="width" constant="36" id="k2d-zu-rpG"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="wWh-bJ-tNe" firstAttribute="top" secondItem="tKF-5C-f24" secondAttribute="top" constant="11" id="1xa-PX-efc"/>
+                                        <constraint firstAttribute="bottom" secondItem="AM1-9Z-4rU" secondAttribute="bottom" constant="8" id="5Zm-sY-KLx"/>
+                                        <constraint firstItem="zdW-7U-Vov" firstAttribute="top" secondItem="wWh-bJ-tNe" secondAttribute="bottom" constant="0.33333333333333925" id="GHm-eI-wjv"/>
+                                        <constraint firstItem="baQ-HK-mjy" firstAttribute="top" secondItem="tKF-5C-f24" secondAttribute="top" constant="15" id="GQP-gB-m22"/>
+                                        <constraint firstItem="AM1-9Z-4rU" firstAttribute="top" secondItem="wWh-bJ-tNe" secondAttribute="bottom" constant="0.33333333333333925" id="LKN-zs-B1j"/>
+                                        <constraint firstAttribute="trailing" secondItem="wWh-bJ-tNe" secondAttribute="trailing" constant="20" symbolic="YES" id="Lce-Ur-NeQ"/>
+                                        <constraint firstItem="VIg-VB-r3d" firstAttribute="leading" secondItem="baQ-HK-mjy" secondAttribute="trailing" constant="8" symbolic="YES" id="NY7-Kg-7tF"/>
+                                        <constraint firstItem="baQ-HK-mjy" firstAttribute="leading" secondItem="tKF-5C-f24" secondAttribute="leading" constant="15" id="VU0-7E-uRF"/>
+                                        <constraint firstAttribute="trailing" secondItem="zdW-7U-Vov" secondAttribute="trailing" constant="20" symbolic="YES" id="X5l-cl-CrO"/>
+                                        <constraint firstAttribute="bottom" secondItem="zdW-7U-Vov" secondAttribute="bottom" constant="8" id="bhT-9V-pcZ"/>
+                                        <constraint firstItem="VIg-VB-r3d" firstAttribute="top" secondItem="tKF-5C-f24" secondAttribute="top" constant="15" id="fX5-pf-fYx"/>
+                                        <constraint firstItem="AM1-9Z-4rU" firstAttribute="leading" secondItem="wWh-bJ-tNe" secondAttribute="leading" id="wCt-Wr-nd0"/>
+                                        <constraint firstItem="wWh-bJ-tNe" firstAttribute="leading" secondItem="VIg-VB-r3d" secondAttribute="trailing" constant="8" symbolic="YES" id="wjw-MH-sjG"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="articleDate" destination="zdW-7U-Vov" id="3j9-9B-VIE"/>
+                                    <outlet property="articleTitle" destination="wWh-bJ-tNe" id="cUY-kU-CQ3"/>
+                                    <outlet property="authorByLine" destination="AM1-9Z-4rU" id="FKG-dK-WxY"/>
+                                    <outlet property="iconView" destination="VIg-VB-r3d" id="LoZ-R6-rpn"/>
+                                    <outlet property="indicatorView" destination="baQ-HK-mjy" id="iu1-af-gy8"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MainTimelineFeedCell" rowHeight="54" id="E5v-5d-bBh" customClass="MainTimelineFeedCell" customModule="NetNewsWire" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="312" width="430" height="54"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="E5v-5d-bBh" id="PcK-FO-XSf">
+                                    <rect key="frame" x="0.0" y="0.0" width="430" height="54"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qJ6-XG-BBa" customClass="IconView" customModule="NetNewsWire" customModuleProvider="target">
+                                            <rect key="frame" x="15" y="15" width="16" height="16"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="16" id="S0e-sB-Htf"/>
+                                                <constraint firstAttribute="height" constant="16" id="Z0W-vW-g5a"/>
+                                            </constraints>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Article Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xIH-Bj-Hfb">
+                                            <rect key="frame" x="39" y="10.999999999999998" width="371" height="20.333333333333329"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="authorByLine" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NA4-5R-bQn">
+                                            <rect key="frame" x="39" y="31.666666666666668" width="75" height="14.333333333333332"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                            <color key="textColor" systemColor="secondaryLabelColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="articleDate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DHe-fL-GeU">
+                                            <rect key="frame" x="348" y="31.666666666666668" width="62" height="14.333333333333332"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                            <color key="textColor" systemColor="secondaryLabelColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="NA4-5R-bQn" firstAttribute="leading" secondItem="xIH-Bj-Hfb" secondAttribute="leading" id="0k9-83-Lag"/>
+                                        <constraint firstItem="qJ6-XG-BBa" firstAttribute="leading" secondItem="PcK-FO-XSf" secondAttribute="leading" constant="15" id="A2s-ne-OZX"/>
+                                        <constraint firstAttribute="bottom" secondItem="NA4-5R-bQn" secondAttribute="bottom" constant="8" id="EpJ-tK-e69"/>
+                                        <constraint firstItem="NA4-5R-bQn" firstAttribute="top" secondItem="xIH-Bj-Hfb" secondAttribute="bottom" constant="0.33333333333341386" id="I4m-vH-L6s"/>
+                                        <constraint firstItem="xIH-Bj-Hfb" firstAttribute="leading" secondItem="qJ6-XG-BBa" secondAttribute="trailing" constant="8" symbolic="YES" id="LBB-sr-Af3"/>
+                                        <constraint firstAttribute="trailing" secondItem="DHe-fL-GeU" secondAttribute="trailing" constant="20" symbolic="YES" id="M3h-0E-ceX"/>
+                                        <constraint firstItem="xIH-Bj-Hfb" firstAttribute="top" secondItem="PcK-FO-XSf" secondAttribute="top" constant="11" id="TCh-kO-fj1"/>
+                                        <constraint firstItem="DHe-fL-GeU" firstAttribute="top" secondItem="xIH-Bj-Hfb" secondAttribute="bottom" constant="0.33333333333341386" id="THL-jG-unK"/>
+                                        <constraint firstAttribute="bottom" secondItem="DHe-fL-GeU" secondAttribute="bottom" constant="7.9999999999999503" id="Vlr-WQ-u9K"/>
+                                        <constraint firstItem="qJ6-XG-BBa" firstAttribute="top" secondItem="PcK-FO-XSf" secondAttribute="top" constant="15" id="gwo-Xi-4nq"/>
+                                        <constraint firstAttribute="trailing" secondItem="xIH-Bj-Hfb" secondAttribute="trailing" constant="20" symbolic="YES" id="vsH-iV-58V"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="articleDate" destination="DHe-fL-GeU" id="i5B-rK-pjA"/>
+                                    <outlet property="articleTitle" destination="xIH-Bj-Hfb" id="pwX-bq-dm2"/>
+                                    <outlet property="authorByLine" destination="NA4-5R-bQn" id="UrT-6t-oUa"/>
+                                    <outlet property="indicatorView" destination="qJ6-XG-BBa" id="9zZ-gh-cFE"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -156,7 +281,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nzm-Gf-Xce" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="451" y="-1124"/>
+            <point key="canvasLocation" x="450.69767441860466" y="-1124.0343347639487"/>
         </scene>
         <!--Root Split View Controller-->
         <scene sceneID="FfI-oe-67h">
@@ -237,12 +362,14 @@
         <!--Feeds-->
         <scene sceneID="NDp-hg-obE">
             <objects>
-                <collectionViewController storyboardIdentifier="MainFeedCollectionViewController" title="Feeds" extendedLayoutIncludesOpaqueBars="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" clearsSelectionOnViewWillAppear="NO" id="6Bn-mF-MPS" customClass="MainFeedCollectionViewController" customModule="NetNewsWire" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="MainFeedCollectionViewController" title="Feeds" useStoryboardIdentifierAsRestorationIdentifier="YES" clearsSelectionOnViewWillAppear="NO" id="6Bn-mF-MPS" customClass="MainFeedCollectionViewController" customModule="NetNewsWire" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" prefetchingEnabled="NO" id="7gd-ro-2Jf">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="contentLayoutGuide" id="tve-qq-SBW"/>
+                        <viewLayoutGuide key="frameLayoutGuide" id="ICZ-mZ-QCD"/>
                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ubr-IF-2WV">
                             <size key="itemSize" width="430" height="54"/>
                             <size key="headerReferenceSize" width="50" height="50"/>
@@ -656,19 +783,19 @@
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="secondaryLabelColor">
-            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="secondarySystemGroupedBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="separatorColor">
-            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.12" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="tertiaryLabelColor">
-            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29803921570000003" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29803921568627451" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
