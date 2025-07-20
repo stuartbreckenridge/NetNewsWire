@@ -30,10 +30,6 @@ class MainTimelinePseudoFeedCell: UITableViewCell {
 		iconView.translatesAutoresizingMaskIntoConstraints = false
 	}
 	
-	override func setSelected(_ selected: Bool, animated: Bool) {
-		super.setSelected(selected, animated: animated)
-	}
-	
 	private func configure(_ cellData: MainTimelineCellData) {
 		updateIndicatorView(cellData)
 		articleTitle.numberOfLines = cellData.numberOfLines

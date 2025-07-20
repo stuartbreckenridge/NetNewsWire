@@ -24,7 +24,14 @@ class MainTimelineFeedCell: UITableViewCell {
 	override func awakeFromNib() {
 		super.awakeFromNib()
 		indicatorView.alpha = 0.0
+		
 	}
+	
+	override func layoutSubviews() {
+		super.layoutSubviews()
+		print(self.configurationState)
+	}
+	
 	
 	
 	private func configure(_ cellData: MainTimelineCellData) {
@@ -96,11 +103,6 @@ class MainTimelineFeedCell: UITableViewCell {
 	
 	override func updateConfiguration(using state: UICellConfigurationState) {
 		super.updateConfiguration(using: state)
-		print("State: \(cellData.title)")
-		print("State: isDisabled: \(state.isDisabled)")
-		print("State: isHighlighted: \(state.isHighlighted)")
-		print("State: isSelected: \(state.isSelected)")
-		print("State: isFocused: \(state.isFocused)")
 		
 		var backgroundConfig = UIBackgroundConfiguration.listCell().updated(for: state)
 		backgroundConfig.cornerRadius = 20
