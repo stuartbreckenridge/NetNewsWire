@@ -55,15 +55,6 @@ class MainFeedCollectionViewFolderCell: UICollectionViewCell {
 		}
 	}
 	
-	override var isSelected: Bool {
-		didSet {
-			if UIDevice.current.userInterfaceIdiom == .pad {
-				folderTitle.textColor = isSelected ? AppAssets.primaryAccentColor : .label
-				selectedBackgroundView?.backgroundColor = isSelected ? .tertiarySystemFill : .clear
-			}
-		}
-	}
-	
 	override func awakeFromNib() {
 		super.awakeFromNib()
 		disclosureButton.addInteraction(UIPointerInteraction())
@@ -119,8 +110,12 @@ class MainFeedCollectionViewFolderCell: UICollectionViewCell {
 	
 	override func updateConfiguration(using state: UICellConfigurationState) {
 		var backgroundConfig = UIBackgroundConfiguration.listCell().updated(for: state)
-		 if state.isHighlighted || state.isSelected {
+		
+		if state.isHighlighted || state.isSelected {
 			 backgroundConfig.backgroundColor = .tertiarySystemFill
+			 if UIDevice.current.userInterfaceIdiom == .pad {
+				 folderTitle.textColor = isSelected ? AppAssets.primaryAccentColor : .label
+			 }
 		 }
 		
 		if state.cellDropState == .targeted {

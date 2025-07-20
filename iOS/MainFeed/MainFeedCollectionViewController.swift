@@ -66,6 +66,14 @@ class MainFeedCollectionViewController: UICollectionViewController, UndoableComm
 		updateUI()
 		super.viewWillAppear(animated)
 		
+		collectionView.refreshControl = UIRefreshControl()
+		collectionView.refreshControl!.addTarget(self, action: #selector(refreshAccounts(_:)), for: .valueChanged)
+		
+	}
+	
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		self.navigationController?.navigationBar.prefersLargeTitles = true
 		if UIDevice.current.userInterfaceIdiom == .phone {
 			if let selected = collectionView.indexPathsForSelectedItems {
 				for indexPath in selected {
@@ -76,15 +84,6 @@ class MainFeedCollectionViewController: UICollectionViewController, UndoableComm
 				}
 			}
 		}
-		
-		collectionView.refreshControl = UIRefreshControl()
-		collectionView.refreshControl!.addTarget(self, action: #selector(refreshAccounts(_:)), for: .valueChanged)
-		
-	}
-	
-	override func viewDidAppear(_ animated: Bool) {
-		super.viewDidAppear(animated)
-		self.navigationController?.navigationBar.prefersLargeTitles = true
 	}
 	
 	func registerForNotifications() {
