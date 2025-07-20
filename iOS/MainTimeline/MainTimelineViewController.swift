@@ -154,9 +154,7 @@ class MainTimelineViewController: UITableViewController, UndoableCommandRunner {
 		
 		// Configure the table
 		tableView.dataSource = dataSource
-		if #available(iOS 15.0, *) {
-			tableView.isPrefetchingEnabled = false
-		}
+		tableView.isPrefetchingEnabled = false
 		numberOfTextLines = AppDefaults.shared.timelineNumberOfLines
 		iconSize = AppDefaults.shared.timelineIconSize
 		resetEstimatedRowHeight()
@@ -179,12 +177,10 @@ class MainTimelineViewController: UITableViewController, UndoableCommandRunner {
 		}
 		
 		// Disable swipe back on iPad Mice
-		if #available(iOS 13.4, *) {
-			guard let gesture = self.navigationController?.interactivePopGestureRecognizer as? UIPanGestureRecognizer else {
-				return
-			}
-			gesture.allowedScrollTypesMask = []
+		guard let gesture = self.navigationController?.interactivePopGestureRecognizer as? UIPanGestureRecognizer else {
+			return
 		}
+		gesture.allowedScrollTypesMask = []
 		
 	}
 	
@@ -197,6 +193,7 @@ class MainTimelineViewController: UITableViewController, UndoableCommandRunner {
 		}
 		
 		super.viewWillAppear(animated)
+		
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
@@ -205,6 +202,14 @@ class MainTimelineViewController: UITableViewController, UndoableCommandRunner {
 		if navigationController?.navigationBar.alpha == 0 {
 			UIView.animate(withDuration: 0.5) {
 				self.navigationController?.navigationBar.alpha = 1
+			}
+		}
+		if UIDevice.current.userInterfaceIdiom == .phone {
+			if let _ = coordinator?.currentArticle {
+				if let indexPath = tableView.indexPathForSelectedRow {
+					tableView.deselectRow(at: indexPath, animated: true)
+				}
+				coordinator?.selectArticle(nil)
 			}
 		}
 	}
@@ -536,8 +541,13 @@ class MainTimelineViewController: UITableViewController, UndoableCommandRunner {
 
 		for article in visibleUpdatedArticles {
 			if let indexPath = dataSource.indexPath(for: article) {
-				if let cell = tableView.cellForRow(at: indexPath) as? MainTimelineTableViewCell {
-					configure(cell, article: article)
+				if let cell = tableView.cellForRow(at: indexPath) as? MainTimelinePseudoFeedCell {
+					let cellData = configure(article: article)
+					cell.cellData = cellData
+				}
+				if let cell = tableView.cellForRow(at: indexPath) as? MainTimelineFeedCell {
+					let cellData = configure(article: article)
+					cell.cellData = cellData
 				}
 			}
 		}
@@ -556,8 +566,10 @@ class MainTimelineViewController: UITableViewController, UndoableCommandRunner {
 			guard let article = dataSource.itemIdentifier(for: indexPath) else {
 				return
 			}
-			if article.webFeed == feed, let cell = tableView.cellForRow(at: indexPath) as? MainTimelineTableViewCell, let image = iconImageFor(article) {
-				cell.setIconImage(image)
+			if article.webFeed == feed {
+				if let cell = tableView.cellForRow(at: indexPath) as? MainTimelinePseudoFeedCell, let image = iconImageFor(article) {
+					cell.setIconImage(image)
+				}
 			}
 		}
 	}
@@ -737,8 +749,10 @@ private extension MainTimelineViewController {
 		switch timelineDefaultReadFilterType {
 		case .none, .read:
 			navigationItem.rightBarButtonItem = filterButton
+			navigationItem.rightBarButtonItem?.isEnabled = true
 		case .alwaysRead:
-			navigationItem.rightBarButtonItem = nil
+			navigationItem.rightBarButtonItem = filterButton
+			navigationItem.rightBarButtonItem?.isEnabled = false
 		}
 		
 		if isReadArticlesFiltered {
@@ -807,22 +821,29 @@ private extension MainTimelineViewController {
 	func makeDataSource() -> UITableViewDiffableDataSource<Int, Article> {
 		let dataSource: UITableViewDiffableDataSource<Int, Article> =
 			MainTimelineDataSource(tableView: tableView, cellProvider: { [weak self] tableView, indexPath, article in
-				let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MainTimelineTableViewCell
-				self?.configure(cell, article: article)
-				return cell
+				let cellData = self!.configure(article: article)
+				if cellData.showIcon {
+					let cell = tableView.dequeueReusableCell(withIdentifier: "MainTimelinePseudoFeedCell", for: indexPath) as! MainTimelinePseudoFeedCell
+					cell.cellData = cellData
+					return cell
+				} else {
+					let cell = tableView.dequeueReusableCell(withIdentifier: "MainTimelineFeedCell", for: indexPath) as! MainTimelineFeedCell
+					cell.cellData = cellData
+					return cell
+				}
+				
 			})
 		dataSource.defaultRowAnimation = .middle
 		return dataSource
     }
 	
-	func configure(_ cell: MainTimelineTableViewCell, article: Article) {
-
+	@discardableResult
+	func configure(article: Article) -> MainTimelineCellData {
 		let iconImage = iconImageFor(article)
-
 		let showFeedNames = coordinator?.showFeedNames ?? ShowFeedName.none
 		let showIcon = showIcons && iconImage != nil
-		cell.cellData = MainTimelineCellData(article: article, showFeedName: showFeedNames, feedName: article.webFeed?.nameForDisplay, byline: article.byline(), iconImage: iconImage, showIcon: showIcon, numberOfLines: numberOfTextLines, iconSize: iconSize)
-
+		let cellData = MainTimelineCellData(article: article, showFeedName: showFeedNames, feedName: article.webFeed?.nameForDisplay, byline: article.byline(), iconImage: iconImage, showIcon: showIcon, numberOfLines: numberOfTextLines, iconSize: iconSize)
+		return cellData
 	}
 	
 	func iconImageFor(_ article: Article) -> IconImage? {

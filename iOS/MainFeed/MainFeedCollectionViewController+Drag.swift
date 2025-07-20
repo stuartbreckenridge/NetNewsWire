@@ -35,15 +35,6 @@ extension MainFeedCollectionViewController: UICollectionViewDragDelegate {
 		return [dragItem]
 	}
 	
-	func collectionView(_ collectionView: UICollectionView, dragPreviewParametersForItemAt indexPath: IndexPath) -> UIDragPreviewParameters? {
-		let parameters = UIDragPreviewParameters()
-		if UIDevice.current.userInterfaceIdiom == .pad, let cell = collectionView.cellForItem(at: indexPath) {
-			let bounds = cell.bounds
-			let capsulePath = UIBezierPath(roundedRect: bounds, cornerRadius: bounds.height / 2)
-			parameters.visiblePath = capsulePath
-		}
-		parameters.backgroundColor = .clear
-		return parameters
-	}
+
 	
 }
