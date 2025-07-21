@@ -77,7 +77,7 @@ class MainFeedCollectionViewController: UICollectionViewController, UndoableComm
 		if UIDevice.current.userInterfaceIdiom == .phone {
 			if let selected = collectionView.indexPathsForSelectedItems {
 				for indexPath in selected {
-					DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: { [weak self] in
+					DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: { [weak self] in
 						self?.collectionView.deselectItem(at: indexPath, animated: true)
 						self?.coordinator.selectFeed(nil)
 					})
@@ -112,25 +112,29 @@ class MainFeedCollectionViewController: UICollectionViewController, UndoableComm
 			
 			// Set up the delete action
 			let deleteTitle = NSLocalizedString("Delete", comment: "Delete")
-			let deleteAction = UIContextualAction(style: .destructive, title: deleteTitle) { [weak self] (action, view, completion) in
+			let deleteAction = UIContextualAction(style: .destructive, title: nil) { [weak self] (action, view, completion) in
 				self?.delete(indexPath: indexPath)
 				completion(true)
 			}
+			deleteAction.image = UIImage(systemName: "trash")
+			deleteAction.accessibilityLabel = deleteTitle
 			deleteAction.backgroundColor = UIColor.systemRed
 			actions.append(deleteAction)
 			
 			// Set up the rename action
 			let renameTitle = NSLocalizedString("Rename", comment: "Rename")
-			let renameAction = UIContextualAction(style: .normal, title: renameTitle) { [weak self] (action, view, completion) in
+			let renameAction = UIContextualAction(style: .normal, title: nil) { [weak self] (action, view, completion) in
 				self?.rename(indexPath: indexPath)
 				completion(true)
 			}
 			renameAction.backgroundColor = UIColor.systemOrange
+			renameAction.image = UIImage(systemName: "pencil")
+			renameAction.accessibilityLabel = renameTitle
 			actions.append(renameAction)
 			
 			if let webFeed = coordinator.nodeFor(indexPath)?.representedObject as? WebFeed {
 				let moreTitle = NSLocalizedString("More", comment: "More")
-				let moreAction = UIContextualAction(style: .normal, title: moreTitle) { [weak self] (action, view, completion) in
+				let moreAction = UIContextualAction(style: .normal, title: nil) { [weak self] (action, view, completion) in
 					
 					if let self = self {
 					
@@ -172,6 +176,8 @@ class MainFeedCollectionViewController: UICollectionViewController, UndoableComm
 				}
 				
 				moreAction.backgroundColor = UIColor.systemGray
+				moreAction.image = UIImage(systemName: "ellipsis")
+				moreAction.accessibilityLabel = moreTitle
 				actions.append(moreAction)
 			}
 

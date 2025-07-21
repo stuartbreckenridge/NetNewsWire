@@ -24,15 +24,7 @@ class MainTimelineFeedCell: UITableViewCell {
 	override func awakeFromNib() {
 		super.awakeFromNib()
 		indicatorView.alpha = 0.0
-		
 	}
-	
-	override func layoutSubviews() {
-		super.layoutSubviews()
-		print(self.configurationState)
-	}
-	
-	
 	
 	private func configure(_ cellData: MainTimelineCellData) {
 		updateIndicatorView(cellData)
@@ -80,7 +72,7 @@ class MainTimelineFeedCell: UITableViewCell {
 	
 	private func applyTitleTextWithAttributes(_ state: UICellConfigurationState) {
 		let attributedCellText = NSMutableAttributedString()
-		let isSelected = state.isSelected || state.isHighlighted || state.isFocused
+		let isSelected = state.isSelected || state.isHighlighted || state.isFocused || state.isSwiped
 		if cellData.title != "" {
 			let titleAttributes: [NSAttributedString.Key: Any] = [
 				.font: UIFont.preferredFont(forTextStyle: .headline),
@@ -106,8 +98,12 @@ class MainTimelineFeedCell: UITableViewCell {
 		
 		var backgroundConfig = UIBackgroundConfiguration.listCell().updated(for: state)
 		backgroundConfig.cornerRadius = 20
+		if UIDevice.current.userInterfaceIdiom == .pad {
+			backgroundConfig.edgesAddingLayoutMarginsToBackgroundInsets = [.leading, .trailing]
+			backgroundConfig.backgroundInsets = NSDirectionalEdgeInsets(top: 0, leading: -8, bottom: 0, trailing: -8)
+		}
 		
-		if state.isSelected || state.isHighlighted || state.isFocused {
+		if state.isSelected || state.isHighlighted || state.isFocused || state.isSwiped {
 			backgroundConfig.backgroundColor = AppAssets.primaryAccentColor
 			applyTitleTextWithAttributes(state)
 			articleDate.textColor = .lightText

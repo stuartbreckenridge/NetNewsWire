@@ -82,13 +82,19 @@ class MainFeedCollectionViewCell: UICollectionViewCell {
 	
 	override func updateConfiguration(using state: UICellConfigurationState) {
 		var backgroundConfig = UIBackgroundConfiguration.listCell().updated(for: state)
-		 if state.isHighlighted || state.isSelected {
-			 backgroundConfig.backgroundColor = .tertiarySystemFill
-			 if UIDevice.current.userInterfaceIdiom == .pad {
-				 feedTitle.textColor = AppAssets.primaryAccentColor
-			 }
+		if state.isHighlighted || state.isSelected || state.isFocused {
+			if UIDevice.current.userInterfaceIdiom == .pad {
+				backgroundConfig.backgroundColor = .tertiarySystemFill
+				feedTitle.textColor = AppAssets.primaryAccentColor
+			}
+			if UIDevice.current.userInterfaceIdiom == .phone {
+				backgroundConfig.backgroundColor = AppAssets.primaryAccentColor
+				feedTitle.textColor = .white
+				unreadCountLabel.textColor = .lightText
+			}
 		 } else {
 			 feedTitle.textColor = .label
+			 unreadCountLabel.textColor = .secondaryLabel
 		 }
 		self.backgroundConfiguration = backgroundConfig
 	}

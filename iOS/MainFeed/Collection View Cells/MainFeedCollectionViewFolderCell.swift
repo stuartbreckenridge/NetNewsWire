@@ -111,12 +111,21 @@ class MainFeedCollectionViewFolderCell: UICollectionViewCell {
 	override func updateConfiguration(using state: UICellConfigurationState) {
 		var backgroundConfig = UIBackgroundConfiguration.listCell().updated(for: state)
 		
-		if state.isHighlighted || state.isSelected {
-			 backgroundConfig.backgroundColor = .tertiarySystemFill
-			 if UIDevice.current.userInterfaceIdiom == .pad {
-				 folderTitle.textColor = isSelected ? AppAssets.primaryAccentColor : .label
-			 }
-		 }
+		if state.isHighlighted || state.isSelected || state.isFocused {
+			if UIDevice.current.userInterfaceIdiom == .pad {
+				backgroundConfig.backgroundColor = .tertiarySystemFill
+				folderTitle.textColor = AppAssets.primaryAccentColor
+			}
+			if UIDevice.current.userInterfaceIdiom == .phone {
+				backgroundConfig.backgroundColor = AppAssets.primaryAccentColor
+				folderTitle.textColor = .white
+				unreadCountLabel.textColor = .lightText
+				faviconView.tintColor = .white
+			}
+		} else {
+			folderTitle.textColor = .label
+			faviconView.tintColor = AppAssets.primaryAccentColor
+		}
 		
 		if state.cellDropState == .targeted {
 			backgroundConfig.backgroundColor = .tertiarySystemFill

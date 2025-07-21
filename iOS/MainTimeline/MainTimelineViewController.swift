@@ -155,6 +155,7 @@ class MainTimelineViewController: UITableViewController, UndoableCommandRunner {
 		// Configure the table
 		tableView.dataSource = dataSource
 		tableView.isPrefetchingEnabled = false
+		
 		numberOfTextLines = AppDefaults.shared.timelineNumberOfLines
 		iconSize = AppDefaults.shared.timelineIconSize
 		resetEstimatedRowHeight()
@@ -721,7 +722,7 @@ private extension MainTimelineViewController {
 	}
 
 	func resetUI(resetScroll: Bool) {
-		
+		tableView.reloadData() 
 		title = timelineFeed?.nameForDisplay ?? "Timeline"
 
 		if let titleView = navigationItem.titleView as? MainTimelineTitleView {
@@ -822,7 +823,7 @@ private extension MainTimelineViewController {
 		let dataSource: UITableViewDiffableDataSource<Int, Article> =
 			MainTimelineDataSource(tableView: tableView, cellProvider: { [weak self] tableView, indexPath, article in
 				let cellData = self!.configure(article: article)
-				if cellData.showIcon {
+				if self!.showIcons {
 					let cell = tableView.dequeueReusableCell(withIdentifier: "MainTimelinePseudoFeedCell", for: indexPath) as! MainTimelinePseudoFeedCell
 					cell.cellData = cellData
 					return cell
