@@ -148,7 +148,7 @@
                                             <color key="textColor" systemColor="secondaryLabelColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="articleDate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zdW-7U-Vov">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="articleDate" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zdW-7U-Vov">
                                             <rect key="frame" x="348" y="31.666666666666668" width="62" height="14.333333333333332"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                             <color key="textColor" systemColor="secondaryLabelColor"/>
@@ -184,6 +184,7 @@
                                         <constraint firstItem="00z-4G-APw" firstAttribute="bottom" secondItem="AM1-9Z-4rU" secondAttribute="bottom" constant="7.9999999999999503" id="WDI-qK-u5x"/>
                                         <constraint firstItem="00z-4G-APw" firstAttribute="bottom" secondItem="zdW-7U-Vov" secondAttribute="bottom" constant="7.9999999999999503" id="Wpe-90-LBv"/>
                                         <constraint firstItem="VIg-VB-r3d" firstAttribute="top" secondItem="tKF-5C-f24" secondAttribute="top" constant="15" id="fX5-pf-fYx"/>
+                                        <constraint firstItem="00z-4G-APw" firstAttribute="trailing" secondItem="zdW-7U-Vov" secondAttribute="trailing" constant="20" id="hLC-Kc-5p6"/>
                                         <constraint firstItem="baQ-HK-mjy" firstAttribute="top" secondItem="00z-4G-APw" secondAttribute="top" constant="11" id="koo-1l-nsf"/>
                                         <constraint firstItem="AM1-9Z-4rU" firstAttribute="leading" secondItem="wWh-bJ-tNe" secondAttribute="leading" id="wCt-Wr-nd0"/>
                                         <constraint firstItem="wWh-bJ-tNe" firstAttribute="leading" secondItem="VIg-VB-r3d" secondAttribute="trailing" constant="8" symbolic="YES" id="wjw-MH-sjG"/>
@@ -225,7 +226,7 @@
                                             <color key="textColor" systemColor="secondaryLabelColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="articleDate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DHe-fL-GeU">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="articleDate" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DHe-fL-GeU">
                                             <rect key="frame" x="348" y="31.666666666666668" width="62" height="14.333333333333332"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                             <color key="textColor" systemColor="secondaryLabelColor"/>
