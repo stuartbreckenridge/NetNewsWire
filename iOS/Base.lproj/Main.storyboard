@@ -153,7 +153,7 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="baQ-HK-mjy" customClass="IconView" customModule="NetNewsWire" customModuleProvider="target">
-                                            <rect key="frame" x="20" y="11" width="16" height="16"/>
+                                            <rect key="frame" x="20" y="15" width="16" height="16"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="16" id="eSR-kk-kKy"/>
@@ -192,7 +192,7 @@
                                         <constraint firstItem="00z-4G-APw" firstAttribute="trailing" secondItem="ESv-eQ-b8X" secondAttribute="trailing" constant="20" id="WOi-Ux-1J5"/>
                                         <constraint firstItem="00z-4G-APw" firstAttribute="bottom" secondItem="ESv-eQ-b8X" secondAttribute="bottom" constant="8" id="arj-Vg-UZ3"/>
                                         <constraint firstItem="VIg-VB-r3d" firstAttribute="top" secondItem="tKF-5C-f24" secondAttribute="top" constant="15" id="fX5-pf-fYx"/>
-                                        <constraint firstItem="baQ-HK-mjy" firstAttribute="top" secondItem="00z-4G-APw" secondAttribute="top" constant="11" id="koo-1l-nsf"/>
+                                        <constraint firstItem="baQ-HK-mjy" firstAttribute="top" secondItem="00z-4G-APw" secondAttribute="top" constant="15" id="koo-1l-nsf"/>
                                         <constraint firstItem="ESv-eQ-b8X" firstAttribute="top" secondItem="wWh-bJ-tNe" secondAttribute="bottom" constant="1.0000000000000142" id="qDB-Rk-dHi"/>
                                         <constraint firstItem="wWh-bJ-tNe" firstAttribute="leading" secondItem="VIg-VB-r3d" secondAttribute="trailing" constant="8" symbolic="YES" id="wjw-MH-sjG"/>
                                     </constraints>

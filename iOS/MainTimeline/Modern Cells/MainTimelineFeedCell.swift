@@ -19,6 +19,7 @@ class MainTimelineFeedCell: UITableViewCell {
 	var cellData: MainTimelineCellData! {
 		didSet {
 			configure(cellData)
+			configureStackView()
 		}
 	}
 	
@@ -39,6 +40,7 @@ class MainTimelineFeedCell: UITableViewCell {
 			metaDataStackView.alignment = .center
 			metaDataStackView.distribution = .fillEqually
 		}
+		setNeedsLayout()
 	}
 	
 	private func configure(_ cellData: MainTimelineCellData) {

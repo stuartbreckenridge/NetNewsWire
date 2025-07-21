@@ -43,6 +43,7 @@ class MainTimelinePseudoFeedCell: UITableViewCell {
 			metaDataStackView.alignment = .center
 			metaDataStackView.distribution = .fillEqually
 		}
+		setNeedsLayout()
 	}
 	
 	
