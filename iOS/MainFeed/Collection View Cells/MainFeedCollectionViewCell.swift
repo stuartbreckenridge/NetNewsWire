@@ -91,10 +91,23 @@ class MainFeedCollectionViewCell: UICollectionViewCell {
 				backgroundConfig.backgroundColor = AppAssets.primaryAccentColor
 				feedTitle.textColor = .white
 				unreadCountLabel.textColor = .lightText
+				if feedTitle.text == "All Unread" {
+					faviconView.tintColor = .white
+				}
 			}
+			
 		 } else {
 			 feedTitle.textColor = .label
 			 unreadCountLabel.textColor = .secondaryLabel
+			 if UIDevice.current.userInterfaceIdiom == .phone {
+				 if feedTitle.text == "All Unread" {
+					 if let preferredColor = iconImage?.preferredColor {
+						 faviconView.tintColor = UIColor(cgColor: preferredColor)
+					 } else {
+						 faviconView.tintColor = AppAssets.secondaryAccentColor
+					 }
+				 }
+			 }
 		 }
 		self.backgroundConfiguration = backgroundConfig
 	}
