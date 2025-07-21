@@ -17,6 +17,7 @@ class MainTimelinePseudoFeedCell: UITableViewCell {
 	@IBOutlet weak var iconView: IconView!
 	@IBOutlet weak var indicatorView: IconView!
 	@IBOutlet weak var articleDate: UILabel!
+	@IBOutlet weak var metaDataStackView: UIStackView!
 	
 	var cellData: MainTimelineCellData! {
 		didSet {
@@ -28,7 +29,22 @@ class MainTimelinePseudoFeedCell: UITableViewCell {
 		super.awakeFromNib()
 		indicatorView.alpha = 0.0
 		iconView.translatesAutoresizingMaskIntoConstraints = false
+		configureStackView()
 	}
+	
+	private func configureStackView() {
+		switch traitCollection.preferredContentSizeCategory {
+		case .accessibilityMedium, .accessibilityLarge, .accessibilityExtraLarge, .accessibilityExtraExtraLarge, .accessibilityExtraExtraExtraLarge:
+			metaDataStackView.axis = .vertical
+			metaDataStackView.alignment = .leading
+			metaDataStackView.distribution = .fillEqually
+		default:
+			metaDataStackView.axis = .horizontal
+			metaDataStackView.alignment = .center
+			metaDataStackView.distribution = .fillEqually
+		}
+	}
+	
 	
 	private func configure(_ cellData: MainTimelineCellData) {
 		updateIndicatorView(cellData)
