@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Localizations
 
 enum FeedlyAccountDelegateError: LocalizedError {
 	case notLoggedIn
@@ -23,41 +24,41 @@ enum FeedlyAccountDelegateError: LocalizedError {
 	var errorDescription: String? {
 		switch self {
 		case .notLoggedIn:
-			return NSLocalizedString("Please add the Feedly account again. If this problem persists, open Keychain Access and delete all feedly.com entries, then try again.", comment: "Feedly – Credentials not found.")
+			return Localizations.labelTextPleaseAddTheFeedlyAccountAgainIfThisProblemPersistsOpenKeychainAccessAndDeleteAllFeedlyComEntriesThenTryAgain
 
 		case .unexpectedResourceID(let resourceId):
-			let template = NSLocalizedString("Could not encode the identifier “%@”.", comment: "Feedly – Could not encode resource id to send to Feedly.")
+			let template = Localizations.labelTextCouldNotEncodeTheIdentifier
 			return String(format: template, resourceId)
 
 		case .unableToAddFolder(let name):
-			let template = NSLocalizedString("Could not create a folder named “%@”.", comment: "Feedly – Could not create a folder/collection.")
+			let template = Localizations.labelTextCouldNotCreateAFolderNamed
 			return String(format: template, name)
 
 		case .unableToRenameFolder(let from, let to):
-			let template = NSLocalizedString("Could not rename “%@” to “%@”.", comment: "Feedly – Could not rename a folder/collection.")
+			let template = Localizations.labelTextCouldNotRenameTo
 			return String(format: template, from, to)
 
 		case .unableToRemoveFolder(let name):
-			let template = NSLocalizedString("Could not remove the folder named “%@”.", comment: "Feedly – Could not remove a folder/collection.")
+			let template = Localizations.labelTextCouldNotRemoveTheFolderNamed
 			return String(format: template, name)
 
 		case .unableToMoveFeedBetweenFolders(let feedName, _, let destinationFolderName):
-			let template = NSLocalizedString("Could not move “%@” to “%@”.", comment: "Feedly – Could not move a feed between folders/collections.")
+			let template = Localizations.labelTextCouldNotMoveTo
 			return String(format: template, feedName, destinationFolderName)
 
 		case .addFeedChooseFolder:
-			return NSLocalizedString("Please choose a folder to contain the feed.", comment: "Feedly – Feed can only be added to folders.")
+			return Localizations.labelTextPleaseChooseAFolderToContainTheFeed
 
 		case .addFeedInvalidFolder(let folderName):
-			let template = NSLocalizedString("Feeds cannot be added to the “%@” folder.", comment: "Feedly – Feed can only be added to folders.")
+			let template = Localizations.labelTextFeedsCannotBeAddedToTheFolder
 			return String(format: template, folderName)
 
 		case .unableToRenameFeed(let from, let to):
-			let template = NSLocalizedString("Could not rename “%@” to “%@”.", comment: "Feedly – Could not rename a feed.")
+			let template = Localizations.labelTextCouldNotRenameTo
 			return String(format: template, from, to)
 
 		case .unableToRemoveFeed(let feedName):
-			let template = NSLocalizedString("Could not remove “%@”.", comment: "Feedly – Could not remove a feed.")
+			let template = Localizations.labelTextCouldNotRemove
 			return String(format: template, feedName)
 		}
 	}
@@ -68,7 +69,7 @@ enum FeedlyAccountDelegateError: LocalizedError {
 			return nil
 
 		case .unexpectedResourceID:
-			let template = NSLocalizedString("Please contact NetNewsWire support.", comment: "Feedly – Recovery suggestion for not being able to encode a resource id to send to Feedly..")
+			let template = Localizations.labelTextPleaseContactNetnewswireSupport
 			return String(format: template)
 
 		case .unableToAddFolder:
@@ -81,14 +82,14 @@ enum FeedlyAccountDelegateError: LocalizedError {
 			return nil
 
 		case .unableToMoveFeedBetweenFolders(let feedName, let sourceFolderName, let destinationFolderName):
-			let template = NSLocalizedString("“%@” may be in both “%@” and “%@”.", comment: "Feedly – Could not move a feed between folders/collections.")
+			let template = Localizations.labelTextMayBeInBothAnd
 			return String(format: template, feedName, sourceFolderName, destinationFolderName)
 
 		case .addFeedChooseFolder:
 			return nil
 
 		case .addFeedInvalidFolder:
-			return NSLocalizedString("Please choose a different folder to contain the feed.", comment: "Feedly – Feed can only be added to folders recovery suggestion.")
+			return Localizations.labelTextPleaseChooseADifferentFolderToContainTheFeed
 
 		case .unableToRemoveFeed:
 			return nil

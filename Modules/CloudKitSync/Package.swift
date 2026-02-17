@@ -11,13 +11,15 @@ let package = Package(
 		)
 	],
 	dependencies: [
-		.package(path: "../RSCore")
+		.package(path: "../RSCore"),
+		.package(path: "../Localizations")
 	],
 	targets: [
 		.target(
 			name: "CloudKitSync",
 			dependencies: [
-				"RSCore"
+				"RSCore",
+				"Localizations"
 			],
 			swiftSettings: [
 				.enableUpcomingFeature("NonisolatedNonsendingByDefault"),

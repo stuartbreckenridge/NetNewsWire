@@ -11,6 +11,7 @@ import RSCore
 import Articles
 import RSWeb
 import Account
+import Localizations
 
 final class SidebarStatusBarView: NSView {
 	@IBOutlet var progressIndicator: NSProgressIndicator!
@@ -127,7 +128,7 @@ private extension SidebarStatusBarView {
 			return
 		}
 
-		let formatString = NSLocalizedString("%@ of %@", comment: "Status bar progress")
+		let formatString = Localizations.labelTextOf
 		let s = String(format: formatString, NSNumber(value: progressInfo.numberCompleted), NSNumber(value: progressInfo.numberOfTasks))
 
 		progressLabel.stringValue = s

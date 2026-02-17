@@ -8,10 +8,11 @@
 
 import UIKit
 import Articles
+import Localizations
 
 @MainActor struct MainTimelineCellData {
 
-	private static let noText = NSLocalizedString("(No Text)", comment: "No Text")
+	private static let noText = Localizations.labelTextNoText
 
 	let title: String
 	let attributedTitle: NSAttributedString

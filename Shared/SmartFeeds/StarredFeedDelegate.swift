@@ -11,6 +11,7 @@ import RSCore
 import Articles
 import ArticlesDatabase
 import Account
+import Localizations
 
 @MainActor struct StarredFeedDelegate: SmartFeedDelegate {
 
@@ -18,7 +19,7 @@ import Account
 		return SidebarItemIdentifier.smartFeed(String(describing: StarredFeedDelegate.self))
 	}
 
-	let nameForDisplay = NSLocalizedString("Starred", comment: "Starred pseudo-feed title")
+	let nameForDisplay = Localizations.labelTextStarred
 	let fetchType: FetchType = .starred(nil)
 	var smallIcon: IconImage? {
 		Assets.Images.starredFeed

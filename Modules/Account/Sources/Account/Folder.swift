@@ -9,6 +9,7 @@
 import Foundation
 import Articles
 import RSCore
+import Localizations
 
 public final class Folder: SidebarItem, Renamable, Container, Hashable {
 	nonisolated public let accountID: String
@@ -35,7 +36,7 @@ public final class Folder: SidebarItem, Renamable, Container, Hashable {
 		}
 	}
 
-	static let untitledName = NSLocalizedString("Untitled ƒ", comment: "Folder name")
+	static let untitledName = Localizations.labelTextUntitled2
 	nonisolated public let folderID: Int // not saved: per-run only
 	public var externalID: String?
 	static var incrementingID = 0

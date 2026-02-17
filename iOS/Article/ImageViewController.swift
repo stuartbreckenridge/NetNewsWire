@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Localizations
 
 final class ImageViewController: UIViewController {
 	@IBOutlet var closeButton: UIButton!
@@ -26,7 +27,7 @@ final class ImageViewController: UIViewController {
 	override var keyCommands: [UIKeyCommand]? {
 		return [
 			UIKeyCommand(
-				title: NSLocalizedString("Close Image", comment: "Close Image"),
+				title: Localizations.labelTextCloseImage,
 				action: #selector(done(_:)),
 				input: " "
 			)
@@ -37,8 +38,8 @@ final class ImageViewController: UIViewController {
         super.viewDidLoad()
 
 		closeButton.imageView?.contentMode = .scaleAspectFit
-		closeButton.accessibilityLabel = NSLocalizedString("Close", comment: "Close")
-		shareButton.accessibilityLabel = NSLocalizedString("Share", comment: "Share")
+		closeButton.accessibilityLabel = Localizations.labelTextClose
+		shareButton.accessibilityLabel = Localizations.labelTextShare
 
         imageScrollView.setup()
         imageScrollView.imageScrollViewDelegate = self

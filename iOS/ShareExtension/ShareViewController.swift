@@ -14,6 +14,7 @@ import Social
 import Account
 import RSCore
 import RSTree
+import Localizations
 
 final class ShareViewController: SLComposeServiceViewController, ShareFolderPickerControllerDelegate {
 	private var extensionContainers: ExtensionContainers?
@@ -151,7 +152,7 @@ final class ShareViewController: SLComposeServiceViewController, ShareFolderPick
 
 			let folderPickerController = ShareFolderPickerController()
 
-			folderPickerController.navigationController?.title = NSLocalizedString("Folder", comment: "Folder")
+			folderPickerController.navigationController?.title = Localizations.labelTextFolder
 			folderPickerController.delegate = self
 			folderPickerController.containers = self.flattenedContainers
 			folderPickerController.selectedContainerID = self.selectedContainer?.containerID

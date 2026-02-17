@@ -9,6 +9,7 @@
 
 #if os(macOS)
 import AppKit
+import Localizations
 
 @MainActor public final class RSAppMovementMonitor: NSObject {
 
@@ -46,11 +47,11 @@ import AppKit
 		self.appTrackingURL = (Bundle.main.bundleURL as NSURL).fileReferenceURL() as NSURL?
 		self.originalAppURL = appTrackingURL?.absoluteURL
 
-		let appName = Bundle.main.infoDictionary?[kCFBundleNameKey as String] as? String ?? NSLocalizedString("This app", comment: "Backup name if the app name cannot be deduced from the bundle")
-		let informativeTextTemplate = NSLocalizedString("%@ was moved or renamed while open.", comment: "Message text for app moved while running alert")
+		let appName = Bundle.main.infoDictionary?[kCFBundleNameKey as String] as? String ?? Localizations.labelTextThisApp
+		let informativeTextTemplate = Localizations.labelTextWasMovedOrRenamedWhileOpen
 		self.alertMessageText = String(format: informativeTextTemplate, arguments: [appName])
-		self.alertInformativeText = NSLocalizedString("Moving an open application can cause unexpected behavior. Relaunch the application to continue.", comment: "Informative text for app moved while running alert")
-		self.alertRelaunchButtonText = NSLocalizedString("Relaunch", comment: "Relaunch Button")
+		self.alertInformativeText = Localizations.labelTextMovingAnOpenApplicationCanCauseUnexpectedBehaviorRelaunchTheApplicationToContinue
+		self.alertRelaunchButtonText = Localizations.labelTextRelaunch
 
 		super.init()
 

@@ -17,6 +17,7 @@ import RSWeb
 import Secrets
 import CrashReporter
 import Sparkle
+import Localizations
 
 let appName = "NetNewsWire"
 
@@ -530,7 +531,7 @@ let appName = "NetNewsWire"
 	@IBAction func showKeyboardShortcutsWindow(_ sender: Any?) {
 		if keyboardShortcutsWindowController == nil {
 
-			keyboardShortcutsWindowController = WebViewWindowController(title: NSLocalizedString("Keyboard Shortcuts", comment: "window title"))
+			keyboardShortcutsWindowController = WebViewWindowController(title: Localizations.labelTextKeyboardShortcuts)
 			let htmlFile = Bundle(for: type(of: self)).path(forResource: "KeyboardShortcuts", ofType: "html")!
 			keyboardShortcutsWindowController?.displayContents(of: htmlFile)
 
@@ -770,7 +771,7 @@ extension AppDelegate {
 			let alert = NSAlert()
 			alert.alertStyle = .informational
 
-			let localizedMessageText = NSLocalizedString("Install theme “%@” by %@?", comment: "Theme message text")
+			let localizedMessageText = Localizations.labelTextInstallThemeBy
 			alert.messageText = NSString.localizedStringWithFormat(localizedMessageText as NSString, theme.name, theme.creatorName) as String
 
 			var attrs = [NSAttributedString.Key: Any]()
@@ -782,7 +783,7 @@ extension AppDelegate {
 			attrs[.paragraphStyle] = titleParagraphStyle
 
 			let websiteText = NSMutableAttributedString()
-			websiteText.append(NSAttributedString(string: NSLocalizedString("Author‘s website:", comment: "Author's Website"), attributes: attrs))
+			websiteText.append(NSAttributedString(string: Localizations.labelTextAuthorsWebsite, attributes: attrs))
 
 			websiteText.append(NSAttributedString(string: "\n"))
 
@@ -798,8 +799,8 @@ extension AppDelegate {
 			textView.textStorage?.setAttributedString(websiteText)
 			alert.accessoryView = textView
 
-			alert.addButton(withTitle: NSLocalizedString("Install Theme", comment: "Install Theme"))
-			alert.addButton(withTitle: NSLocalizedString("Cancel", comment: "Cancel Install Theme"))
+			alert.addButton(withTitle: Localizations.labelTextInstallTheme)
+			alert.addButton(withTitle: Localizations.labelTextCancel)
 
 			func importTheme() {
 				do {
@@ -817,11 +818,11 @@ extension AppDelegate {
 						let alert = NSAlert()
 						alert.alertStyle = .warning
 
-						let localizedMessageText = NSLocalizedString("The theme “%@” already exists. Overwrite it?", comment: "Overwrite theme")
+						let localizedMessageText = Localizations.labelTextTheThemeAlreadyExistsOverwriteIt
 						alert.messageText = NSString.localizedStringWithFormat(localizedMessageText as NSString, theme.name) as String
 
-						alert.addButton(withTitle: NSLocalizedString("Overwrite", comment: "Overwrite"))
-						alert.addButton(withTitle: NSLocalizedString("Cancel", comment: "Cancel Install Theme"))
+						alert.addButton(withTitle: Localizations.labelTextOverwrite)
+						alert.addButton(withTitle: Localizations.labelTextCancel)
 
 						alert.beginSheetModal(for: window) { result in
 							if result == NSApplication.ModalResponse.alertFirstButtonReturn {
@@ -843,12 +844,12 @@ extension AppDelegate {
 
 		let alert = NSAlert()
 		alert.alertStyle = .informational
-		alert.messageText = NSLocalizedString("Theme installed", comment: "Theme installed")
+		alert.messageText = Localizations.labelTextThemeInstalled
 
-		let localizedInformativeText = NSLocalizedString("The theme “%@” has been installed.", comment: "Theme installed")
+		let localizedInformativeText = Localizations.labelTextTheThemeHasBeenInstalled
 		alert.informativeText = NSString.localizedStringWithFormat(localizedInformativeText as NSString, themeName) as String
 
-		alert.addButton(withTitle: NSLocalizedString("OK", comment: "OK"))
+		alert.addButton(withTitle: Localizations.labelTextOk)
 
 		alert.beginSheetModal(for: window)
 	}
@@ -863,13 +864,13 @@ extension AppDelegate {
 		if let decodingError = error as? DecodingError {
 			switch decodingError {
 			case .typeMismatch(let type, _):
-				let localizedError = NSLocalizedString("This theme cannot be used because the the type—“%@”—is mismatched in the Info.plist", comment: "Type mismatch")
+				let localizedError = Localizations.labelTextThisThemeCannotBeUsedBecauseTheTheTypeIsMismatchedInTheInfoPlist
 				informativeText = NSString.localizedStringWithFormat(localizedError as NSString, type as! CVarArg) as String
 			case .valueNotFound(let value, _):
-				let localizedError = NSLocalizedString("This theme cannot be used because the the value—“%@”—is not found in the Info.plist.", comment: "Decoding value missing")
+				let localizedError = Localizations.labelTextThisThemeCannotBeUsedBecauseTheTheValueIsNotFoundInTheInfoPlist
 				informativeText = NSString.localizedStringWithFormat(localizedError as NSString, value as! CVarArg) as String
 			case .keyNotFound(let codingKey, _):
-				let localizedError = NSLocalizedString("This theme cannot be used because the the key—“%@”—is not found in the Info.plist.", comment: "Decoding key missing")
+				let localizedError = Localizations.labelTextThisThemeCannotBeUsedBecauseTheTheKeyIsNotFoundInTheInfoPlist
 				informativeText = NSString.localizedStringWithFormat(localizedError as NSString, codingKey.stringValue) as String
 			case .dataCorrupted(let context):
 				guard let underlyingError = context.underlyingError as NSError?,
@@ -877,7 +878,7 @@ extension AppDelegate {
 					informativeText = error.localizedDescription
 					break
 				}
-				let localizedError = NSLocalizedString("This theme cannot be used because of data corruption in the Info.plist: %@.", comment: "Decoding key missing")
+				let localizedError = Localizations.labelTextThisThemeCannotBeUsedBecauseOfDataCorruptionInTheInfoPlist
 				informativeText = NSString.localizedStringWithFormat(localizedError as NSString, debugDescription) as String
 
 			default:
@@ -890,10 +891,10 @@ extension AppDelegate {
 		DispatchQueue.main.async {
 			let alert = NSAlert()
 			alert.alertStyle = .warning
-			alert.messageText = NSLocalizedString("Theme Error", comment: "Theme download error")
+			alert.messageText = Localizations.labelTextThemeError
 			alert.informativeText = informativeText
-			alert.addButton(withTitle: NSLocalizedString("Open Theme Folder", comment: "Open Theme Folder"))
-			alert.addButton(withTitle: NSLocalizedString("OK", comment: "OK"))
+			alert.addButton(withTitle: Localizations.labelTextOpenThemeFolder)
+			alert.addButton(withTitle: Localizations.labelTextOk)
 
 			let button = alert.buttons.first
 			button?.target = self

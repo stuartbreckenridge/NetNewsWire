@@ -8,6 +8,7 @@
 
 import Foundation
 import RSDatabaseObjC
+import Localizations
 
 public enum DatabaseError: Error, LocalizedError, Sendable {
 	case isSuspended // On iOS, to support background refreshing, a database may be suspended.
@@ -15,7 +16,7 @@ public enum DatabaseError: Error, LocalizedError, Sendable {
 	public var errorDescription: String? {
 		switch self {
 		case .isSuspended:
-			return NSLocalizedString("Database is suspended", comment: "Database suspended error")
+			return Localizations.labelTextDatabaseIsSuspended
 		}
 	}
 }

@@ -13,6 +13,7 @@ import WebKit
 import RSCore
 import Account
 import Articles
+import Localizations
 
 final class ArticleViewController: UIViewController {
 
@@ -232,19 +233,19 @@ final class ArticleViewController: UIViewController {
 		if article.status.read {
 			readBarButtonItem.image = Assets.Images.circleOpen
 			readBarButtonItem.isEnabled = article.isAvailableToMarkUnread
-			readBarButtonItem.accLabelText = NSLocalizedString("Mark Article Unread", comment: "Mark Article Unread")
+			readBarButtonItem.accLabelText = Localizations.labelTextMarkArticleUnread
 		} else {
 			readBarButtonItem.image = Assets.Images.circleClosed
 			readBarButtonItem.isEnabled = true
-			readBarButtonItem.accLabelText = NSLocalizedString("Selected - Mark Article Unread", comment: "Selected - Mark Article Unread")
+			readBarButtonItem.accLabelText = Localizations.labelTextSelectedMarkArticleUnread
 		}
 
 		if article.status.starred {
 			starBarButtonItem.image = Assets.Images.starClosed
-			starBarButtonItem.accLabelText = NSLocalizedString("Selected - Star Article", comment: "Selected - Star Article")
+			starBarButtonItem.accLabelText = Localizations.labelTextSelectedStarArticle
 		} else {
 			starBarButtonItem.image = Assets.Images.starOpen
-			starBarButtonItem.accLabelText = NSLocalizedString("Star Article", comment: "Star Article")
+			starBarButtonItem.accLabelText = Localizations.labelTextStarArticle
 		}
 	}
 

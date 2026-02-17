@@ -9,10 +9,13 @@ let package = Package(
 		.library(name: "RSCoreObjC", type: .dynamic, targets: ["RSCoreObjC"]),
 		.library(name: "RSCoreResources", type: .static, targets: ["RSCoreResources"])
 	],
+	dependencies: [
+		.package(path: "../Localizations")
+	],
 	targets: [
 		.target(
 			name: "RSCore",
-			dependencies: ["RSCoreObjC"],
+			dependencies: ["RSCoreObjC", "Localizations"],
 			swiftSettings: [
 				.enableUpcomingFeature("NonisolatedNonsendingByDefault"),
 				.enableUpcomingFeature("InferIsolatedConformances")

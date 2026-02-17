@@ -7,6 +7,7 @@
 //
 
 import AppKit
+import Localizations
 
 enum ArticleExtractorButtonState {
 	case error
@@ -43,13 +44,13 @@ final class ArticleExtractorButton: NSButton {
 	override func accessibilityLabel() -> String? {
 		switch buttonState {
 		case .error:
-			return NSLocalizedString("Error - Reader View", comment: "Error - Reader View")
+			return Localizations.labelTextErrorReaderView
 		case .animated:
-			return NSLocalizedString("Processing - Reader View", comment: "Processing - Reader View")
+			return Localizations.labelTextProcessingReaderView
 		case .on:
-			return NSLocalizedString("Selected - Reader View", comment: "Selected - Reader View")
+			return Localizations.labelTextSelectedReaderView
 		case .off:
-			return NSLocalizedString("Reader View", comment: "Reader View")
+			return Localizations.labelTextReaderView
 		}
 	}
 

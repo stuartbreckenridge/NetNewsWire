@@ -15,11 +15,12 @@ let package = Package(
 			targets: ["RSDatabaseObjC"])
 	],
 	dependencies: [
+		.package(path: "../Localizations")
 	],
 	targets: [
 		.target(
 			name: "RSDatabase",
-			dependencies: ["RSDatabaseObjC"],
+			dependencies: ["RSDatabaseObjC", "Localizations"],
 			swiftSettings: [
 				.enableUpcomingFeature("NonisolatedNonsendingByDefault"),
 				.enableUpcomingFeature("InferIsolatedConformances")

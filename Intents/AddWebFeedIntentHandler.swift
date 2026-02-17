@@ -7,6 +7,7 @@
 //
 
 import Intents
+import Localizations
 
 public enum AddWebFeedIntentHandlerError: LocalizedError, Sendable {
 	case communicationFailure
@@ -14,7 +15,7 @@ public enum AddWebFeedIntentHandlerError: LocalizedError, Sendable {
 	public var errorDescription: String? {
 		switch self {
 		case .communicationFailure:
-			return NSLocalizedString("Unable to communicate with NetNewsWire.", comment: "Communication failure")
+			return Localizations.labelTextUnableToCommunicateWithNetnewswire
 		}
 	}
 

@@ -10,6 +10,7 @@ import AppKit
 import RSCore
 import Articles
 import Account
+import Localizations
 
 extension TimelineViewController {
 
@@ -191,7 +192,7 @@ private extension TimelineViewController {
 		}
 
 		menu.addSeparatorIfNeeded()
-		let shareButtonMenuItem = NSMenuItem(title: NSLocalizedString("Share…", comment: "Share…"), action: #selector(showShareSheet(_:)), keyEquivalent: "")
+		let shareButtonMenuItem = NSMenuItem(title: Localizations.labelTextShare2, action: #selector(showShareSheet(_:)), keyEquivalent: "")
 		shareButtonMenuItem.target = self
 		shareButtonMenuItem.representedObject = articles
 		menu.addItem(shareButtonMenuItem)
@@ -226,34 +227,34 @@ private extension TimelineViewController {
 
 	func markReadMenuItem(_ articles: [Article]) -> NSMenuItem {
 
-		return menuItem(NSLocalizedString("Mark as Read", comment: "Command"), #selector(markArticlesReadFromContextualMenu(_:)), articles, image: Assets.Images.swipeMarkRead)
+		return menuItem(Localizations.labelTextMarkAsRead, #selector(markArticlesReadFromContextualMenu(_:)), articles, image: Assets.Images.swipeMarkRead)
 	}
 
 	func markUnreadMenuItem(_ articles: [Article]) -> NSMenuItem {
 
-		return menuItem(NSLocalizedString("Mark as Unread", comment: "Command"), #selector(markArticlesUnreadFromContextualMenu(_:)), articles, image: Assets.Images.swipeMarkUnread)
+		return menuItem(Localizations.labelTextMarkAsUnread, #selector(markArticlesUnreadFromContextualMenu(_:)), articles, image: Assets.Images.swipeMarkUnread)
 	}
 
 	func markStarredMenuItem(_ articles: [Article]) -> NSMenuItem {
 
-		return menuItem(NSLocalizedString("Mark as Starred", comment: "Command"), #selector(markArticlesStarredFromContextualMenu(_:)), articles, image: Assets.Images.swipeMarkStarred)
+		return menuItem(Localizations.labelTextMarkAsStarred, #selector(markArticlesStarredFromContextualMenu(_:)), articles, image: Assets.Images.swipeMarkStarred)
 	}
 
 	func markUnstarredMenuItem(_ articles: [Article]) -> NSMenuItem {
 
-		return menuItem(NSLocalizedString("Mark as Unstarred", comment: "Command"), #selector(markArticlesUnstarredFromContextualMenu(_:)), articles, image: Assets.Images.swipeMarkUnstarred)
+		return menuItem(Localizations.labelTextMarkAsUnstarred, #selector(markArticlesUnstarredFromContextualMenu(_:)), articles, image: Assets.Images.swipeMarkUnstarred)
 	}
 
 	func markAboveReadMenuItem(_ articles: [Article]) -> NSMenuItem {
-		return menuItem(NSLocalizedString("Mark Above as Read", comment: "Command"), #selector(markAboveArticlesReadFromContextualMenu(_:)), articles, image: Assets.Images.markAboveAsRead)
+		return menuItem(Localizations.labelTextMarkAboveAsRead, #selector(markAboveArticlesReadFromContextualMenu(_:)), articles, image: Assets.Images.markAboveAsRead)
 	}
 
 	func markBelowReadMenuItem(_ articles: [Article]) -> NSMenuItem {
-		return menuItem(NSLocalizedString("Mark Below as Read", comment: "Command"), #selector(markBelowArticlesReadFromContextualMenu(_:)), articles, image: Assets.Images.markBelowAsRead)
+		return menuItem(Localizations.labelTextMarkBelowAsRead, #selector(markBelowArticlesReadFromContextualMenu(_:)), articles, image: Assets.Images.markBelowAsRead)
 	}
 
 	func selectFeedInSidebarMenuItem(_ feed: Feed) -> NSMenuItem {
-		let localizedMenuText = NSLocalizedString("Select “%@” in Sidebar", comment: "Command")
+		let localizedMenuText = Localizations.labelTextSelectInSidebar
 		let formattedMenuText = NSString.localizedStringWithFormat(localizedMenuText as NSString, feed.nameForDisplay)
 		return menuItem(formattedMenuText as String, #selector(selectFeedInSidebarFromContextualMenu(_:)), feed, image: nil)
 	}
@@ -263,7 +264,7 @@ private extension TimelineViewController {
 			return nil
 		}
 
-		let localizedMenuText = NSLocalizedString("Mark All as Read in “%@”", comment: "Command")
+		let localizedMenuText = Localizations.labelTextMarkAllAsReadIn
 		let menuText = NSString.localizedStringWithFormat(localizedMenuText as NSString, feed.nameForDisplay) as String
 
 		return menuItem(menuText, #selector(markAllInFeedAsRead(_:)), feed, image: Assets.Images.markAllAsRead)
@@ -271,15 +272,15 @@ private extension TimelineViewController {
 
 	func openInBrowserMenuItem(_ urlString: String) -> NSMenuItem {
 
-		return menuItem(NSLocalizedString("Open in Browser", comment: "Command"), #selector(openInBrowserFromContextualMenu(_:)), urlString, image: Assets.Images.openInBrowser)
+		return menuItem(Localizations.labelTextOpenInBrowser, #selector(openInBrowserFromContextualMenu(_:)), urlString, image: Assets.Images.openInBrowser)
 	}
 
 	func copyArticleURLMenuItem(_ urlString: String) -> NSMenuItem {
-		return menuItem(NSLocalizedString("Copy Article URL", comment: "Command"), #selector(copyURLFromContextualMenu(_:)), urlString, image: Assets.Images.copy)
+		return menuItem(Localizations.labelTextCopyArticleUrl, #selector(copyURLFromContextualMenu(_:)), urlString, image: Assets.Images.copy)
 	}
 
 	func copyExternalURLMenuItem(_ urlString: String) -> NSMenuItem {
-		return menuItem(NSLocalizedString("Copy External URL", comment: "Command"), #selector(copyURLFromContextualMenu(_:)), urlString, image: Assets.Images.copy)
+		return menuItem(Localizations.labelTextCopyExternalUrl, #selector(copyURLFromContextualMenu(_:)), urlString, image: Assets.Images.copy)
 	}
 
 	func menuItem(_ title: String, _ action: Selector, _ representedObject: Any, image: RSImage?) -> NSMenuItem {

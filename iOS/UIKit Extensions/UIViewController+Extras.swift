@@ -9,6 +9,7 @@
 import UIKit
 import RSCore
 import Account
+import Localizations
 
 extension UIViewController {
 
@@ -16,19 +17,19 @@ extension UIViewController {
 		if let accountError = error as? AccountError, accountError.isCredentialsError {
 			presentAccountError(accountError, dismiss: dismiss)
 		} else if let decodingError = error as? DecodingError {
-			let errorTitle = NSLocalizedString("Error", comment: "Error")
+			let errorTitle = Localizations.labelTextError
 			var informativeText: String = ""
 			switch decodingError {
 			case .typeMismatch(let type, _):
-				let localizedError = NSLocalizedString("This theme cannot be used because the the type—“%@”—is mismatched in the Info.plist", comment: "Type mismatch")
+				let localizedError = Localizations.labelTextThisThemeCannotBeUsedBecauseTheTheTypeIsMismatchedInTheInfoPlist
 				informativeText = NSString.localizedStringWithFormat(localizedError as NSString, type as! CVarArg) as String
 				presentError(title: errorTitle, message: informativeText, dismiss: dismiss)
 			case .valueNotFound(let value, _):
-				let localizedError = NSLocalizedString("This theme cannot be used because the the value—“%@”—is not found in the Info.plist.", comment: "Decoding value missing")
+				let localizedError = Localizations.labelTextThisThemeCannotBeUsedBecauseTheTheValueIsNotFoundInTheInfoPlist
 				informativeText = NSString.localizedStringWithFormat(localizedError as NSString, value as! CVarArg) as String
 				presentError(title: errorTitle, message: informativeText, dismiss: dismiss)
 			case .keyNotFound(let codingKey, _):
-				let localizedError = NSLocalizedString("This theme cannot be used because the the key—“%@”—is not found in the Info.plist.", comment: "Decoding key missing")
+				let localizedError = Localizations.labelTextThisThemeCannotBeUsedBecauseTheTheKeyIsNotFoundInTheInfoPlist
 				informativeText = NSString.localizedStringWithFormat(localizedError as NSString, codingKey.stringValue) as String
 				presentError(title: errorTitle, message: informativeText, dismiss: dismiss)
 			case .dataCorrupted(let context):
@@ -38,7 +39,7 @@ extension UIViewController {
 					presentError(title: errorTitle, message: informativeText, dismiss: dismiss)
 					return
 				}
-				let localizedError = NSLocalizedString("This theme cannot be used because of data corruption in the Info.plist. %@.", comment: "Decoding key missing")
+				let localizedError = Localizations.labelTextThisThemeCannotBeUsedBecauseOfDataCorruptionInTheInfoPlist2
 				informativeText = NSString.localizedStringWithFormat(localizedError as NSString, debugDescription) as String
 				presentError(title: errorTitle, message: informativeText, dismiss: dismiss)
 
@@ -52,7 +53,7 @@ extension UIViewController {
 			   !recoverableError.recoveryOptions.isEmpty {
 				presentErrorWithRecovery(error: recoverableError, dismiss: dismiss)
 			} else {
-				let errorTitle = NSLocalizedString("Error", comment: "Error")
+				let errorTitle = Localizations.labelTextError
 				presentError(title: errorTitle, message: error.localizedDescription, dismiss: dismiss)
 			}
 		}
@@ -63,13 +64,13 @@ extension UIViewController {
 private extension UIViewController {
 
 	func presentAccountError(_ error: AccountError, dismiss: (() -> Void)? = nil) {
-		let title = NSLocalizedString("Account Error", comment: "Account Error")
+		let title = Localizations.labelTextAccountError
 		let alertController = UIAlertController(title: title, message: error.localizedDescription, preferredStyle: .alert)
 
 		let account = AccountError.account(from: error)
 		if account?.type == .feedbin {
 
-			let credentialsTitle = NSLocalizedString("Update Credentials", comment: "Update Credentials")
+			let credentialsTitle = Localizations.labelTextUpdateCredentials
 			let credentialsAction = UIAlertAction(title: credentialsTitle, style: .default) { [weak self] _ in
 				dismiss?()
 
@@ -85,7 +86,7 @@ private extension UIViewController {
 
 		}
 
-		let dismissTitle = NSLocalizedString("OK", comment: "OK")
+		let dismissTitle = Localizations.labelTextOk
 		let dismissAction = UIAlertAction(title: dismissTitle, style: .default) { _ in
 			dismiss?()
 		}
@@ -95,7 +96,7 @@ private extension UIViewController {
 	}
 
 	func presentErrorWithRecovery(error: RecoverableError & LocalizedError, dismiss: (() -> Void)? = nil) {
-		let title = error.errorDescription ?? NSLocalizedString("Error", comment: "Error")
+		let title = error.errorDescription ?? Localizations.labelTextError
 		let message = [error.failureReason, error.recoverySuggestion].compactMap { $0 }.joined(separator: " ")
 
 		let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)

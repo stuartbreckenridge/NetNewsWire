@@ -13,11 +13,12 @@ import RSWeb
 import RSParser
 import CloudKit
 import CloudKitSync
+import Localizations
 
 enum CloudKitAccountZoneError: LocalizedError {
 	case unknown
 	var errorDescription: String? {
-		return NSLocalizedString("An unexpected CloudKit error occurred.", comment: "An unexpected CloudKit error occurred.")
+		return Localizations.labelTextAnUnexpectedCloudkitErrorOccurred
 	}
 }
 

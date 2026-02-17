@@ -8,6 +8,7 @@
 
 import Foundation
 import RSWeb
+import Localizations
 
 @MainActor struct Browser {
 	/// The user-specified default browser for opening web pages.
@@ -70,7 +71,7 @@ extension Browser {
 		let openInBackgroundPref = AppDefaults.shared.openInBrowserInBackground
 
 		return openInBackgroundPref ?
-			NSLocalizedString("Open in Browser in Foreground", comment: "Open in Browser in Foreground menu item title") :
-			NSLocalizedString("Open in Browser in Background", comment: "Open in Browser in Background menu item title")
+			Localizations.labelTextOpenInBrowserInForeground :
+			Localizations.labelTextOpenInBrowserInBackground
 	}
 }

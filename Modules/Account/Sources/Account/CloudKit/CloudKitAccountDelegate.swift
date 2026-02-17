@@ -19,13 +19,14 @@ import ArticlesDatabase
 import Secrets
 import CloudKitSync
 import FeedFinder
+import Localizations
 
 enum CloudKitAccountDelegateError: LocalizedError, Sendable {
 	case invalidParameter
 	case unknown
 
 	var errorDescription: String? {
-		return NSLocalizedString("An unexpected CloudKit error occurred.", comment: "An unexpected CloudKit error occurred.")
+		return Localizations.labelTextAnUnexpectedCloudkitErrorOccurred
 	}
 }
 

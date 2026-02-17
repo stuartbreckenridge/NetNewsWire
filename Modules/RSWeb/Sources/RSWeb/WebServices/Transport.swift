@@ -8,6 +8,7 @@
 // Inspired by: http://robnapier.net/a-mockery-of-protocols
 
 import Foundation
+import Localizations
 
 public enum TransportError: LocalizedError, Sendable {
 	case noData
@@ -20,95 +21,95 @@ public enum TransportError: LocalizedError, Sendable {
 		case .httpError(let status):
 			switch status {
 			case 400:
-				return NSLocalizedString("Bad Request", comment: "Bad Request")
+				return Localizations.labelTextBadRequest
 			case 401:
-				return NSLocalizedString("Unauthorized", comment: "Unauthorized")
+				return Localizations.labelTextUnauthorized
 			case 402:
-				return NSLocalizedString("Payment Required", comment: "Payment Required")
+				return Localizations.labelTextPaymentRequired
 			case 403:
-				return NSLocalizedString("Forbidden", comment: "Forbidden")
+				return Localizations.labelTextForbidden
 			case 404:
-				return NSLocalizedString("Not Found", comment: "Not Found")
+				return Localizations.labelTextNotFound
 			case 405:
-				return NSLocalizedString("Method Not Allowed", comment: "Method Not Allowed")
+				return Localizations.labelTextMethodNotAllowed
 			case 406:
-				return NSLocalizedString("Not Acceptable", comment: "Not Acceptable")
+				return Localizations.labelTextNotAcceptable
 			case 407:
-				return NSLocalizedString("Proxy Authentication Required", comment: "Proxy Authentication Required")
+				return Localizations.labelTextProxyAuthenticationRequired
 			case 408:
-				return NSLocalizedString("Request Timeout", comment: "Request Timeout")
+				return Localizations.labelTextRequestTimeout
 			case 409:
-				return NSLocalizedString("Conflict", comment: "Conflict")
+				return Localizations.labelTextConflict
 			case 410:
-				return NSLocalizedString("Gone", comment: "Gone")
+				return Localizations.labelTextGone
 			case 411:
-				return NSLocalizedString("Length Required", comment: "Length Required")
+				return Localizations.labelTextLengthRequired
 			case 412:
-				return NSLocalizedString("Precondition Failed", comment: "Precondition Failed")
+				return Localizations.labelTextPreconditionFailed
 			case 413:
-				return NSLocalizedString("Payload Too Large", comment: "Payload Too Large")
+				return Localizations.labelTextPayloadTooLarge
 			case 414:
-				return NSLocalizedString("Request-URI Too Long", comment: "Request-URI Too Long")
+				return Localizations.labelTextRequestUriTooLong
 			case 415:
-				return NSLocalizedString("Unsupported Media Type", comment: "Unsupported Media Type")
+				return Localizations.labelTextUnsupportedMediaType
 			case 416:
-				return NSLocalizedString("Requested Range Not Satisfiable", comment: "Requested Range Not Satisfiable")
+				return Localizations.labelTextRequestedRangeNotSatisfiable
 			case 417:
-				return NSLocalizedString("Expectation Failed", comment: "Expectation Failed")
+				return Localizations.labelTextExpectationFailed
 			case 418:
-				return NSLocalizedString("I'm a teapot", comment: "I'm a teapot")
+				return Localizations.labelTextIMATeapot
 			case 421:
-				return NSLocalizedString("Misdirected Request", comment: "Misdirected Request")
+				return Localizations.labelTextMisdirectedRequest
 			case 422:
-				return NSLocalizedString("Unprocessable Entity", comment: "Unprocessable Entity")
+				return Localizations.labelTextUnprocessableEntity
 			case 423:
-				return NSLocalizedString("Locked", comment: "Locked")
+				return Localizations.labelTextLocked
 			case 424:
-				return NSLocalizedString("Failed Dependency", comment: "Failed Dependency")
+				return Localizations.labelTextFailedDependency
 			case 426:
-				return NSLocalizedString("Upgrade Required", comment: "Upgrade Required")
+				return Localizations.labelTextUpgradeRequired
 			case 428:
-				return NSLocalizedString("Precondition Required", comment: "Precondition Required")
+				return Localizations.labelTextPreconditionRequired
 			case 429:
-				return NSLocalizedString("Too Many Requests", comment: "Too Many Requests")
+				return Localizations.labelTextTooManyRequests
 			case 431:
-				return NSLocalizedString("Request Header Fields Too Large", comment: "Request Header Fields Too Large")
+				return Localizations.labelTextRequestHeaderFieldsTooLarge
 			case 444:
-				return NSLocalizedString("Connection Closed Without Response", comment: "Connection Closed Without Response")
+				return Localizations.labelTextConnectionClosedWithoutResponse
 			case 451:
-				return NSLocalizedString("Unavailable For Legal Reasons", comment: "Unavailable For Legal Reasons")
+				return Localizations.labelTextUnavailableForLegalReasons
 			case 499:
-				return NSLocalizedString("Client Closed Request", comment: "Client Closed Request")
+				return Localizations.labelTextClientClosedRequest
 			case 500:
-				return NSLocalizedString("Internal Server Error", comment: "Internal Server Error")
+				return Localizations.labelTextInternalServerError
 			case 501:
-				return NSLocalizedString("Not Implemented", comment: "Not Implemented")
+				return Localizations.labelTextNotImplemented
 			case 502:
-				return NSLocalizedString("Bad Gateway", comment: "Bad Gateway")
+				return Localizations.labelTextBadGateway
 			case 503:
-				return NSLocalizedString("Service Unavailable", comment: "Service Unavailable")
+				return Localizations.labelTextServiceUnavailable
 			case 504:
-				return NSLocalizedString("Gateway Timeout", comment: "Gateway Timeout")
+				return Localizations.labelTextGatewayTimeout
 			case 505:
-				return NSLocalizedString("HTTP Version Not Supported", comment: "HTTP Version Not Supported")
+				return Localizations.labelTextHttpVersionNotSupported
 			case 506:
-				return NSLocalizedString("Variant Also Negotiates", comment: "Variant Also Negotiates")
+				return Localizations.labelTextVariantAlsoNegotiates
 			case 507:
-				return NSLocalizedString("Insufficient Storage", comment: "Insufficient Storage")
+				return Localizations.labelTextInsufficientStorage
 			case 508:
-				return NSLocalizedString("Loop Detected", comment: "Loop Detected")
+				return Localizations.labelTextLoopDetected
 			case 510:
-				return NSLocalizedString("Not Extended", comment: "Not Extended")
+				return Localizations.labelTextNotExtended
 			case 511:
-				return NSLocalizedString("Network Authentication Required", comment: "Network Authentication Required")
+				return Localizations.labelTextNetworkAuthenticationRequired
 			case 599:
-				return NSLocalizedString("Network Connect Timeout Error", comment: "Network Connect Timeout Error")
+				return Localizations.labelTextNetworkConnectTimeoutError
 			default:
-				let msg = NSLocalizedString("HTTP Status: ", comment: "Unexpected error")
+				let msg = Localizations.labelTextHttpStatus
 				return "\(msg) \(status)"
 			}
 		default:
-			return NSLocalizedString("An unknown network error occurred.", comment: "Unknown error")
+			return Localizations.labelTextAnUnknownNetworkErrorOccurred
 		}
 	}
 

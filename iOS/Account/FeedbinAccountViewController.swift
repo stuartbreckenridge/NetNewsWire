@@ -12,6 +12,7 @@ import RSCore
 import RSWeb
 import Account
 import Secrets
+import Localizations
 
 final class FeedbinAccountViewController: UITableViewController {
 
@@ -35,12 +36,12 @@ final class FeedbinAccountViewController: UITableViewController {
 		passwordTextField.delegate = self
 
 		if let account = account, let credentials = try? account.retrieveCredentials(type: .basic) {
-			actionButton.setTitle(NSLocalizedString("Update Credentials", comment: "Update Credentials"), for: .normal)
+			actionButton.setTitle(Localizations.labelTextUpdateCredentials, for: .normal)
 			actionButton.isEnabled = true
 			emailTextField.text = credentials.username
 			passwordTextField.text = credentials.secret
 		} else {
-			actionButton.setTitle(NSLocalizedString("Add Account", comment: "Add Account"), for: .normal)
+			actionButton.setTitle(Localizations.labelTextAddAccount, for: .normal)
 		}
 
 		NotificationCenter.default.addObserver(self, selector: #selector(textDidChange(_:)), name: UITextField.textDidChangeNotification, object: emailTextField)
@@ -50,7 +51,7 @@ final class FeedbinAccountViewController: UITableViewController {
 	}
 
 	private func setupFooter() {
-		footerLabel.text = NSLocalizedString("Sign in to your Feedbin account and sync your feeds across your devices. Your username and password will be encrypted and stored in Keychain.\n\nDon’t have a Feedbin account?", comment: "Feedbin")
+		footerLabel.text = Localizations.labelTextSignInToYourFeedbinAccountAndSyncYourFeedsAcrossYourDevicesYourUsernameAndPasswordWillBeEncryptedAndStoredInKeychainDontHaveAFeedbinAccount
 	}
 
 	override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -83,7 +84,7 @@ final class FeedbinAccountViewController: UITableViewController {
 
 	@IBAction func action(_ sender: Any) {
 		guard let email = emailTextField.text, let password = passwordTextField.text else {
-			showError(NSLocalizedString("Username & password required.", comment: "Credentials Error"))
+			showError(Localizations.labelTextUsernameAndPasswordRequired)
 			return
 		}
 
@@ -91,7 +92,7 @@ final class FeedbinAccountViewController: UITableViewController {
 		let trimmedEmail = email.trimmingCharacters(in: .whitespaces)
 
 		guard account != nil || !AccountManager.shared.duplicateServiceAccount(type: .feedbin, username: trimmedEmail) else {
-			showError(NSLocalizedString("There is already a Feedbin account with that username created.", comment: "Duplicate Error"))
+			showError(Localizations.labelTextThereIsAlreadyAFeedbinAccountWithThatUsernameCreated)
 			return
 		}
 
@@ -125,14 +126,14 @@ final class FeedbinAccountViewController: UITableViewController {
 						dismiss(animated: true, completion: nil)
 						delegate?.dismiss()
 					} catch {
-						showError(NSLocalizedString("Keychain error while storing credentials.", comment: "Credentials Error"))
+						showError(Localizations.labelTextKeychainErrorWhileStoringCredentials)
 					}
 				} else {
-					showError(NSLocalizedString("Invalid email/password combination.", comment: "Credentials Error"))
+					showError(Localizations.labelTextInvalidEmailPasswordCombination)
 				}
 			} catch {
 				stopAnimation()
-				showError(NSLocalizedString("Network error. Try again later.", comment: "Credentials Error"))
+				showError(Localizations.labelTextNetworkErrorTryAgainLater)
 			}
 		}
 	}
@@ -149,7 +150,7 @@ final class FeedbinAccountViewController: UITableViewController {
 	}
 
 	private func showError(_ message: String) {
-		presentError(title: NSLocalizedString("Error", comment: "Credentials Error"), message: message)
+		presentError(title: Localizations.labelTextError, message: message)
 	}
 
 	private func setNavigationEnabled(to value: Bool) {

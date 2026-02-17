@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Localizations
 
 class MainTimelineCollectionViewCell: UICollectionViewCell {
 	@IBOutlet var articleContent: UILabel!
@@ -110,8 +111,8 @@ class MainTimelineCollectionViewCell: UICollectionViewCell {
 	}
 	
 	private func updateAccessibilityLabel() {
-		let starredStatus = cellData.starred ? "\(NSLocalizedString("Starred", comment: "Starred article for accessibility")), " : ""
-		let unreadStatus = cellData.read ? "" : "\(NSLocalizedString("Unread", comment: "Unread")), "
+		let starredStatus = cellData.starred ? "\(Localizations.labelTextStarred), " : ""
+		let unreadStatus = cellData.read ? "" : "\(Localizations.labelTextUnread4), "
 		let label = starredStatus + unreadStatus + "\(cellData.feedName), \(cellData.title), \(cellData.summary), \(cellData.dateString)"
 		accessibilityLabel = label
 	}

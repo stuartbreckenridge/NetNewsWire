@@ -14,6 +14,7 @@ import AppKit
 import UIKit
 #endif
 import SwiftUI
+import Localizations
 
 extension AccountType {
 
@@ -23,23 +24,23 @@ extension AccountType {
 
 		switch self {
 		case .onMyMac:
-			return NSLocalizedString("account.name.on-my-device", tableName: "DefaultAccountNames", comment: "Device specific default account name, e.g: On my iPhone")
+			return Localizations.accountNameOnMyDevice
 		case .bazQux:
-			return NSLocalizedString("BazQux", comment: "Account name")
+			return Localizations.labelTextBazqux
 		case .cloudKit:
-			return NSLocalizedString("iCloud", comment: "Account name")
+			return Localizations.labelTextIcloud
 		case .feedbin:
-			return NSLocalizedString("Feedbin", comment: "Account name")
+			return Localizations.labelTextFeedbin
 		case .feedly:
-			return NSLocalizedString("Feedly", comment: "Account name")
+			return Localizations.labelTextFeedly
 		case .freshRSS:
-			return NSLocalizedString("FreshRSS", comment: "Account name")
+			return Localizations.labelTextFreshrss
 		case .inoreader:
-			return NSLocalizedString("Inoreader", comment: "Account name")
+			return Localizations.labelTextInoreader
 		case .newsBlur:
-			return NSLocalizedString("NewsBlur", comment: "Account name")
+			return Localizations.labelTextNewsblur
 		case .theOldReader:
-			return NSLocalizedString("The Old Reader", comment: "Account name")
+			return Localizations.labelTextTheOldReader
 		}
 	}
 

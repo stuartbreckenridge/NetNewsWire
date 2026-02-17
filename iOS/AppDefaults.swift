@@ -10,6 +10,7 @@ import UIKit
 import os.log
 import Account
 import Articles
+import Localizations
 
 enum UserInterfaceColorPalette: Int, CustomStringConvertible, CaseIterable {
 	case automatic = 0
@@ -19,11 +20,11 @@ enum UserInterfaceColorPalette: Int, CustomStringConvertible, CaseIterable {
 	var description: String {
 		switch self {
 		case .automatic:
-			return NSLocalizedString("Automatic", comment: "Automatic")
+			return Localizations.labelTextAutomatic
 		case .light:
-			return NSLocalizedString("Light", comment: "Light")
+			return Localizations.labelTextLight
 		case .dark:
-			return NSLocalizedString("Dark", comment: "Dark")
+			return Localizations.labelTextDark
 		}
 	}
 }

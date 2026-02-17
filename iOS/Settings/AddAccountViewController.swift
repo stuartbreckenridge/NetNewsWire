@@ -9,6 +9,7 @@
 import Account
 import UIKit
 import RSCore
+import Localizations
 
 protocol AddAccountDismissDelegate: UIViewController {
 	func dismiss()
@@ -25,26 +26,26 @@ final class AddAccountViewController: UITableViewController, AddAccountDismissDe
 		var sectionHeader: String {
 			switch self {
 			case .local:
-				return NSLocalizedString("Local", comment: "Local Account")
+				return Localizations.labelTextLocal
 			case .icloud:
-				return NSLocalizedString("iCloud", comment: "iCloud Account")
+				return Localizations.labelTextIcloud
 			case .web:
-				return NSLocalizedString("Web", comment: "Web Account")
+				return Localizations.labelTextWeb
 			case .selfhosted:
-				return NSLocalizedString("Self-hosted", comment: "Self hosted Account")
+				return Localizations.labelTextSelfHosted
 			}
 		}
 
 		var sectionFooter: String {
 			switch self {
 			case .local:
-				return NSLocalizedString("Local accounts do not sync your feeds across devices", comment: "Local Account")
+				return Localizations.labelTextLocalAccountsDoNotSyncYourFeedsAcrossDevices
 			case .icloud:
-				return NSLocalizedString("Your iCloud account syncs your feeds across your Mac and iOS devices", comment: "iCloud Account")
+				return Localizations.labelTextYourIcloudAccountSyncsYourFeedsAcrossYourMacAndIosDevices
 			case .web:
-				return NSLocalizedString("Web accounts sync your feeds across all your devices", comment: "Web Account")
+				return Localizations.labelTextWebAccountsSyncYourFeedsAcrossAllYourDevices
 			case .selfhosted:
-				return NSLocalizedString("Self-hosted accounts sync your feeds across all your devices", comment: "Self hosted Account")
+				return Localizations.labelTextSelfHostedAccountsSyncYourFeedsAcrossAllYourDevices
 			}
 		}
 

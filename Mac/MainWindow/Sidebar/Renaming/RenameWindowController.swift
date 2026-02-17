@@ -7,6 +7,7 @@
 //
 
 import AppKit
+import Localizations
 
 @MainActor protocol RenameWindowControllerDelegate {
 
@@ -35,7 +36,7 @@ final class RenameWindowController: NSWindowController {
 
 		newTitleTextField.stringValue = originalTitle!
 
-		let prompt = NSLocalizedString("Rename %@ to:", comment: "Rename sheet")
+		let prompt = Localizations.labelTextRenameTo
 		let localizedPrompt = NSString.localizedStringWithFormat(prompt as NSString, originalTitle!)
 		renamePrompt.stringValue = localizedPrompt as String
 

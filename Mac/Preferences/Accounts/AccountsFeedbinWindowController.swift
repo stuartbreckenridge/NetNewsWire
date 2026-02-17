@@ -10,6 +10,7 @@ import AppKit
 import Account
 import RSWeb
 import Secrets
+import Localizations
 
 final class AccountsFeedbinWindowController: NSWindowController {
 
@@ -33,13 +34,13 @@ final class AccountsFeedbinWindowController: NSWindowController {
 	override func windowDidLoad() {
 		if let account = account, let credentials = try? account.retrieveCredentials(type: .basic) {
 			usernameTextField.stringValue = credentials.username
-			actionButton.title = NSLocalizedString("Update", comment: "Update")
-			signInTextField.stringValue = NSLocalizedString("Update your Feedbin account credentials.", comment: "SignIn")
+			actionButton.title = Localizations.labelTextUpdate
+			signInTextField.stringValue = Localizations.labelTextUpdateYourFeedbinAccountCredentials
 			noAccountTextField.isHidden = true
 			createNewAccountButton.isHidden = true
 		} else {
-			actionButton.title = NSLocalizedString("Create", comment: "Add Account")
-			signInTextField.stringValue = NSLocalizedString("Sign in to your Feedbin account.", comment: "SignIn")
+			actionButton.title = Localizations.labelTextCreate
+			signInTextField.stringValue = Localizations.labelTextSignInToYourFeedbinAccount
 		}
 
 		enableAutofill()
@@ -68,12 +69,12 @@ final class AccountsFeedbinWindowController: NSWindowController {
 		errorMessageLabel.stringValue = ""
 
 		guard !usernameTextField.stringValue.isEmpty && !passwordTextField.stringValue.isEmpty else {
-			errorMessageLabel.stringValue = NSLocalizedString("Username & password required.", comment: "Credentials Error")
+			errorMessageLabel.stringValue = Localizations.labelTextUsernameAndPasswordRequired
 			return
 		}
 
 		guard account != nil || !AccountManager.shared.duplicateServiceAccount(type: .feedbin, username: usernameTextField.stringValue) else {
-			errorMessageLabel.stringValue = NSLocalizedString("There is already a Feedbin account with that username created.", comment: "Duplicate Error")
+			errorMessageLabel.stringValue = Localizations.labelTextThereIsAlreadyAFeedbinAccountWithThatUsernameCreated
 			return
 		}
 
@@ -94,7 +95,7 @@ final class AccountsFeedbinWindowController: NSWindowController {
 				stopAnimation()
 
 				guard let validatedCredentials else {
-					errorMessageLabel.stringValue = NSLocalizedString("Invalid email/password combination.", comment: "Credentials Error")
+					errorMessageLabel.stringValue = Localizations.labelTextInvalidEmailPasswordCombination
 					return
 				}
 
@@ -114,12 +115,12 @@ final class AccountsFeedbinWindowController: NSWindowController {
 
 					hostWindow?.endSheet(window!, returnCode: NSApplication.ModalResponse.OK)
 				} catch {
-					errorMessageLabel.stringValue = NSLocalizedString("Keychain error while storing credentials.", comment: "Credentials Error")
+					errorMessageLabel.stringValue = Localizations.labelTextKeychainErrorWhileStoringCredentials
 				}
 
 			} catch {
 				stopAnimation()
-				errorMessageLabel.stringValue = NSLocalizedString("Network error. Try again later.", comment: "Credentials Error")
+				errorMessageLabel.stringValue = Localizations.labelTextNetworkErrorTryAgainLater
 			}
 		}
 	}

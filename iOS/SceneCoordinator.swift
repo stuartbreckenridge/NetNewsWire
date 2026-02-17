@@ -14,6 +14,7 @@ import Articles
 import RSCore
 import RSTree
 import SafariServices
+import Localizations
 
 enum SearchScope: Int {
 	case timeline = 0
@@ -649,7 +650,7 @@ struct SidebarItemNode: Hashable, Sendable {
 					let relativeDateTimeFormatter = RelativeDateTimeFormatter()
 					relativeDateTimeFormatter.dateTimeStyle = .named
 					let refreshed = relativeDateTimeFormatter.localizedString(for: accountLastArticleFetchEndTime, relativeTo: Date())
-					let localizedRefreshText = NSLocalizedString("Updated %@", comment: "Updated")
+					let localizedRefreshText = Localizations.labelTextUpdated
 					let refreshText = NSString.localizedStringWithFormat(localizedRefreshText as NSString, refreshed) as String
 
 					// Update Feeds with Updated text
@@ -657,7 +658,7 @@ struct SidebarItemNode: Hashable, Sendable {
 
 					// If unread count > 0, add unread string to timeline
 					if timelineFeed != nil, timelineUnreadCount > 0 {
-						let localizedUnreadCount = NSLocalizedString("%i Unread", comment: "14 Unread")
+						let localizedUnreadCount = Localizations.labelTextUnread3
 						let unreadCount = NSString.localizedStringWithFormat(localizedUnreadCount as NSString, timelineUnreadCount) as String
 						self.mainTimelineViewController?.updateNavigationBarSubtitle(unreadCount)
 					} else {
@@ -670,17 +671,17 @@ struct SidebarItemNode: Hashable, Sendable {
 					}
 				} else {
 					// Use 'Updated Just Now' while <60s have passed since refresh.
-					self.mainFeedCollectionViewController?.navigationItem.subtitle = NSLocalizedString("Updated Just Now", comment: "Updated Just Now")
+					self.mainFeedCollectionViewController?.navigationItem.subtitle = Localizations.labelTextUpdatedJustNow
 
 					// If unread count > 0, add unread string to timeline
 					if timelineFeed != nil, timelineUnreadCount > 0 {
-						let localizedUnreadCount = NSLocalizedString("%i Unread", comment: "14 Unread")
+						let localizedUnreadCount = Localizations.labelTextUnread3
 						let refreshTextWithUnreadCount = NSString.localizedStringWithFormat(localizedUnreadCount as NSString, timelineUnreadCount) as String
 						self.mainTimelineViewController?.updateNavigationBarSubtitle(refreshTextWithUnreadCount)
 					} else {
 						// When unread count == 0, iPhone timeline displays Updated Just Now; iPad is blank
 						if UIDevice.current.userInterfaceIdiom == .phone {
-							self.mainTimelineViewController?.updateNavigationBarSubtitle(NSLocalizedString("Updated Just Now", comment: "Updated Just Now"))
+							self.mainTimelineViewController?.updateNavigationBarSubtitle(Localizations.labelTextUpdatedJustNow)
 						} else {
 							self.mainTimelineViewController?.updateNavigationBarSubtitle("")
 						}
@@ -690,13 +691,13 @@ struct SidebarItemNode: Hashable, Sendable {
 				self.mainFeedCollectionViewController?.navigationItem.subtitle = ""
 				// If unread count > 0, add unread string to timeline
 				if timelineFeed != nil, timelineUnreadCount > 0 {
-					let localizedUnreadCount = NSLocalizedString("%i Unread", comment: "14 Unread")
+					let localizedUnreadCount = Localizations.labelTextUnread3
 					let refreshTextWithUnreadCount = NSString.localizedStringWithFormat(localizedUnreadCount as NSString, timelineUnreadCount) as String
 					self.mainTimelineViewController?.updateNavigationBarSubtitle(refreshTextWithUnreadCount)
 				} else {
 					// When unread count == 0, iPhone timeline displays Updated Just Now; iPad is blank
 					if UIDevice.current.userInterfaceIdiom == .phone {
-						self.mainTimelineViewController?.updateNavigationBarSubtitle(NSLocalizedString("Updated Just Now", comment: "Updated Just Now"))
+						self.mainTimelineViewController?.updateNavigationBarSubtitle(Localizations.labelTextUpdatedJustNow)
 					} else {
 						self.mainTimelineViewController?.updateNavigationBarSubtitle("")
 					}
@@ -704,7 +705,7 @@ struct SidebarItemNode: Hashable, Sendable {
 			}
 		} else {
 			// Updating in progress, apply to both iPhone and iPad Feeds.
-			self.mainFeedCollectionViewController?.navigationItem.subtitle = NSLocalizedString("Updating…", comment: "Updating…")
+			self.mainFeedCollectionViewController?.navigationItem.subtitle = Localizations.labelTextUpdating
 		}
 
 		scheduleNavigationBarSubtitleUpdate()

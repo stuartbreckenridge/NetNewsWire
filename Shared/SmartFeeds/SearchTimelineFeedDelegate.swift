@@ -11,6 +11,7 @@ import RSCore
 import Account
 import Articles
 import ArticlesDatabase
+import Localizations
 
 struct SearchTimelineFeedDelegate: SmartFeedDelegate {
 
@@ -22,7 +23,7 @@ struct SearchTimelineFeedDelegate: SmartFeedDelegate {
 		return nameForDisplayPrefix + searchString
 	}
 
-	let nameForDisplayPrefix = NSLocalizedString("Search: ", comment: "Search smart feed title prefix")
+	let nameForDisplayPrefix = Localizations.labelTextSearch3
 	let searchString: String
 	let fetchType: FetchType
 	var smallIcon: IconImage? = Assets.Images.searchFeed

@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import Localizations
 
 final class OpenInBrowserActivity: UIActivity {
 
 	private var activityItems: [Any]?
 
 	override var activityTitle: String? {
-		return NSLocalizedString("Open in Browser", comment: "Open in Browser")
+		return Localizations.labelTextOpenInBrowser
 	}
 
 	override var activityImage: UIImage? {

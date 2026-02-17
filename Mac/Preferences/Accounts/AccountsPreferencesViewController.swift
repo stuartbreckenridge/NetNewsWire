@@ -10,6 +10,7 @@ import AppKit
 import Account
 import SwiftUI
 import RSCore
+import Localizations
 
 // MARK: - AccountsPreferencesAddAccountDelegate
 @MainActor protocol AccountsPreferencesAddAccountDelegate {
@@ -65,12 +66,12 @@ final class AccountsPreferencesViewController: NSViewController {
 
 		let alert = NSAlert()
 		alert.alertStyle = .warning
-		let deletePrompt = NSLocalizedString("Delete", comment: "Delete")
+		let deletePrompt = Localizations.labelTextDelete
 		alert.messageText = "\(deletePrompt) “\(acctName)”?"
-		alert.informativeText = NSLocalizedString("Are you sure you want to delete the account “\(acctName)”? This cannot be undone.", comment: "Delete text")
+		alert.informativeText = Localizations.labelTextAreYouSureYouWantToDeleteTheAccountAcctnameThisCannotBeUndone
 
-		alert.addButton(withTitle: NSLocalizedString("Delete", comment: "Delete Account"))
-		alert.addButton(withTitle: NSLocalizedString("Cancel", comment: "Cancel Delete Account"))
+		alert.addButton(withTitle: Localizations.labelTextDelete)
+		alert.addButton(withTitle: Localizations.labelTextCancel)
 
 		alert.beginSheetModal(for: view.window!) { [weak self] result in
 			if result == NSApplication.ModalResponse.alertFirstButtonReturn {
@@ -201,13 +202,11 @@ extension AccountsPreferencesViewController: AccountsPreferencesAddAccountDelega
 	private func runAwaitingFeedlyLoginAlertModal(forLifetimeOf operation: OAuthAccountAuthorizationOperation) {
 		let alert = NSAlert()
 		alert.alertStyle = .informational
-		alert.messageText = NSLocalizedString("Waiting for access to Feedly",
-											  comment: "Alert title when adding a Feedly account and waiting for authorization from the user.")
+		alert.messageText = Localizations.labelTextWaitingForAccessToFeedly
 
-		alert.informativeText = NSLocalizedString("A web browser will open the Feedly login for you to authorize access.",
-												  comment: "Alert informative text when adding a Feedly account and waiting for authorization from the user.")
+		alert.informativeText = Localizations.labelTextAWebBrowserWillOpenTheFeedlyLoginForYouToAuthorizeAccess
 
-		alert.addButton(withTitle: NSLocalizedString("Cancel", comment: "Cancel"))
+		alert.addButton(withTitle: Localizations.labelTextCancel)
 
 		let attachedWindow = self.view.window!
 
@@ -252,9 +251,9 @@ private extension AccountsPreferencesViewController {
 		if tableView.selectedRow == -1 {
 			var helpText = ""
 			if sortedAccounts.count == 0 {
-				helpText = NSLocalizedString("Add an account by clicking the + button.", comment: "Add Account Explainer")
+				helpText = Localizations.labelTextAddAnAccountByClickingTheButton
 			} else {
-				helpText = NSLocalizedString("To add an account to NetNewsWire,\nclick its icon above.\n\nOr click the + button in the lower left.", comment: "Add Account Explainer")
+				helpText = Localizations.labelTextToAddAnAccountToNetnewswireClickItsIconAboveOrClickTheButtonInTheLowerLeft
 			}
 
 			let textHostingController = NSHostingController(rootView:

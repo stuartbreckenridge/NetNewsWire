@@ -11,6 +11,7 @@ import SafariServices
 import UserNotifications
 import RSCore
 import Account
+import Localizations
 
 final class FeedInspectorViewController: UITableViewController {
 
@@ -63,7 +64,7 @@ final class FeedInspectorViewController: UITableViewController {
 	override func viewDidDisappear(_ animated: Bool) {
 		if nameTextField.text != feed.nameForDisplay {
 			let nameText = nameTextField.text ?? ""
-			let newName = nameText.isEmpty ? (feed.name ?? NSLocalizedString("Untitled", comment: "Feed name")) : nameText
+			let newName = nameText.isEmpty ? (feed.name ?? Localizations.labelTextUntitled) : nameText
 			feed.rename(to: newName) { _ in }
 		}
 	}
@@ -210,12 +211,12 @@ extension FeedInspectorViewController {
 	}
 
 	func notificationUpdateErrorAlert() -> UIAlertController {
-		let alert = UIAlertController(title: NSLocalizedString("Enable Notifications", comment: "Notifications"),
-									  message: NSLocalizedString("Notifications need to be enabled in the Settings app.", comment: "Notifications need to be enabled in the Settings app."), preferredStyle: .alert)
-		let openSettings = UIAlertAction(title: NSLocalizedString("Open Settings", comment: "Open Settings"), style: .default) { _ in
+		let alert = UIAlertController(title: Localizations.labelTextEnableNotifications,
+									  message: Localizations.labelTextNotificationsNeedToBeEnabledInTheSettingsApp, preferredStyle: .alert)
+		let openSettings = UIAlertAction(title: Localizations.labelTextOpenSettings, style: .default) { _ in
 			UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: [UIApplication.OpenExternalURLOptionsKey.universalLinksOnly: false], completionHandler: nil)
 		}
-		let dismiss = UIAlertAction(title: NSLocalizedString("Dismiss", comment: "Dismiss"), style: .cancel, handler: nil)
+		let dismiss = UIAlertAction(title: Localizations.labelTextDismiss, style: .cancel, handler: nil)
 		alert.addAction(openSettings)
 		alert.addAction(dismiss)
 		alert.preferredAction = openSettings

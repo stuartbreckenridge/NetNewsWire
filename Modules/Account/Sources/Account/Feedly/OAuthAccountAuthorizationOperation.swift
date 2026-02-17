@@ -10,6 +10,7 @@ import Foundation
 @preconcurrency import AuthenticationServices
 import os
 import RSCore
+import Localizations
 
 @MainActor public protocol OAuthAccountAuthorizationOperationDelegate: AnyObject {
 	func oauthAccountAuthorizationOperation(_ operation: OAuthAccountAuthorizationOperation, didCreate account: Account)
@@ -20,7 +21,7 @@ public enum OAuthAccountAuthorizationOperationError: LocalizedError, Sendable {
 	case duplicateAccount
 
 	public var errorDescription: String? {
-		return NSLocalizedString("There is already a Feedly account with that username created.", comment: "Duplicate Error")
+		return Localizations.labelTextThereIsAlreadyAFeedlyAccountWithThatUsernameCreated
 	}
 }
 
@@ -28,12 +29,8 @@ public enum OAuthAccountAuthorizationOperationError: LocalizedError, Sendable {
 /// Perhaps it has something to do with an inter-process communication failure?
 /// No browsers installed? No browsers that support web authentication?
 struct UnableToStartASWebAuthenticationSessionError: LocalizedError, Sendable {
-	let errorDescription: String? = NSLocalizedString(
-		"Unable to start a web authentication session with the default web browser.",
-		comment: "OAuth - error description - unable to authorize because ASWebAuthenticationSession did not start.")
-	let recoverySuggestion: String? = NSLocalizedString(
-		"Check your default web browser in System Preferences or change it to Safari and try again.",
-		comment: "OAuth - recovery suggestion - ensure browser selected supports web authentication.")
+	let errorDescription: String? = Localizations.labelTextUnableToStartAWebAuthenticationSessionWithTheDefaultWebBrowser
+	let recoverySuggestion: String? = Localizations.labelTextCheckYourDefaultWebBrowserInSystemPreferencesOrChangeItToSafariAndTryAgain
 }
 
 @objc nonisolated final class PresentationAnchorProvider: NSObject, ASWebAuthenticationPresentationContextProviding {

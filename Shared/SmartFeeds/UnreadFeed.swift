@@ -15,6 +15,7 @@ import RSCore
 import Account
 import Articles
 import ArticlesDatabase
+import Localizations
 
 // This just shows the global unread count, which appDelegate already has. Easy.
 
@@ -30,7 +31,7 @@ import ArticlesDatabase
 		return SidebarItemIdentifier.smartFeed(String(describing: UnreadFeed.self))
 	}
 
-	let nameForDisplay = NSLocalizedString("All Unread", comment: "All Unread pseudo-feed title")
+	let nameForDisplay = Localizations.labelTextAllUnread
 	let fetchType = FetchType.unread(nil)
 
 	var unreadCount = 0 {

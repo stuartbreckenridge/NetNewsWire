@@ -7,6 +7,7 @@
 //
 
 import AppKit
+import Localizations
 
 private struct PreferencesToolbarItemSpec {
 
@@ -34,13 +35,13 @@ final class PreferencesWindowController: NSWindowController, NSToolbarDelegate {
 	private let toolbarItemSpecs: [PreferencesToolbarItemSpec] = {
 		var specs = [PreferencesToolbarItemSpec]()
 		specs += [PreferencesToolbarItemSpec(identifierRawValue: ToolbarItemIdentifier.General,
-											 name: NSLocalizedString("General", comment: "Preferences"),
+											 name: Localizations.labelTextGeneral,
 											 image: Assets.Images.preferencesToolbarGeneral)]
 		specs += [PreferencesToolbarItemSpec(identifierRawValue: ToolbarItemIdentifier.Accounts,
-											 name: NSLocalizedString("Accounts", comment: "Preferences"),
+											 name: Localizations.labelTextAccounts,
 											 image: Assets.Images.preferencesToolbarAccounts)]
 		specs += [PreferencesToolbarItemSpec(identifierRawValue: ToolbarItemIdentifier.Advanced,
-											 name: NSLocalizedString("Advanced", comment: "Preferences"),
+											 name: Localizations.labelTextAdvanced,
 											 image: Assets.Images.preferencesToolbarAdvanced)]
 		return specs
 	}()

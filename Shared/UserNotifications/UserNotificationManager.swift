@@ -10,6 +10,7 @@ import Foundation
 import Account
 import Articles
 import UserNotifications
+import Localizations
 
 @MainActor final class UserNotificationManager {
 	static let shared = UserNotificationManager()
@@ -104,9 +105,9 @@ private extension UserNotificationManager {
 	}
 
 	func registerCategoriesAndActions() {
-		let readAction = UNNotificationAction(identifier: ActionIdentifier.markAsRead, title: NSLocalizedString("Mark as Read", comment: "Mark as Read"), options: [])
-		let starredAction = UNNotificationAction(identifier: ActionIdentifier.markAsStarred, title: NSLocalizedString("Mark as Starred", comment: "Mark as Starred"), options: [])
-		let openAction = UNNotificationAction(identifier: ActionIdentifier.openArticle, title: NSLocalizedString("Open", comment: "Open"), options: [.foreground])
+		let readAction = UNNotificationAction(identifier: ActionIdentifier.markAsRead, title: Localizations.labelTextMarkAsRead, options: [])
+		let starredAction = UNNotificationAction(identifier: ActionIdentifier.markAsStarred, title: Localizations.labelTextMarkAsStarred, options: [])
+		let openAction = UNNotificationAction(identifier: ActionIdentifier.openArticle, title: Localizations.labelTextOpen, options: [.foreground])
 
 		let newArticleCategory = UNNotificationCategory(identifier: Self.notificationCategory,
 														actions: [openAction, readAction, starredAction],

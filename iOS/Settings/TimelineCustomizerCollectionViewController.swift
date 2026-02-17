@@ -8,6 +8,7 @@
 
 import UIKit
 import Articles
+import Localizations
 
 class TimelineCustomizerCollectionViewController: UICollectionViewController {
 	private var previewArticle: Article {
@@ -42,7 +43,7 @@ class TimelineCustomizerCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-		title = NSLocalizedString("Timeline Customizer", comment: "Timeline Customizer")
+		title = Localizations.labelTextTimelineCustomizer
 
 		NotificationCenter.default.addObserver(forName: UserDefaults.didChangeNotification, object: nil, queue: .main) { [weak self] _ in
 			guard let self = self else { return }
@@ -153,15 +154,15 @@ class TimelineCustomizerCollectionViewController: UICollectionViewController {
 
 		switch indexPath.section {
 		case 0:
-			header.label.text = NSLocalizedString("Icon Size", comment: "Icon Size")
+			header.label.text = Localizations.labelTextIconSize
 		case 1:
-			header.label.text = NSLocalizedString("Number of Lines", comment: "Number of Lines")
+			header.label.text = Localizations.labelTextNumberOfLines
 		case 2:
-			header.label.text = NSLocalizedString("No Icon Preview", comment: "No Icon Preview")
+			header.label.text = Localizations.labelTextNoIconPreview
 		case 3:
-			header.label.text = NSLocalizedString("Icon Preview", comment: "Icon Preview")
+			header.label.text = Localizations.labelTextIconPreview
 		default:
-			header.label.text = NSLocalizedString("", comment: "")
+			header.label.text = Localizations.labelTextValue
 		}
 		return header
 	}

@@ -9,12 +9,13 @@
 import Foundation
 import RSCore
 import Account
+import Localizations
 
 @MainActor final class SmartFeedsController: DisplayNameProvider, ContainerIdentifiable {
 	nonisolated let containerID: ContainerIdentifier? = ContainerIdentifier.smartFeedController
 
 	public static let shared = SmartFeedsController()
-	let nameForDisplay = NSLocalizedString("Smart Feeds", comment: "Smart Feeds group title")
+	let nameForDisplay = Localizations.labelTextSmartFeeds
 
 	var smartFeeds = [SidebarItem]()
 	let todayFeed = SmartFeed(delegate: TodayFeedDelegate())

@@ -14,6 +14,7 @@ import Account
 import Articles
 import Intents
 import UniformTypeIdentifiers
+import Localizations
 
 @MainActor final class ActivityManager {
 
@@ -80,7 +81,7 @@ import UniformTypeIdentifiers
 		guard nextUnreadActivity == nil else { return }
 
 		nextUnreadActivity = NSUserActivity(activityType: ActivityType.nextUnread.rawValue)
-		nextUnreadActivity!.title = NSLocalizedString("See first unread article", comment: "First Unread")
+		nextUnreadActivity!.title = Localizations.labelTextSeeFirstUnreadArticle
 
 		#if os(iOS)
 		nextUnreadActivity!.suggestedInvocationPhrase = nextUnreadActivity!.title
@@ -175,7 +176,7 @@ import UniformTypeIdentifiers
 	func makeSelectFeedActivity(sidebarItem: SidebarItem) -> NSUserActivity {
 		let activity = NSUserActivity(activityType: ActivityType.selectFeed.rawValue)
 
-		let localizedText = NSLocalizedString("See articles in  “%@”", comment: "See articles in Folder")
+		let localizedText = Localizations.labelTextSeeArticlesIn
 		let title = NSString.localizedStringWithFormat(localizedText as NSString, sidebarItem.nameForDisplay) as String
 		activity.title = title
 

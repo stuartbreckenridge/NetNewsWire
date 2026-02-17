@@ -7,6 +7,7 @@
 //
 
 import AppKit
+import Localizations
 
 final class NothingInspectorViewController: NSViewController, Inspector {
 
@@ -19,7 +20,7 @@ final class NothingInspectorViewController: NSViewController, Inspector {
 			updateTextFields()
 		}
 	}
-	var windowTitle: String = NSLocalizedString("Inspector", comment: "Inspector window title")
+	var windowTitle: String = Localizations.labelTextInspector
 
 	func canInspect(_ objects: [Any]) -> Bool {
 

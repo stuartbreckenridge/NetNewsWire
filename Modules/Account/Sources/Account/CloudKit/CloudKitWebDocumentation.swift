@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import Localizations
 
 public struct CloudKitWebDocumentation {
-	public static let limitationsAndSolutionsText = NSLocalizedString("iCloud Syncing Limitations & Solutions", comment: "iCloud Documentation")
+	public static let limitationsAndSolutionsText = Localizations.labelTextIcloudSyncingLimitationsAndSolutions
 	public static let limitationsAndSolutionsURL = URL(string: "https://netnewswire.com/help/iCloud")!
 }

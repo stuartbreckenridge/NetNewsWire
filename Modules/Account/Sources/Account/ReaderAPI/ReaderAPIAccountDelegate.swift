@@ -14,6 +14,7 @@ import FeedFinder
 import SyncDatabase
 import os.log
 import Secrets
+import Localizations
 
 public enum ReaderAPIAccountDelegateError: LocalizedError {
 	case unknown
@@ -24,13 +25,13 @@ public enum ReaderAPIAccountDelegateError: LocalizedError {
 	public var errorDescription: String? {
 		switch self {
 		case .unknown:
-			return NSLocalizedString("An unexpected error occurred.", comment: "An unexpected error occurred.")
+			return Localizations.labelTextAnUnexpectedErrorOccurred
 		case .invalidParameter:
-			return NSLocalizedString("An invalid parameter was passed.", comment: "An invalid parameter was passed.")
+			return Localizations.labelTextAnInvalidParameterWasPassed
 		case .invalidResponse:
-			return NSLocalizedString("There was an invalid response from the server.", comment: "There was an invalid response from the server.")
+			return Localizations.labelTextThereWasAnInvalidResponseFromTheServer
 		case .urlNotFound:
-			return NSLocalizedString("The API URL wasn't found.", comment: "The API URL wasn't found.")
+			return Localizations.labelTextTheApiUrlWasnTFound
 		}
 	}
 }

@@ -13,6 +13,7 @@ import RSCore
 import RSWeb
 import Account
 import Articles
+import Localizations
 
 final class MainTimelineModernViewController: UIViewController, UndoableCommandRunner {
 
@@ -437,7 +438,7 @@ final class MainTimelineModernViewController: UIViewController, UndoableCommandR
 	}
 
 	@IBAction func markAllAsRead(_ sender: Any?) {
-		let title = NSLocalizedString("Mark All as Read", comment: "Mark All as Read")
+		let title = Localizations.labelTextMarkAllAsRead
 
 		if let source = sender as? UIBarButtonItem {
 			MarkAsReadAlertController.confirm(self, coordinator: coordinator, confirmTitle: title, sourceType: source) { [weak self] in
@@ -617,10 +618,10 @@ private extension MainTimelineModernViewController {
 		searchController.searchResultsUpdater = self
 		searchController.obscuresBackgroundDuringPresentation = false
 		searchController.searchBar.delegate = self
-		searchController.searchBar.placeholder = NSLocalizedString("Search Articles", comment: "Search Articles")
+		searchController.searchBar.placeholder = Localizations.labelTextSearchArticles
 		searchController.searchBar.scopeButtonTitles = [
-			NSLocalizedString("Here", comment: "Here"),
-			NSLocalizedString("All Articles", comment: "All Articles")
+			Localizations.labelTextHere,
+			Localizations.labelTextAllArticles
 		]
 		searchController.searchBar.barTintColor = .clear
 		searchController.searchBar.scopeBarBackgroundImage = UIImage()
@@ -643,8 +644,8 @@ private extension MainTimelineModernViewController {
 
 			// Set up the star action
 			let starTitle = article.status.starred ?
-				NSLocalizedString("Unstar", comment: "Unstar") :
-				NSLocalizedString("Star", comment: "Star")
+				Localizations.labelTextUnstar :
+				Localizations.labelTextStar
 
 			let starAction = UIContextualAction(style: .normal, title: starTitle) { [weak self] _, _, completion in
 				/// The call to `toggleStar` is delayed in order to allow
@@ -662,7 +663,7 @@ private extension MainTimelineModernViewController {
 			starAction.backgroundColor = Assets.Colors.star
 
 			// Set up the read action
-			let moreTitle = NSLocalizedString("More", comment: "More")
+			let moreTitle = Localizations.labelTextMore
 			let moreAction = UIContextualAction(style: .normal, title: moreTitle) { [weak self] (action, view, completion) in
 
 				if let self = self {
@@ -697,7 +698,7 @@ private extension MainTimelineModernViewController {
 						alert.addAction(action)
 					}
 
-					let cancelTitle = NSLocalizedString("Cancel", comment: "Cancel")
+					let cancelTitle = Localizations.labelTextCancel
 					alert.addAction(UIAlertAction(title: cancelTitle, style: .cancel) { _ in
 						completion(true)
 					})
@@ -726,8 +727,8 @@ private extension MainTimelineModernViewController {
 
 			// Set up the read action
 			let readTitle = article.status.read ?
-				NSLocalizedString("Mark as Unread", comment: "Mark as Unread") :
-				NSLocalizedString("Mark as Read", comment: "Mark as Read")
+				Localizations.labelTextMarkAsUnread :
+				Localizations.labelTextMarkAsRead
 
 			let readAction = UIContextualAction(style: .normal, title: readTitle) { [weak self] _, _, completion in
 				/// The call to `toggleRead` is delayed in order to allow
@@ -841,11 +842,11 @@ private extension MainTimelineModernViewController {
 		if isReadArticlesFiltered {
 			filterButton.style = .prominent
 			filterButton.tintColor = Assets.Colors.primaryAccent
-			filterButton.accLabelText = NSLocalizedString("Selected - Filter Read Articles", comment: "Selected - Filter Read Articles")
+			filterButton.accLabelText = Localizations.labelTextSelectedFilterReadArticles
 		} else {
 			filterButton.style = .plain
 			filterButton.tintColor = nil
-			filterButton.accLabelText = NSLocalizedString("Filter Read Articles", comment: "Filter Read Articles")
+			filterButton.accLabelText = Localizations.labelTextFilterReadArticles
 		}
 
 		collectionView?.selectItem(at: nil, animated: false, scrollPosition: .top)
@@ -1031,8 +1032,8 @@ extension MainTimelineModernViewController {
 		guard !article.status.read || article.isAvailableToMarkUnread else { return nil }
 
 		let title = article.status.read ?
-			NSLocalizedString("Mark as Unread", comment: "Mark as Unread") :
-			NSLocalizedString("Mark as Read", comment: "Mark as Read")
+			Localizations.labelTextMarkAsUnread :
+			Localizations.labelTextMarkAsRead
 		let image = article.status.read ? Assets.Images.circleClosed : Assets.Images.circleOpen
 
 		let action = UIAction(title: title, image: image) { [weak self] _ in
@@ -1052,8 +1053,8 @@ extension MainTimelineModernViewController {
 	func toggleArticleStarStatusAction(_ article: Article) -> UIAction {
 
 		let title = article.status.starred ?
-			NSLocalizedString("Mark as Unstarred", comment: "Mark as Unstarred") :
-			NSLocalizedString("Mark as Starred", comment: "Mark as Starred")
+			Localizations.labelTextMarkAsUnstarred :
+			Localizations.labelTextMarkAsStarred
 		let image = article.status.starred ? Assets.Images.starOpen : Assets.Images.starClosed
 
 		let action = UIAction(title: title, image: image) { [weak self] _ in
@@ -1080,7 +1081,7 @@ extension MainTimelineModernViewController {
 			return nil
 		}
 
-		let title = NSLocalizedString("Mark Above as Read", comment: "Mark Above as Read")
+		let title = Localizations.labelTextMarkAboveAsRead
 		let image = Assets.Images.markAboveAsRead
 		let action = UIAction(title: title, image: image) { [weak self] _ in
 			MarkAsReadAlertController.confirm(self, coordinator: self?.coordinator, confirmTitle: title, sourceType: contentView) { [weak self] in
@@ -1105,7 +1106,7 @@ extension MainTimelineModernViewController {
 			return nil
 		}
 
-		let title = NSLocalizedString("Mark Below as Read", comment: "Mark Below as Read")
+		let title = Localizations.labelTextMarkBelowAsRead
 		let image = Assets.Images.markBelowAsRead
 		let action = UIAction(title: title, image: image) { [weak self] _ in
 			MarkAsReadAlertController.confirm(self, coordinator: self?.coordinator, confirmTitle: title, sourceType: contentView) { [weak self] in
@@ -1120,7 +1121,7 @@ extension MainTimelineModernViewController {
 			return nil
 		}
 
-		let title = NSLocalizedString("Mark Above as Read", comment: "Mark Above as Read")
+		let title = Localizations.labelTextMarkAboveAsRead
 		let cancel = {
 			completion(true)
 		}
@@ -1139,7 +1140,7 @@ extension MainTimelineModernViewController {
 			return nil
 		}
 
-		let title = NSLocalizedString("Mark Below as Read", comment: "Mark Below as Read")
+		let title = Localizations.labelTextMarkBelowAsRead
 		let cancel = {
 			completion(true)
 		}
@@ -1167,7 +1168,7 @@ extension MainTimelineModernViewController {
 		guard let feed = article.feed,
 			!timelineFeedIsEqualTo(feed) else { return nil }
 
-		let title = NSLocalizedString("Go to Feed", comment: "Go to Feed")
+		let title = Localizations.labelTextGoToFeed
 		let action = UIAction(title: title, image: Assets.Images.openInSidebar) { [weak self] _ in
 			self?.discloseFeed(feed, animations: [.scroll, .navigation])
 		}
@@ -1178,7 +1179,7 @@ extension MainTimelineModernViewController {
 		guard let feed = article.feed,
 			!timelineFeedIsEqualTo(feed) else { return nil }
 
-		let title = NSLocalizedString("Go to Feed", comment: "Go to Feed")
+		let title = Localizations.labelTextGoToFeed
 		let action = UIAlertAction(title: title, style: .default) { [weak self] _ in
 			self?.discloseFeed(feed, animations: [.scroll, .navigation])
 			completion(true)
@@ -1202,7 +1203,7 @@ extension MainTimelineModernViewController {
 			return nil
 		}
 
-		let localizedMenuText = NSLocalizedString("Mark All as Read in “%@”", comment: "Command")
+		let localizedMenuText = Localizations.labelTextMarkAllAsReadIn
 		let title = NSString.localizedStringWithFormat(localizedMenuText as NSString, feed.nameForDisplay) as String
 
 		let action = UIAction(title: title, image: Assets.Images.markAllAsRead) { [weak self] _ in
@@ -1224,7 +1225,7 @@ extension MainTimelineModernViewController {
 			return nil
 		}
 
-		let localizedMenuText = NSLocalizedString("Mark All as Read in “%@”", comment: "Mark All as Read in Feed")
+		let localizedMenuText = Localizations.labelTextMarkAllAsReadIn
 		let title = NSString.localizedStringWithFormat(localizedMenuText as NSString, feed.nameForDisplay) as String
 		let cancel = {
 			completion(true)
@@ -1241,7 +1242,7 @@ extension MainTimelineModernViewController {
 
 	func copyArticleURLAction(_ article: Article) -> UIAction? {
 		guard let url = article.preferredURL else { return nil }
-		let title = NSLocalizedString("Copy Article URL", comment: "Copy Article URL")
+		let title = Localizations.labelTextCopyArticleUrl
 		let action = UIAction(title: title, image: Assets.Images.copy) { _ in
 			UIPasteboard.general.url = url
 		}
@@ -1250,7 +1251,7 @@ extension MainTimelineModernViewController {
 
 	func copyExternalURLAction(_ article: Article) -> UIAction? {
 		guard let externalLink = article.externalLink, externalLink != article.preferredLink, let url = URL(string: externalLink) else { return nil }
-		let title = NSLocalizedString("Copy External URL", comment: "Copy External URL")
+		let title = Localizations.labelTextCopyExternalUrl
 		let action = UIAction(title: title, image: Assets.Images.copy) { _ in
 			UIPasteboard.general.url = url
 		}
@@ -1266,7 +1267,7 @@ extension MainTimelineModernViewController {
 		guard article.preferredURL != nil else {
 			return nil
 		}
-		let title = NSLocalizedString("Open in Browser", comment: "Open in Browser")
+		let title = Localizations.labelTextOpenInBrowser
 		let action = UIAction(title: title, image: Assets.Images.safari) { [weak self] _ in
 			self?.showBrowserForArticle(article)
 		}
@@ -1278,7 +1279,7 @@ extension MainTimelineModernViewController {
 			return nil
 		}
 
-		let title = NSLocalizedString("Open in Browser", comment: "Open in Browser")
+		let title = Localizations.labelTextOpenInBrowser
 		let action = UIAlertAction(title: title, style: .default) { [weak self] _ in
 			self?.showBrowserForArticle(article)
 			completion(true)
@@ -1301,7 +1302,7 @@ extension MainTimelineModernViewController {
 
 	func shareAction(_ article: Article, indexPath: IndexPath) -> UIAction? {
 		guard let url = article.preferredURL else { return nil }
-		let title = NSLocalizedString("Share", comment: "Share")
+		let title = Localizations.labelTextShare
 		let action = UIAction(title: title, image: Assets.Images.share) { [weak self] _ in
 			self?.shareDialogForTableCell(indexPath: indexPath, url: url, title: article.title)
 		}
@@ -1310,7 +1311,7 @@ extension MainTimelineModernViewController {
 
 	func shareAlertAction(_ article: Article, indexPath: IndexPath, completion: @escaping (Bool) -> Void) -> UIAlertAction? {
 		guard let url = article.preferredURL else { return nil }
-		let title = NSLocalizedString("Share", comment: "Share")
+		let title = Localizations.labelTextShare
 		let action = UIAlertAction(title: title, style: .default) { [weak self] _ in
 			completion(true)
 			self?.shareDialogForTableCell(indexPath: indexPath, url: url, title: article.title)

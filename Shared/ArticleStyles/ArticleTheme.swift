@@ -7,14 +7,15 @@
 //
 
 import Foundation
+import Localizations
 
 struct ArticleTheme: Equatable, Sendable {
 
 	static let defaultTheme = ArticleTheme()
 	static let nnwThemeSuffix = ".nnwtheme"
 
-	private static let defaultThemeName = NSLocalizedString("Default", comment: "Default")
-	private static let unknownValue = NSLocalizedString("Unknown", comment: "Unknown Value")
+	private static let defaultThemeName = Localizations.labelTextDefault
+	private static let unknownValue = Localizations.labelTextUnknown
 
 	let url: URL?
 	let template: String?

@@ -11,6 +11,7 @@ import Articles
 import Account
 import RSCore
 import UserNotifications
+import Localizations
 
 extension Notification.Name {
 	public static let DidUpdateFeedPreferencesFromContextMenu = Notification.Name(rawValue: "DidUpdateFeedPreferencesFromContextMenu")
@@ -148,10 +149,10 @@ extension SidebarViewController {
 	nonisolated func showNotificationsNotEnabledAlert() {
 		DispatchQueue.main.async {
 			let alert = NSAlert()
-			alert.messageText = NSLocalizedString("Notifications are not enabled", comment: "Notifications are not enabled.")
-			alert.informativeText = NSLocalizedString("You can enable NetNewsWire notifications in System Preferences.", comment: "Notifications are not enabled.")
-			alert.addButton(withTitle: NSLocalizedString("Open System Preferences", comment: "Open System Preferences"))
-			alert.addButton(withTitle: NSLocalizedString("Dismiss", comment: "Dismiss"))
+			alert.messageText = Localizations.labelTextNotificationsAreNotEnabled
+			alert.informativeText = Localizations.labelTextYouCanEnableNetnewswireNotificationsInSystemPreferences
+			alert.addButton(withTitle: Localizations.labelTextOpenSystemPreferences)
+			alert.addButton(withTitle: Localizations.labelTextDismiss)
 			let userChoice = alert.runModal()
 			if userChoice == .alertFirstButtonReturn {
 				let config = NSWorkspace.OpenConfiguration()
@@ -200,8 +201,8 @@ private extension SidebarViewController {
 
 		let menu = NSMenu(title: "")
 
-		menu.addItem(withTitle: NSLocalizedString("New Feed", comment: "Command"), action: #selector(AppDelegate.showAddFeedWindow(_:)), keyEquivalent: "")
-		menu.addItem(withTitle: NSLocalizedString("New Folder", comment: "Command"), action: #selector(AppDelegate.showAddFolderWindow(_:)), keyEquivalent: "")
+		menu.addItem(withTitle: Localizations.labelTextNewFeed2, action: #selector(AppDelegate.showAddFeedWindow(_:)), keyEquivalent: "")
+		menu.addItem(withTitle: Localizations.labelTextNewFolder2, action: #selector(AppDelegate.showAddFolderWindow(_:)), keyEquivalent: "")
 
 		return menu
 	}
@@ -216,16 +217,16 @@ private extension SidebarViewController {
 		}
 
 		if let homePageURL = feed.homePageURL, URL(string: homePageURL) != nil {
-			let item = menuItem(NSLocalizedString("Open Home Page", comment: "Command"), #selector(openHomePageFromContextualMenu(_:)), homePageURL, image: Assets.Images.openInBrowser)
+			let item = menuItem(Localizations.labelTextOpenHomePage, #selector(openHomePageFromContextualMenu(_:)), homePageURL, image: Assets.Images.openInBrowser)
 			menu.addItem(item)
 			menu.addItem(NSMenuItem.separator())
 		}
 
-		let copyFeedURLItem = menuItem(NSLocalizedString("Copy Feed URL", comment: "Command"), #selector(copyURLFromContextualMenu(_:)), feed.url, image: Assets.Images.copy)
+		let copyFeedURLItem = menuItem(Localizations.labelTextCopyFeedUrl, #selector(copyURLFromContextualMenu(_:)), feed.url, image: Assets.Images.copy)
 		menu.addItem(copyFeedURLItem)
 
 		if let homePageURL = feed.homePageURL {
-			let item = menuItem(NSLocalizedString("Copy Home Page URL", comment: "Command"), #selector(copyURLFromContextualMenu(_:)), homePageURL, image: Assets.Images.copy)
+			let item = menuItem(Localizations.labelTextCopyHomePageUrl, #selector(copyURLFromContextualMenu(_:)), homePageURL, image: Assets.Images.copy)
 			menu.addItem(item)
 		}
 		menu.addItem(NSMenuItem.separator())
@@ -240,7 +241,7 @@ private extension SidebarViewController {
 		}
 		menu.addItem(notificationMenuItem)
 
-		let articleExtractorText = NSLocalizedString("Always Use Reader View", comment: "Always Use Reader View")
+		let articleExtractorText = Localizations.labelTextAlwaysUseReaderView
 		let articleExtractorMenuItem = menuItem(articleExtractorText, #selector(toggleArticleExtractorFromContextMenu(_:)), feed, image: Assets.Images.articleExtractorOff)
 
 		if feed.isArticleExtractorAlwaysOn == nil || feed.isArticleExtractorAlwaysOn! == false {
@@ -301,17 +302,17 @@ private extension SidebarViewController {
 
 	func markAllReadMenuItem(_ objects: [Any]) -> NSMenuItem {
 
-		return menuItem(NSLocalizedString("Mark All as Read", comment: "Command"), #selector(markObjectsReadFromContextualMenu(_:)), objects, image: Assets.Images.markAllAsReadMenu)
+		return menuItem(Localizations.labelTextMarkAllAsRead, #selector(markObjectsReadFromContextualMenu(_:)), objects, image: Assets.Images.markAllAsReadMenu)
 	}
 
 	func deleteMenuItem(_ objects: [Any]) -> NSMenuItem {
 
-		return menuItem(NSLocalizedString("Delete", comment: "Command"), #selector(deleteFromContextualMenu(_:)), objects, image: Assets.Images.delete)
+		return menuItem(Localizations.labelTextDelete, #selector(deleteFromContextualMenu(_:)), objects, image: Assets.Images.delete)
 	}
 
 	func renameMenuItem(_ object: Any) -> NSMenuItem {
 
-		return menuItem(NSLocalizedString("Rename", comment: "Command"), #selector(renameFromContextualMenu(_:)), object, image: Assets.Images.rename)
+		return menuItem(Localizations.labelTextRename, #selector(renameFromContextualMenu(_:)), object, image: Assets.Images.rename)
 	}
 
 	func anyObjectInArrayHasNonZeroUnreadCount(_ objects: [Any]) -> Bool {

@@ -9,6 +9,7 @@
 import AppKit
 import WebKit
 import RSCore
+import Localizations
 
 final class DetailWebView: WKWebView {
 	weak var keyboardDelegate: KeyboardDelegate?
@@ -41,7 +42,7 @@ final class DetailWebView: WKWebView {
 	}
 
 	override func accessibilityLabel() -> String? {
-		NSLocalizedString("Article", comment: "Article")
+		Localizations.labelTextArticle
 	}
 
 	// MARK: - NSResponder

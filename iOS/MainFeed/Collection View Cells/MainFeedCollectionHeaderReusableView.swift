@@ -8,6 +8,7 @@
 
 import UIKit
 import Account
+import Localizations
 
 @MainActor protocol MainFeedCollectionHeaderReusableViewDelegate: AnyObject {
 	func mainFeedCollectionHeaderReusableViewDidTapDisclosureIndicator(_ view: MainFeedCollectionHeaderReusableView)
@@ -31,7 +32,7 @@ final class MainFeedCollectionHeaderReusableView: UICollectionReusableView {
 	override var accessibilityLabel: String? {
 		get {
 			if unreadCount > 0 {
-				let unreadLabel = NSLocalizedString("unread", comment: "Unread label for accessibility")
+				let unreadLabel = Localizations.labelTextUnread2
 				return "\(headerTitle.text ?? "") \(unreadCount) \(unreadLabel) \(expandedStateMessage) "
 			} else {
 				return "\(headerTitle.text ?? "") \(expandedStateMessage) "
@@ -42,9 +43,9 @@ final class MainFeedCollectionHeaderReusableView: UICollectionReusableView {
 
 	private var expandedStateMessage: String {
 		if disclosureExpanded {
-			return NSLocalizedString("Expanded", comment: "Disclosure button expanded state for accessibility")
+			return Localizations.labelTextExpanded
 		}
-		return NSLocalizedString("Collapsed", comment: "Disclosure button collapsed state for accessibility")
+		return Localizations.labelTextCollapsed
 	}
 
 	private var _unreadCount: Int = 0

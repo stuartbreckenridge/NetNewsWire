@@ -14,6 +14,7 @@ import Account
 import Articles
 import SafariServices
 import MessageUI
+import Localizations
 
 @MainActor protocol WebViewControllerDelegate: AnyObject {
 	func webViewController(_: WebViewController, articleExtractorButtonStateDidUpdate: ArticleExtractorButtonState)
@@ -405,8 +406,8 @@ extension WebViewController: WKNavigationDelegate {
 				if UIApplication.shared.canOpenURL(emailAddress) {
 					UIApplication.shared.open(emailAddress, options: [.universalLinksOnly: false], completionHandler: nil)
 				} else {
-					let alert = UIAlertController(title: NSLocalizedString("Error", comment: "Error"), message: NSLocalizedString("This device cannot send emails.", comment: "This device cannot send emails."), preferredStyle: .alert)
-					alert.addAction(.init(title: NSLocalizedString("Dismiss", comment: "Dismiss"), style: .cancel, handler: nil))
+					let alert = UIAlertController(title: Localizations.labelTextError, message: Localizations.labelTextThisDeviceCannotSendEmails, preferredStyle: .alert)
+					alert.addAction(.init(title: Localizations.labelTextDismiss, style: .cancel, handler: nil))
 					self.present(alert, animated: true, completion: nil)
 				}
 			} else if components?.scheme == "tel" {
@@ -758,7 +759,7 @@ private extension WebViewController {
 
 	func prevArticleAction() -> UIAction? {
 		guard coordinator.isPrevArticleAvailable else { return nil }
-		let title = NSLocalizedString("Previous Article", comment: "Previous Article")
+		let title = Localizations.labelTextPreviousArticle
 		return UIAction(title: title, image: Assets.Images.prevArticle) { [weak self] _ in
 			self?.coordinator.selectPrevArticle()
 		}
@@ -766,7 +767,7 @@ private extension WebViewController {
 
 	func nextArticleAction() -> UIAction? {
 		guard coordinator.isNextArticleAvailable else { return nil }
-		let title = NSLocalizedString("Next Article", comment: "Next Article")
+		let title = Localizations.labelTextNextArticle
 		return UIAction(title: title, image: Assets.Images.nextArticle) { [weak self] _ in
 			self?.coordinator.selectNextArticle()
 		}
@@ -775,7 +776,7 @@ private extension WebViewController {
 	func toggleReadAction() -> UIAction? {
 		guard let article = article, !article.status.read || article.isAvailableToMarkUnread else { return nil }
 
-		let title = article.status.read ? NSLocalizedString("Mark as Unread", comment: "Mark as Unread") : NSLocalizedString("Mark as Read", comment: "Mark as Read")
+		let title = article.status.read ? Localizations.labelTextMarkAsUnread : Localizations.labelTextMarkAsRead
 		let readImage = article.status.read ? Assets.Images.circleClosed : Assets.Images.circleOpen
 		return UIAction(title: title, image: readImage) { [weak self] _ in
 			self?.coordinator.toggleReadForCurrentArticle()
@@ -784,7 +785,7 @@ private extension WebViewController {
 
 	func toggleStarredAction() -> UIAction {
 		let starred = article?.status.starred ?? false
-		let title = starred ? NSLocalizedString("Mark as Unstarred", comment: "Mark as Unstarred") : NSLocalizedString("Mark as Starred", comment: "Mark as Starred")
+		let title = starred ? Localizations.labelTextMarkAsUnstarred : Localizations.labelTextMarkAsStarred
 		let starredImage = starred ? Assets.Images.starOpen : Assets.Images.starClosed
 		return UIAction(title: title, image: starredImage) { [weak self] _ in
 			self?.coordinator.toggleStarredForCurrentArticle()
@@ -793,7 +794,7 @@ private extension WebViewController {
 
 	func nextUnreadArticleAction() -> UIAction? {
 		guard coordinator.isAnyUnreadAvailable else { return nil }
-		let title = NSLocalizedString("Next Unread Article", comment: "Next Unread Article")
+		let title = Localizations.labelTextNextUnreadArticle
 		return UIAction(title: title, image: Assets.Images.nextUnread) { [weak self] _ in
 			self?.coordinator.selectNextUnread()
 		}
@@ -801,7 +802,7 @@ private extension WebViewController {
 
 	func toggleArticleExtractorAction() -> UIAction {
 		let extracted = articleExtractorButtonState == .on
-		let title = extracted ? NSLocalizedString("Show Feed Article", comment: "Show Feed Article") : NSLocalizedString("Show Reader View", comment: "Show Reader View")
+		let title = extracted ? Localizations.labelTextShowFeedArticle : Localizations.labelTextShowReaderView
 		let extractorImage = extracted ? Assets.Images.articleExtractorOffSF : Assets.Images.articleExtractorOnSF
 		return UIAction(title: title, image: extractorImage) { [weak self] _ in
 			self?.toggleArticleExtractor()
@@ -809,7 +810,7 @@ private extension WebViewController {
 	}
 
 	func shareAction() -> UIAction {
-		let title = NSLocalizedString("Share", comment: "Share")
+		let title = Localizations.labelTextShare
 		return UIAction(title: title, image: Assets.Images.share) { [weak self] _ in
 			self?.showActivityDialog()
 		}

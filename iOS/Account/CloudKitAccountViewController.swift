@@ -10,6 +10,7 @@ import UIKit
 import SafariServices
 import RSCore
 import Account
+import Localizations
 
 final class CloudKitAccountViewController: UITableViewController {
 
@@ -24,7 +25,7 @@ final class CloudKitAccountViewController: UITableViewController {
 	}
 
 	private func setupFooter() {
-		footerLabel.text = NSLocalizedString("NetNewsWire will use your iCloud account to sync your subscriptions across your Mac and iOS devices.", comment: "iCloud")
+		footerLabel.text = Localizations.labelTextNetnewswireWillUseYourIcloudAccountToSyncYourSubscriptionsAcrossYourMacAndIosDevices
 	}
 
 	@IBAction func cancel(_ sender: Any) {

@@ -8,6 +8,7 @@
 
 import Foundation
 import RSWeb
+import Localizations
 
 public enum AccountError: LocalizedError {
 
@@ -43,24 +44,24 @@ public enum AccountError: LocalizedError {
 	public var errorDescription: String? {
 		switch self {
 		case .createErrorNotFound:
-			return NSLocalizedString("The feed couldn’t be found and can’t be added.", comment: "Not found")
+			return Localizations.labelTextTheFeedCouldntBeFoundAndCantBeAdded
 		case .createErrorAlreadySubscribed:
-			return NSLocalizedString("You are already subscribed to this feed and can’t add it again.", comment: "Already subscribed")
+			return Localizations.labelTextYouAreAlreadySubscribedToThisFeedAndCantAddItAgain
 		case .opmlImportInProgress:
-			return NSLocalizedString("An OPML import for this account is already running.", comment: "Import running")
+			return Localizations.labelTextAnOpmlImportForThisAccountIsAlreadyRunning
 		case .invalidParameter:
-			return NSLocalizedString("Couldn’t fulfill the request due to an invalid parameter.", comment: "Invalid parameter")
+			return Localizations.labelTextCouldntFulfillTheRequestDueToAnInvalidParameter
 		case .invalidResponse:
-			return NSLocalizedString("There was an invalid response from the server.", comment: "Invalid response")
+			return Localizations.labelTextThereWasAnInvalidResponseFromTheServer
 		case .urlNotFound:
-			return NSLocalizedString("The URL request resulted in a not found error.", comment: "URL not found")
+			return Localizations.labelTextTheUrlRequestResultedInANotFoundError
 		case .unknown:
-			return NSLocalizedString("Unknown error", comment: "Unknown error")
+			return Localizations.labelTextUnknownError
 		case .wrappedError(let error, _, let accountName):
 			switch error {
 			case TransportError.httpError(let status):
 				if isCredentialsError(status: status) {
-					let localizedText = NSLocalizedString("Your “%@” credentials are invalid or expired.", comment: "Invalid or expired")
+					let localizedText = Localizations.labelTextYourCredentialsAreInvalidOrExpired
 					return NSString.localizedStringWithFormat(localizedText as NSString, accountName) as String
 				} else {
 					return unknownError(error, accountName)
@@ -81,15 +82,15 @@ public enum AccountError: LocalizedError {
 			switch error {
 			case TransportError.httpError(let status):
 				if isCredentialsError(status: status) {
-					return NSLocalizedString("Please update your credentials for this account, or ensure that your account with this service is still valid.", comment: "Expired credentials")
+					return Localizations.labelTextPleaseUpdateYourCredentialsForThisAccountOrEnsureThatYourAccountWithThisServiceIsStillValid
 				} else {
-					return NSLocalizedString("Please try again later.", comment: "Try later")
+					return Localizations.labelTextPleaseTryAgainLater
 				}
 			default:
-				return NSLocalizedString("Please try again later.", comment: "Try later")
+				return Localizations.labelTextPleaseTryAgainLater
 			}
 		default:
-			return NSLocalizedString("Please try again later.", comment: "Try later")
+			return Localizations.labelTextPleaseTryAgainLater
 		}
 	}
 }
@@ -99,7 +100,7 @@ public enum AccountError: LocalizedError {
 private extension AccountError {
 
 	func unknownError(_ error: Error, _ accountName: String) -> String {
-		let localizedText = NSLocalizedString("An error occurred while processing the “%@” account: %@", comment: "Unknown error")
+		let localizedText = Localizations.labelTextAnErrorOccurredWhileProcessingTheAccount
 		return NSString.localizedStringWithFormat(localizedText as NSString, accountName, error.localizedDescription) as String
 	}
 

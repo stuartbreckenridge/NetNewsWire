@@ -10,13 +10,14 @@
 
 import UIKit
 import SwiftUI
+import Localizations
 
 extension UIViewController {
 	// MARK: - Error Handling
 
 	public func presentError(title: String, message: String, dismiss: (() -> Void)? = nil) {
 		let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-		let dismissTitle = NSLocalizedString("OK", comment: "OK")
+		let dismissTitle = Localizations.labelTextOk
 		let dismissAction = UIAlertAction(title: dismissTitle, style: .default) { _ in
 			dismiss?()
 		}

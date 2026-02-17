@@ -18,6 +18,7 @@ import RSDatabase
 import ArticlesDatabase
 import RSWeb
 import Secrets
+import Localizations
 
 // Main thread only.
 
@@ -73,7 +74,7 @@ public enum FetchType {
 		public static let syncErrors = "syncErrors" // AccountsDidFailToSyncWithErrors
 	}
 
-	public static let defaultLocalAccountName = NSLocalizedString("account.name.on-my-device", tableName: "DefaultAccountNames", comment: "Device specific default account name, e.g: On My iPhone")
+	public static let defaultLocalAccountName = Localizations.accountNameOnMyDevice
 
 	public var isDeleted = false
 
@@ -282,21 +283,21 @@ public enum FetchType {
 		case .onMyMac:
 			defaultName = Account.defaultLocalAccountName
 		case .cloudKit:
-			defaultName = NSLocalizedString("iCloud", comment: "iCloud")
+			defaultName = Localizations.labelTextIcloud
 		case .feedly:
-			defaultName = NSLocalizedString("Feedly", comment: "Feedly")
+			defaultName = Localizations.labelTextFeedly
 		case .feedbin:
-			defaultName = NSLocalizedString("Feedbin", comment: "Feedbin")
+			defaultName = Localizations.labelTextFeedbin
 		case .newsBlur:
-			defaultName = NSLocalizedString("NewsBlur", comment: "NewsBlur")
+			defaultName = Localizations.labelTextNewsblur
 		case .freshRSS:
-			defaultName = NSLocalizedString("FreshRSS", comment: "FreshRSS")
+			defaultName = Localizations.labelTextFreshrss
 		case .inoreader:
-			defaultName = NSLocalizedString("Inoreader", comment: "Inoreader")
+			defaultName = Localizations.labelTextInoreader
 		case .bazQux:
-			defaultName = NSLocalizedString("BazQux", comment: "BazQux")
+			defaultName = Localizations.labelTextBazqux
 		case .theOldReader:
-			defaultName = NSLocalizedString("The Old Reader", comment: "The Old Reader")
+			defaultName = Localizations.labelTextTheOldReader
 		}
 
 		NotificationCenter.default.addObserver(self, selector: #selector(progressInfoDidChange(_:)), name: .progressInfoDidChange, object: delegate)

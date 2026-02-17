@@ -10,6 +10,7 @@ import Foundation
 import RSCore
 import RSWeb
 import Articles
+import Localizations
 
 @MainActor public final class Feed: SidebarItem, Renamable, Hashable {
 	nonisolated public let feedID: String
@@ -198,7 +199,7 @@ import Articles
 		if let s = name, !s.isEmpty {
 			return s
 		}
-		return NSLocalizedString("Untitled", comment: "Feed name")
+		return Localizations.labelTextUntitled
 	}
 
 	// MARK: - Renamable
@@ -236,15 +237,15 @@ import Articles
     public var notificationDisplayName: String {
         #if os(macOS)
         if self.url.contains("www.reddit.com") {
-            return NSLocalizedString("Show notifications for new posts", comment: "notifyNameDisplay / Reddit")
+            return Localizations.labelTextShowNotificationsForNewPosts
         } else {
-            return NSLocalizedString("Show notifications for new articles", comment: "notifyNameDisplay / Default")
+            return Localizations.labelTextShowNotificationsForNewArticles
         }
         #else
         if self.url.contains("www.reddit.com") {
-            return NSLocalizedString("Notify about new posts", comment: "notifyNameDisplay / Reddit")
+            return Localizations.labelTextNotifyAboutNewPosts
         } else {
-            return NSLocalizedString("Notify about new articles", comment: "notifyNameDisplay / Default")
+            return Localizations.labelTextNotifyAboutNewArticles
         }
         #endif
     }

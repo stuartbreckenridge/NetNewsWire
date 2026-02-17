@@ -10,6 +10,7 @@ import Foundation
 import RSCore
 import Account
 import RSTree
+import Localizations
 
 final class SidebarCell: NSTableCellView {
 
@@ -113,7 +114,7 @@ final class SidebarCell: NSTableCellView {
 
 	override func accessibilityLabel() -> String? {
 		if unreadCount > 0 {
-			let unreadLabel = NSLocalizedString("unread", comment: "Unread label for accessibility")
+			let unreadLabel = Localizations.labelTextUnread2
 			return "\(name) \(unreadCount) \(unreadLabel)"
 		} else {
 			return name

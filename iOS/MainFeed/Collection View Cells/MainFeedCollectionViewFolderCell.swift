@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Localizations
 
 @MainActor protocol MainFeedCollectionViewFolderCellDelegate: AnyObject {
 	func mainFeedCollectionFolderViewCellDisclosureDidToggle(_ sender: MainFeedCollectionViewFolderCell, expanding: Bool)
@@ -100,7 +101,7 @@ class MainFeedCollectionViewFolderCell: UICollectionViewCell {
 	override var accessibilityLabel: String? {
 		get {
 			if unreadCount > 0 {
-				let unreadLabel = NSLocalizedString("unread", comment: "Unread label for accessibility")
+				let unreadLabel = Localizations.labelTextUnread2
 				return "\(String(describing: folderTitle.text)) \(unreadCount) \(unreadLabel)"
 			} else {
 				return (String(describing: folderTitle.text))

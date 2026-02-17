@@ -7,6 +7,7 @@
 //
 
 import AppKit
+import Localizations
 
 final class BuiltinSmartFeedInspectorViewController: NSViewController, Inspector {
 
@@ -27,7 +28,7 @@ final class BuiltinSmartFeedInspectorViewController: NSViewController, Inspector
 			updateSmartFeed()
 		}
 	}
-	var windowTitle: String = NSLocalizedString("Smart Feed Inspector", comment: "Smart Feed Inspector window title")
+	var windowTitle: String = Localizations.labelTextSmartFeedInspector
 
 	func canInspect(_ objects: [Any]) -> Bool {
 
@@ -63,7 +64,7 @@ private extension BuiltinSmartFeedInspectorViewController {
 
 	func updateUI() {
 		nameTextField?.stringValue = smartFeed?.nameForDisplay ?? ""
-		windowTitle = smartFeed?.nameForDisplay ?? NSLocalizedString("Smart Feed Inspector", comment: "Smart Feed Inspector window title")
+		windowTitle = smartFeed?.nameForDisplay ?? Localizations.labelTextSmartFeedInspector
 		smartFeedImageView?.image = smartFeed?.smallIcon?.image
 	}
 }

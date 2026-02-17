@@ -10,6 +10,7 @@ import AppKit
 import Account
 import RSWeb
 import Secrets
+import Localizations
 
 final class AccountsNewsBlurWindowController: NSWindowController {
 
@@ -33,13 +34,13 @@ final class AccountsNewsBlurWindowController: NSWindowController {
 	override func windowDidLoad() {
 		if let account = account, let credentials = try? account.retrieveCredentials(type: .newsBlurBasic) {
 			usernameTextField.stringValue = credentials.username
-			actionButton.title = NSLocalizedString("Update", comment: "Update")
-			signInTextField.stringValue = NSLocalizedString("Update your NewsBlur account credentials.", comment: "SignIn")
+			actionButton.title = Localizations.labelTextUpdate
+			signInTextField.stringValue = Localizations.labelTextUpdateYourNewsblurAccountCredentials
 			noAccountTextField.isHidden = true
 			createNewAccountButton.isHidden = true
 		} else {
-			actionButton.title = NSLocalizedString("Create", comment: "Create")
-			signInTextField.stringValue = NSLocalizedString("Sign in to your NewsBlur account.", comment: "SignIn")
+			actionButton.title = Localizations.labelTextCreate
+			signInTextField.stringValue = Localizations.labelTextSignInToYourNewsblurAccount
 		}
 		enableAutofill()
 		usernameTextField.becomeFirstResponder()
@@ -66,12 +67,12 @@ final class AccountsNewsBlurWindowController: NSWindowController {
 		errorMessageLabel.stringValue = ""
 
 		guard !usernameTextField.stringValue.isEmpty else {
-			errorMessageLabel.stringValue = NSLocalizedString("Username required.", comment: "Credentials Error")
+			errorMessageLabel.stringValue = Localizations.labelTextUsernameRequired
 			return
 		}
 
 		guard account != nil || !AccountManager.shared.duplicateServiceAccount(type: .newsBlur, username: usernameTextField.stringValue) else {
-			errorMessageLabel.stringValue = NSLocalizedString("There is already a NewsBlur account with that username created.", comment: "Duplicate Error")
+			errorMessageLabel.stringValue = Localizations.labelTextThereIsAlreadyANewsblurAccountWithThatUsernameCreated
 			return
 		}
 
@@ -92,7 +93,7 @@ final class AccountsNewsBlurWindowController: NSWindowController {
 				stopAnimation()
 
 				guard let validatedCredentials else {
-					errorMessageLabel.stringValue = NSLocalizedString("Invalid email/password combination.", comment: "Credentials Error")
+					errorMessageLabel.stringValue = Localizations.labelTextInvalidEmailPasswordCombination
 					return
 				}
 
@@ -114,11 +115,11 @@ final class AccountsNewsBlurWindowController: NSWindowController {
 
 					hostWindow?.endSheet(window!, returnCode: NSApplication.ModalResponse.OK)
 				} catch {
-					self.errorMessageLabel.stringValue = NSLocalizedString("Keychain error while storing credentials.", comment: "Credentials Error")
+					self.errorMessageLabel.stringValue = Localizations.labelTextKeychainErrorWhileStoringCredentials
 				}
 			} catch {
 				stopAnimation()
-				errorMessageLabel.stringValue = NSLocalizedString("Network error. Try again later.", comment: "Credentials Error")
+				errorMessageLabel.stringValue = Localizations.labelTextNetworkErrorTryAgainLater
 			}
 		}
 	}

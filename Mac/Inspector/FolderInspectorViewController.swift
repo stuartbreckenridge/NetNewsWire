@@ -9,6 +9,7 @@
 import AppKit
 import Account
 import RSCore
+import Localizations
 
 final class FolderInspectorViewController: NSViewController, Inspector {
 
@@ -32,7 +33,7 @@ final class FolderInspectorViewController: NSViewController, Inspector {
 			updateFolder()
 		}
 	}
-	var windowTitle: String = NSLocalizedString("Folder Inspector", comment: "Folder Inspector window title")
+	var windowTitle: String = Localizations.labelTextFolderInspector
 
 	func canInspect(_ objects: [Any]) -> Bool {
 		guard singleFolder(from: objects) != nil else {
@@ -101,7 +102,7 @@ private extension FolderInspectorViewController {
 		if nameTextField.stringValue != name {
 			nameTextField.stringValue = name
 		}
-		windowTitle = folder?.nameForDisplay ?? NSLocalizedString("Folder Inspector", comment: "Folder Inspector window title")
+		windowTitle = folder?.nameForDisplay ?? Localizations.labelTextFolderInspector
 	}
 
 	func renameFolderIfNecessary() {

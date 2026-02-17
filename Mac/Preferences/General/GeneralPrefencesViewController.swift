@@ -11,6 +11,7 @@ import RSCore
 import RSWeb
 import UserNotifications
 import UniformTypeIdentifiers
+import Localizations
 
 final class GeneralPreferencesViewController: NSViewController {
 	@IBOutlet var articleThemePopup: NSPopUpButton!
@@ -107,7 +108,7 @@ private extension GeneralPreferencesViewController {
 
 		let defaultBrowser = MacWebBrowser.default
 
-		let defaultBrowserFormat = NSLocalizedString("System Default (%@)", comment: "Default browser item title format")
+		let defaultBrowserFormat = Localizations.labelTextSystemDefault
 		let defaultBrowserTitle = String(format: defaultBrowserFormat, defaultBrowser.name!)
 		let item = NSMenuItem(title: defaultBrowserTitle, action: nil, keyEquivalent: "")
 		let icon = defaultBrowser.icon!
@@ -145,10 +146,10 @@ private extension GeneralPreferencesViewController {
 	func showNotificationsDeniedError() {
 		let updateAlert = NSAlert()
 		updateAlert.alertStyle = .informational
-		updateAlert.messageText = NSLocalizedString("Enable Notifications", comment: "Notifications")
-		updateAlert.informativeText = NSLocalizedString("To enable notifications, open Notifications in System Preferences, then find NetNewsWire in the list.", comment: "To enable notifications, open Notifications in System Preferences, then find NetNewsWire in the list.")
-		updateAlert.addButton(withTitle: NSLocalizedString("Open System Preferences", comment: "Open System Preferences"))
-		updateAlert.addButton(withTitle: NSLocalizedString("Close", comment: "Close"))
+		updateAlert.messageText = Localizations.labelTextEnableNotifications
+		updateAlert.informativeText = Localizations.labelTextToEnableNotificationsOpenNotificationsInSystemPreferencesThenFindNetnewswireInTheList
+		updateAlert.addButton(withTitle: Localizations.labelTextOpenSystemPreferences)
+		updateAlert.addButton(withTitle: Localizations.labelTextClose)
 		let modalResponse = updateAlert.runModal()
 		if modalResponse == .alertFirstButtonReturn {
 			NSWorkspace.shared.open(URL(string: "x-apple.systempreferences:com.apple.preference.notifications")!)

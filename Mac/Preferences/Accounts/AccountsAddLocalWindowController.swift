@@ -8,6 +8,7 @@
 
 import AppKit
 import Account
+import Localizations
 
 final class AccountsAddLocalWindowController: NSWindowController {
 
@@ -23,7 +24,7 @@ final class AccountsAddLocalWindowController: NSWindowController {
 	override func windowDidLoad() {
 		super.windowDidLoad()
 
-		localAccountNameTextField.stringValue = NSLocalizedString("Create a local account on your Mac.", comment: "Account Local")
+		localAccountNameTextField.stringValue = Localizations.labelTextCreateALocalAccountOnYourMac
 	}
 
 	// MARK: API

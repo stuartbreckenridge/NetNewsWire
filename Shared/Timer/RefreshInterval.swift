@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Localizations
 
 enum RefreshInterval: Int, CaseIterable, Identifiable {
 	case manually = 1
@@ -41,19 +42,19 @@ enum RefreshInterval: Int, CaseIterable, Identifiable {
 	func description() -> String {
 		switch self {
 		case .manually:
-			return NSLocalizedString("Manually", comment: "Manually")
+			return Localizations.labelTextManually
 		case .every10Minutes:
-			return NSLocalizedString("Every 10 Minutes", comment: "Every 10 Minutes")
+			return Localizations.labelTextEvery10Minutes
 		case .every30Minutes:
-			return NSLocalizedString("Every 30 Minutes", comment: "Every 30 Minutes")
+			return Localizations.labelTextEvery30Minutes
 		case .everyHour:
-			return NSLocalizedString("Every Hour", comment: "Every Hour")
+			return Localizations.labelTextEveryHour
 		case .every2Hours:
-			return NSLocalizedString("Every 2 Hours", comment: "Every 2 Hours")
+			return Localizations.labelTextEvery2Hours
 		case .every4Hours:
-			return NSLocalizedString("Every 4 Hours", comment: "Every 4 Hours")
+			return Localizations.labelTextEvery4Hours
 		case .every8Hours:
-			return NSLocalizedString("Every 8 Hours", comment: "Every 8 Hours")
+			return Localizations.labelTextEvery8Hours
 		}
 	}
 

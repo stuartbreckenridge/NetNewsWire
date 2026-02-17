@@ -11,13 +11,14 @@ import RSCore
 import Articles
 import ArticlesDatabase
 import Account
+import Localizations
 
 struct TodayFeedDelegate: SmartFeedDelegate {
 	var sidebarItemID: SidebarItemIdentifier? {
 		return SidebarItemIdentifier.smartFeed(String(describing: TodayFeedDelegate.self))
 	}
 
-	let nameForDisplay = NSLocalizedString("Today", comment: "Today pseudo-feed title")
+	let nameForDisplay = Localizations.labelTextToday
 	let fetchType = FetchType.today(nil)
 	var smallIcon: IconImage? {
 		Assets.Images.todayFeed

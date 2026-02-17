@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Localizations
 
 enum ArticleTextSize: Int, CaseIterable, Identifiable {
 	case small = 1
@@ -35,15 +36,15 @@ enum ArticleTextSize: Int, CaseIterable, Identifiable {
 	func description() -> String {
 		switch self {
 		case .small:
-			return NSLocalizedString("Small", comment: "Small")
+			return Localizations.labelTextSmall
 		case .medium:
-			return NSLocalizedString("Medium", comment: "Medium")
+			return Localizations.labelTextMedium
 		case .large:
-			return NSLocalizedString("Large", comment: "Large")
+			return Localizations.labelTextLarge
 		case .xlarge:
-			return NSLocalizedString("Extra Large", comment: "X-Large")
+			return Localizations.labelTextExtraLarge
 		case .xxlarge:
-			return NSLocalizedString("Extra Extra Large", comment: "XX-Large")
+			return Localizations.labelTextExtraExtraLarge
 		}
 	}
 

@@ -11,6 +11,7 @@ import RSCore
 import RSTree
 import Account
 import Articles
+import Localizations
 
 final class DeleteCommand: UndoableCommand {
 	let treeController: TreeController?
@@ -244,11 +245,11 @@ final class DeleteCommand: UndoableCommand {
 
 private struct DeleteActionName {
 
-	private static let deleteFeed = NSLocalizedString("Delete Feed", comment: "command")
-	private static let deleteFeeds = NSLocalizedString("Delete Feeds", comment: "command")
-	private static let deleteFolder = NSLocalizedString("Delete Folder", comment: "command")
-	private static let deleteFolders = NSLocalizedString("Delete Folders", comment: "command")
-	private static let deleteFeedsAndFolders = NSLocalizedString("Delete Feeds and Folders", comment: "command")
+	private static let deleteFeed = Localizations.labelTextDeleteFeed
+	private static let deleteFeeds = Localizations.labelTextDeleteFeeds
+	private static let deleteFolder = Localizations.labelTextDeleteFolder
+	private static let deleteFolders = Localizations.labelTextDeleteFolders
+	private static let deleteFeedsAndFolders = Localizations.labelTextDeleteFeedsAndFolders
 
 	@MainActor static func name(for nodes: [Node]) -> String? {
 

@@ -9,6 +9,7 @@
 import UIKit
 import RSCore
 import Account
+import Localizations
 
 final class LocalAccountViewController: UITableViewController {
 
@@ -26,7 +27,7 @@ final class LocalAccountViewController: UITableViewController {
 	}
 
 	private func setupFooter() {
-		footerLabel.text = NSLocalizedString("Local accounts do not sync your feeds across devices.", comment: "Local")
+		footerLabel.text = Localizations.labelTextLocalAccountsDoNotSyncYourFeedsAcrossDevices2
 	}
 
 	@IBAction func cancel(_ sender: Any) {

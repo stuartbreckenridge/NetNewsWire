@@ -9,6 +9,7 @@
 import SwiftUI
 import Account
 import RSCore
+import Localizations
 
 enum AddAccountSections: Int, CaseIterable {
 	case local = 0
@@ -20,13 +21,13 @@ enum AddAccountSections: Int, CaseIterable {
 	var sectionHeader: String {
 		switch self {
 		case .local:
-			return NSLocalizedString("Local", comment: "Local Account")
+			return Localizations.labelTextLocal
 		case .icloud:
-			return NSLocalizedString("iCloud", comment: "iCloud Account")
+			return Localizations.labelTextIcloud
 		case .web:
-			return NSLocalizedString("Web", comment: "Web Account")
+			return Localizations.labelTextWeb
 		case .selfhosted:
-			return NSLocalizedString("Self-hosted", comment: "Self hosted Account")
+			return Localizations.labelTextSelfHosted
 		case .allOrdered:
 			return ""
 		}
@@ -35,13 +36,13 @@ enum AddAccountSections: Int, CaseIterable {
 	var sectionFooter: String {
 		switch self {
 		case .local:
-			return NSLocalizedString("Local accounts do not sync feeds across devices", comment: "Local Account")
+			return Localizations.labelTextLocalAccountsDoNotSyncFeedsAcrossDevices
 		case .icloud:
-			return NSLocalizedString("Your iCloud account syncs your feeds across your Mac and iOS devices", comment: "iCloud Account")
+			return Localizations.labelTextYourIcloudAccountSyncsYourFeedsAcrossYourMacAndIosDevices
 		case .web:
-			return NSLocalizedString("Web accounts sync your feeds across all your devices", comment: "Web Account")
+			return Localizations.labelTextWebAccountsSyncYourFeedsAcrossAllYourDevices
 		case .selfhosted:
-			return NSLocalizedString("Self-hosted accounts sync your feeds across all your devices", comment: "Self hosted Account")
+			return Localizations.labelTextSelfHostedAccountsSyncYourFeedsAcrossAllYourDevices
 		case .allOrdered:
 			return ""
 		}

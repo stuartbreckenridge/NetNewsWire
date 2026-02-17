@@ -11,6 +11,7 @@ import os.log
 import RSParser
 import RSWeb
 import RSCore
+import Localizations
 
 public enum FeedFinderError: LocalizedError {
 	case feedNotFound
@@ -18,7 +19,7 @@ public enum FeedFinderError: LocalizedError {
 	public var errorDescription: String? {
 		switch self {
 		case .feedNotFound:
-			return NSLocalizedString("The feed couldn’t be found and can’t be added.", comment: "Not found")
+			return Localizations.labelTextTheFeedCouldntBeFoundAndCantBeAdded
 		}
 	}
 }

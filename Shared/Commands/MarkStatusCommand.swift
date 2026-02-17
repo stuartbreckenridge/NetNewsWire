@@ -9,6 +9,7 @@
 import Foundation
 import RSCore
 import Articles
+import Localizations
 
 // Mark articles read/unread, starred/unstarred, deleted/undeleted.
 
@@ -68,10 +69,10 @@ import Articles
 		completion = nil
     }
 
-	static private let markReadActionName = NSLocalizedString("Mark Read", comment: "command")
-	static private let markUnreadActionName = NSLocalizedString("Mark Unread", comment: "command")
-	static private let markStarredActionName = NSLocalizedString("Mark Starred", comment: "command")
-	static private let markUnstarredActionName = NSLocalizedString("Mark Unstarred", comment: "command")
+	static private let markReadActionName = Localizations.labelTextMarkRead
+	static private let markUnreadActionName = Localizations.labelTextMarkUnread
+	static private let markStarredActionName = Localizations.labelTextMarkStarred
+	static private let markUnstarredActionName = Localizations.labelTextMarkUnstarred
 
 	static func actionName(_ statusKey: ArticleStatus.Key, _ flag: Bool) -> String {
 

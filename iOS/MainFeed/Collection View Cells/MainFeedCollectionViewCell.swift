@@ -10,6 +10,7 @@ import UIKit
 import RSCore
 import Account
 import RSTree
+import Localizations
 
 final class MainFeedCollectionViewCell: UICollectionViewCell {
 	@IBOutlet var feedTitle: UILabel!
@@ -63,7 +64,7 @@ final class MainFeedCollectionViewCell: UICollectionViewCell {
 	override var accessibilityLabel: String? {
 		get {
 			if unreadCount > 0 {
-				let unreadLabel = NSLocalizedString("unread", comment: "Unread label for accessibility")
+				let unreadLabel = Localizations.labelTextUnread2
 				return "\(String(describing: feedTitle.text)) \(unreadCount) \(unreadLabel)"
 			} else {
 				return (String(describing: feedTitle.text))

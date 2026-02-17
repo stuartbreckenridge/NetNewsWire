@@ -8,13 +8,14 @@
 
 import AppKit
 import RSCore
+import Localizations
 
 final class TimelineTableView: NSTableView {
 
 	weak var keyboardDelegate: KeyboardDelegate?
 
 	override func accessibilityLabel() -> String? {
-		return NSLocalizedString("Timeline", comment: "Timeline")
+		return Localizations.labelTextTimeline
 	}
 
 	// MARK: - NSResponder
