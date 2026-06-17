@@ -20,7 +20,6 @@ import Images
 
 @MainActor var appDelegate: AppDelegate!
 
-@main
 @MainActor final class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, UnreadCountProvider {
 
 	private let backgroundTaskDispatchQueue = DispatchQueue.init(label: "BGTaskScheduler")
