@@ -9,31 +9,29 @@
 import SwiftUI
 
 struct MainFeedListView: View {
-    
+
 	// MARK: Environment
-	
+
 	// MARK: App Storage
-	
+
 	// MARK: State Objects
-	
+
 	// MARK: State
 	@State private var showAddFeedView: Bool = false
 	@State private var showAddFolderView: Bool = false
 	@State private var showCurrentActivityView: Bool = false
-	
+
 	// MARK: Bindings
-	
+
 	// MARK: Constants
-	
+
 	// MARK: Variables
 
-	
-	
 	var body: some View {
 		List {
 			//
 		}
-		.navigationTitle(Text(verbatim: "Feeds"))
+		.navigationTitle(Text("label.text.feeds", comment: "Feeds"))
 		.navigationSubtitle(Text(verbatim: "Last Updated: ..."))
 		.toolbar {
 			ToolbarItem(placement: .topBarTrailing) {
@@ -59,12 +57,12 @@ struct MainFeedListView: View {
 					Button {
 						showAddFolderView = true
 					} label: {
-						Text(verbatim: "Add Folder")
+						Text("label.text.add-folder", comment: "Add Folder")
 					}
 					Button {
 						showAddFeedView = true
 					} label: {
-						Text(verbatim: "Add Feed")
+						Text("label.text.add-feed", comment: "Add Feed")
 					}
 				} label: {
 					Image(systemName: "plus")
@@ -86,10 +84,10 @@ struct MainFeedListView: View {
 				CurrentActivityView()
 					.presentationDetents([.medium])
 					.presentationDragIndicator(.visible)
-					.navigationTitle(Text(verbatim: "Current Activity"))
+					.navigationTitle(Text("label.text.current-activity", comment: "Current Activity"))
 					.navigationBarTitleDisplayMode(.inline)
 			}
-			
+
 		}
     }
 }

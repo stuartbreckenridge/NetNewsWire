@@ -549,6 +549,50 @@
     "Keychain error while storing credentials." : {
       "comment" : "Credentials Error"
     },
+    "label.text.add-feed" : {
+      "comment" : "Add Feed",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add Feed"
+          }
+        }
+      }
+    },
+    "label.text.add-folder" : {
+      "comment" : "Add Folder",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add Folder"
+          }
+        }
+      }
+    },
+    "label.text.current-activity" : {
+      "comment" : "Current Activity",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Current Activity"
+          }
+        }
+      }
+    },
+    "label.text.feeds" : {
+      "comment" : "Feeds",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Feeds"
+          }
+        }
+      }
+    },
     "Large" : {
       "comment" : "Large"
     },
