@@ -11,6 +11,21 @@ import SwiftUI
 @main
 struct NetNewsWireApp: App {
 
+	// MARK: Environment
+
+	// MARK: App Storage
+
+	// MARK: State Objects
+
+	// MARK: State
+	@State private var coordinator = ApplicationCoordinator.shared
+
+	// MARK: Bindings
+
+	// MARK: Constants
+
+	// MARK: Variables
+
 	var body: some Scene {
 		WindowGroup {
 			NavigationSplitView {
@@ -24,6 +39,7 @@ struct NetNewsWireApp: App {
 			.toolbar {
 				ToolbarItemGroup(placement: .bottomBar, content: {})
 			}
+			.environment(coordinator)
 		}
 	}
 }

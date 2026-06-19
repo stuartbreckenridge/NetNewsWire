@@ -11,15 +11,13 @@ import SwiftUI
 struct MainFeedListView: View {
 
 	// MARK: Environment
+	@Environment(ApplicationCoordinator.self) var coordinator
 
 	// MARK: App Storage
 
 	// MARK: State Objects
 
 	// MARK: State
-	@State private var showAddFeedView: Bool = false
-	@State private var showAddFolderView: Bool = false
-	@State private var showCurrentActivityView: Bool = false
 
 	// MARK: Bindings
 
@@ -28,6 +26,8 @@ struct MainFeedListView: View {
 	// MARK: Variables
 
 	var body: some View {
+		@Bindable var coordinator = coordinator
+
 		List {
 			//
 		}
@@ -36,31 +36,32 @@ struct MainFeedListView: View {
 		.toolbar {
 			ToolbarItem(placement: .topBarTrailing) {
 				Button {
-					//
+					coordinator.filterRead.toggle()
 				} label: {
 					Image(systemName: "line.3.horizontal.decrease")
 				}
+				.tint(coordinator.filterRead ? .accentColor : .primary)
 			}
 			ToolbarItemGroup(placement: .bottomBar) {
 				Button {
-					//
+					coordinator.showSettings = true
 				} label: {
 					Image(systemName: "gear")
 				}
 				Button {
-					showCurrentActivityView = true
+					coordinator.showCurrentActivity = true
 				} label: {
 					Image(systemName: "arrowshape.down.circle")
 				}
 				Spacer()
 				Menu {
 					Button {
-						showAddFolderView = true
+						coordinator.showAddFolder = true
 					} label: {
 						Text("label.text.add-folder", comment: "Add Folder")
 					}
 					Button {
-						showAddFeedView = true
+						coordinator.showAddFeed = true
 					} label: {
 						Text("label.text.add-feed", comment: "Add Feed")
 					}
@@ -69,17 +70,17 @@ struct MainFeedListView: View {
 				}
 			}
 		}
-		.sheet(isPresented: $showAddFeedView) {
+		.sheet(isPresented: $coordinator.showAddFeed) {
 			ContentUnavailableView {
 				Text(verbatim: "Add Feed View")
 			}
 		}
-		.sheet(isPresented: $showAddFolderView) {
+		.sheet(isPresented: $coordinator.showAddFolder) {
 			ContentUnavailableView {
 				Text(verbatim: "Add Folder View")
 			}
 		}
-		.sheet(isPresented: $showCurrentActivityView) {
+		.sheet(isPresented: $coordinator.showCurrentActivity) {
 			NavigationStack {
 				CurrentActivityView()
 					.presentationDetents([.medium])
