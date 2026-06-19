@@ -549,6 +549,17 @@
     "Keychain error while storing credentials." : {
       "comment" : "Credentials Error"
     },
+    "label.text.accounts" : {
+      "comment" : "Accounts",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accounts"
+          }
+        }
+      }
+    },
     "label.text.add-feed" : {
       "comment" : "Add Feed",
       "localizations" : {
@@ -571,6 +582,50 @@
         }
       }
     },
+    "label.text.all-app-settings-header" : {
+      "comment" : "Notifications, Badge, Data, & More",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notifications, Badge, Data, & More"
+          }
+        }
+      }
+    },
+    "label.text.app-name-%@-app-version-%@-app-build-%@" : {
+      "comment" : "NetNewsWire Version (Build BUILD)",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ %2$@ (Build %3$@)"
+          }
+        }
+      }
+    },
+    "label.text.appearance" : {
+      "comment" : "Appearance",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Appearance"
+          }
+        }
+      }
+    },
+    "label.text.articles" : {
+      "comment" : "Articles",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Articles"
+          }
+        }
+      }
+    },
     "label.text.current-activity" : {
       "comment" : "Current Activity",
       "localizations" : {
@@ -589,6 +644,61 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Feeds"
+          }
+        }
+      }
+    },
+    "label.text.help" : {
+      "comment" : "Help",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Help"
+          }
+        }
+      }
+    },
+    "label.text.open-system-settings" : {
+      "comment" : "Open System Settings",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open System Settings"
+          }
+        }
+      }
+    },
+    "label.text.settings" : {
+      "comment" : "Settings",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings"
+          }
+        }
+      }
+    },
+    "label.text.timeline" : {
+      "comment" : "Timeline",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Timeline"
+          }
+        }
+      }
+    },
+    "label.text.troubleshooting" : {
+      "comment" : "Troubleshooting",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Troubleshooting"
           }
         }
       }

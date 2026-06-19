@@ -80,6 +80,9 @@ struct MainFeedListView: View {
 				Text(verbatim: "Add Folder View")
 			}
 		}
+		.sheet(isPresented: $coordinator.showSettings, content: {
+			SettingsView()
+		})
 		.sheet(isPresented: $coordinator.showCurrentActivity) {
 			NavigationStack {
 				CurrentActivityView()
