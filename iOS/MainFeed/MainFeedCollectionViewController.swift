@@ -176,10 +176,6 @@ final class MainFeedCollectionViewController: UICollectionViewController, Undoab
 	}
 
 	func deselectIfNeccessary() {
-		guard traitCollection.userInterfaceIdiom == .phone else {
-			return
-		}
-
 		defer {
 			self.isAnimating = false
 		}

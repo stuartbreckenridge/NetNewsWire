@@ -279,9 +279,6 @@ final class MainTimelineViewController: UIViewController, UndoableCommandRunner 
 	func deselectIfNecessary() {
 		Self.logger.debug("MainTimelineViewController: deselectIfNecessary")
 
-		guard traitCollection.userInterfaceIdiom == .phone else {
-			return
-		}
 		guard let coordinator, coordinator.isRootSplitCollapsed else {
 			return
 		}
