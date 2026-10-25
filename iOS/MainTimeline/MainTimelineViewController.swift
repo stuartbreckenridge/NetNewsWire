@@ -162,6 +162,7 @@ final class MainTimelineViewController: UIViewController, UndoableCommandRunner 
 
 	// MARK: Private Constants
 	private let searchController = UISearchController(searchResultsController: nil)
+	private var standardToolbarItems: [UIBarButtonItem]?
 	private let keyboardManager = KeyboardManager(type: .timeline)
 	private static let logger = Logger(subsystem: Logger.nnwSubsystem, category: "MainTimelineViewController")
 
@@ -195,6 +196,11 @@ final class MainTimelineViewController: UIViewController, UndoableCommandRunner 
 		collectionView?.refreshControl?.addTarget(self, action: #selector(refreshAccounts(_:)), for: .valueChanged)
 
 		configureToolbar()
+		registerForTraitChanges([UITraitHorizontalSizeClass.self]) { (viewController: MainTimelineViewController, _) in
+			viewController.configureToolbar()
+			viewController.updateSearchBarPlacement()
+			viewController.updateVisibleCellConfigurations()
+		}
 		resetUI(resetScroll: true)
 
 		// Load the table and then scroll to the saved position if available
@@ -739,11 +745,15 @@ private extension MainTimelineViewController {
 		searchController.searchBar.autocapitalizationType = .none
 		navigationItem.searchController = searchController
 
-		if traitCollection.userInterfaceIdiom == .pad {
+		if traitCollection.horizontalSizeClass == .regular {
 			searchController.searchBar.selectedScopeButtonIndex = 1
-			if #available(iOS 26, *) {
-				navigationItem.searchBarPlacementAllowsExternalIntegration = true
-			}
+		}
+		updateSearchBarPlacement()
+	}
+
+	private func updateSearchBarPlacement() {
+		if #available(iOS 26, *) {
+			navigationItem.searchBarPlacementAllowsExternalIntegration = traitCollection.horizontalSizeClass == .regular
 		}
 	}
 
@@ -950,7 +960,10 @@ private extension MainTimelineViewController {
 	}
 
 	func configureToolbar() {
-		if traitCollection.userInterfaceIdiom == .phone {
+		if standardToolbarItems == nil {
+			standardToolbarItems = toolbarItems
+		}
+		if traitCollection.horizontalSizeClass == .compact {
 			if #available(iOS 26, *) {
 				if let markAllAsRead = toolbarItems?.first {
 					toolbarItems = [
@@ -967,6 +980,12 @@ private extension MainTimelineViewController {
 					toolbarItems = [markAllAsRead]
 				}
 			}
+		} else if let standardToolbarItems {
+			toolbarItems = standardToolbarItems
+		}
+		if #available(iOS 27, *) {
+			markAllAsReadButton?.visibilityPriority = .low
+			nextUnreadButton.visibilityPriority = .high
 		}
 		updateToolbarProgressView()
 	}

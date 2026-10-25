@@ -149,7 +149,7 @@ class MainFeedCollectionViewFolderCell: UICollectionViewCell {
 			backgroundConfig.backgroundColor = .clear
 		}
 
-		switch (isHighlighted || state.isSelected || state.isFocused, traitCollection.userInterfaceIdiom) {
+		switch (isHighlighted || state.isSelected || state.isFocused, isExpanded) {
 		case _ where isActiveSelection:
 			backgroundConfig.backgroundColor = Assets.Colors.primaryAccent
 			folderTitle.textColor = .white
@@ -158,7 +158,7 @@ class MainFeedCollectionViewFolderCell: UICollectionViewCell {
 			unreadCountLabel.font = UIFont.systemFont(ofSize: UIFont.preferredFont(forTextStyle: .body).pointSize, weight: .semibold)
 			faviconView.tintColor = .white
 			disclosureButton.configuration?.baseForegroundColor = .white
-		case (true, .pad):
+		case (true, true):
 			backgroundConfig.backgroundColor = .tertiarySystemFill
 			folderTitle.textColor = Assets.Colors.primaryAccent
 			folderTitle.font = UIFont.systemFont(ofSize: UIFont.preferredFont(forTextStyle: .body).pointSize, weight: .semibold)

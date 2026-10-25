@@ -26,8 +26,8 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		rootViewController.showsSecondaryOnlyButton = true
 		rootViewController.preferredDisplayMode = UISplitViewController.DisplayMode(rawValue: AppDefaults.shared.splitViewPreferredDisplayMode) ?? .oneBesideSecondary
 
-		// On first run on iPad, show all three columns so the sidebar is visible
-		if AppDefaults.shared.isFirstRun && UIDevice.current.userInterfaceIdiom == .pad {
+		// On first run with enough horizontal room, show all three columns so the sidebar is visible.
+		if AppDefaults.shared.isFirstRun && rootViewController.traitCollection.horizontalSizeClass == .regular {
 			rootViewController.preferredDisplayMode = .twoBesideSecondary
 		}
 
