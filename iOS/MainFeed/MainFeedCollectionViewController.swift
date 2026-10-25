@@ -92,9 +92,6 @@ final class MainFeedCollectionViewController: UICollectionViewController, Undoab
 		configureCurrentActivityButton()
 		configureCollectionView()
 		configureDiffableDataSource()
-		registerForTraitChanges([UITraitHorizontalSizeClass.self]) { (viewController: MainFeedCollectionViewController, _) in
-			viewController.configureCollectionView()
-		}
 		collectionView.dragDelegate = self
 		collectionView.dropDelegate = self
 		becomeFirstResponder()
@@ -210,7 +207,7 @@ final class MainFeedCollectionViewController: UICollectionViewController, Undoab
 	func configureCollectionView() {
 		let standardCellLeadingOffSet = 48.0
 		let indentedCellLeadingOffSet = 64.0
-		let useSidebarAppearance = traitCollection.horizontalSizeClass == .regular
+		let useSidebarAppearance = collectionView.isInExpandedSplitView
 		var config = UICollectionLayoutListConfiguration(appearance: useSidebarAppearance ? .sidebar : .insetGrouped)
 		config.headerMode = .supplementary
 
@@ -715,7 +712,11 @@ final class MainFeedCollectionViewController: UICollectionViewController, Undoab
 	}
 
 	func splitViewStateDidChange() {
+		configureCollectionView()
 		updateVisibleCellConfigurations()
+		for header in collectionView.visibleSupplementaryViews(ofKind: UICollectionView.elementKindSectionHeader) {
+			(header as? MainFeedCollectionHeaderReusableView)?.configureUI()
+		}
 	}
 
 	private func updateVisibleCellConfigurations() {

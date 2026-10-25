@@ -80,11 +80,13 @@ final class MainFeedCollectionHeaderReusableView: UICollectionReusableView {
 			disclosureIndicator.isAccessibilityElement = false
 			unreadCountLabel.widthAnchor.constraint(lessThanOrEqualToConstant: 80).isActive = true
 			configureUI()
-			registerForTraitChanges([UITraitHorizontalSizeClass.self]) { (view: MainFeedCollectionHeaderReusableView, _) in
-				view.configureUI()
-			}
 			addTapGesture()
 		}
+	}
+
+	override func didMoveToWindow() {
+		super.didMoveToWindow()
+		configureUI()
 	}
 
 	override func prepareForReuse() {
@@ -99,7 +101,7 @@ final class MainFeedCollectionHeaderReusableView: UICollectionReusableView {
 	}
 
 	func configureUI() {
-		headerTitle.textColor = traitCollection.horizontalSizeClass == .regular ? .tertiaryLabel : .label
+		headerTitle.textColor = isInExpandedSplitView ? .tertiaryLabel : .label
 	}
 
 	private func addTapGesture() {
