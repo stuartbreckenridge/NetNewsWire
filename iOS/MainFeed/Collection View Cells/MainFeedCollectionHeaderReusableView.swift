@@ -80,6 +80,9 @@ final class MainFeedCollectionHeaderReusableView: UICollectionReusableView {
 			disclosureIndicator.isAccessibilityElement = false
 			unreadCountLabel.widthAnchor.constraint(lessThanOrEqualToConstant: 80).isActive = true
 			configureUI()
+			registerForTraitChanges([UITraitHorizontalSizeClass.self]) { (view: MainFeedCollectionHeaderReusableView, _) in
+				view.configureUI()
+			}
 			addTapGesture()
 		}
 	}
@@ -96,7 +99,7 @@ final class MainFeedCollectionHeaderReusableView: UICollectionReusableView {
 	}
 
 	func configureUI() {
-		headerTitle.textColor = traitCollection.userInterfaceIdiom == .pad ? .tertiaryLabel : .label
+		headerTitle.textColor = traitCollection.horizontalSizeClass == .regular ? .tertiaryLabel : .label
 	}
 
 	private func addTapGesture() {

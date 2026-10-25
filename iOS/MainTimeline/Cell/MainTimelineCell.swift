@@ -75,7 +75,7 @@ final class MainTimelineCell: UICollectionViewCell {
 		var backgroundConfig = UIBackgroundConfiguration.listCell().updated(for: state)
 		// The Settings timeline preview isn't in the split view hierarchy, so style it
 		// the way the timeline usually looks on the device.
-		let usesExpandedStyle = isPreview ? UIDevice.current.userInterfaceIdiom == .pad : isInExpandedSplitView
+		let usesExpandedStyle = isPreview ? traitCollection.horizontalSizeClass == .regular : isInExpandedSplitView
 		if !usesExpandedStyle {
 			// Full-bleed rectangle selection when the timeline has the screen to itself.
 			// When the split view is expanded — iPad, or a large iPhone in landscape —
@@ -86,7 +86,7 @@ final class MainTimelineCell: UICollectionViewCell {
 		} else if #available(iOS 26, *) {
 			backgroundConfig.cornerRadius = 20
 			backgroundConfig.edgesAddingLayoutMarginsToBackgroundInsets = [.leading, .trailing]
-			if UIDevice.current.userInterfaceIdiom == .pad {
+			if traitCollection.horizontalSizeClass == .regular {
 				backgroundConfig.backgroundInsets = NSDirectionalEdgeInsets(top: 0, leading: -8, bottom: 0, trailing: -8)
 			} else if isPreview {
 				backgroundConfig.backgroundInsets = NSDirectionalEdgeInsets(top: 0, leading: -16, bottom: 0, trailing: -16)

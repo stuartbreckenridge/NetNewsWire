@@ -92,6 +92,9 @@ final class MainFeedCollectionViewController: UICollectionViewController, Undoab
 		configureCurrentActivityButton()
 		configureCollectionView()
 		configureDiffableDataSource()
+		registerForTraitChanges([UITraitHorizontalSizeClass.self]) { (viewController: MainFeedCollectionViewController, _) in
+			viewController.configureCollectionView()
+		}
 		collectionView.dragDelegate = self
 		collectionView.dropDelegate = self
 		becomeFirstResponder()
@@ -107,7 +110,11 @@ final class MainFeedCollectionViewController: UICollectionViewController, Undoab
 			// Toolbar button to open Current Activity. It lights up while activity is happening.
 			let settingsButtonIndex = 0
 			let button = UIBarButtonItem(image: Assets.Images.currentActivity, style: .plain, target: self, action: #selector(showCurrentActivity(_:)))
-			button.accessibilityLabel = NSLocalizedString("Current Activity", comment: "Current Activity")
+				button.accessibilityLabel = NSLocalizedString("Current Activity", comment: "Current Activity")
+				button.title = NSLocalizedString("Current Activity", comment: "Current Activity")
+				if #available(iOS 27, *) {
+					button.visibilityPriority = .low
+				}
 			toolbarItems?.insert(button, at: settingsButtonIndex + 1)
 			currentActivityButton = button
 			NotificationCenter.default.addObserver(self, selector: #selector(activityDidChange(_:)), name: .activityDidChange, object: nil)
@@ -207,7 +214,7 @@ final class MainFeedCollectionViewController: UICollectionViewController, Undoab
 	func configureCollectionView() {
 		let standardCellLeadingOffSet = 48.0
 		let indentedCellLeadingOffSet = 64.0
-		let useSidebarAppearance = traitCollection.userInterfaceIdiom == .pad
+		let useSidebarAppearance = traitCollection.horizontalSizeClass == .regular
 		var config = UICollectionLayoutListConfiguration(appearance: useSidebarAppearance ? .sidebar : .insetGrouped)
 		config.headerMode = .supplementary
 
